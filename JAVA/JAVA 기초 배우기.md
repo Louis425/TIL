@@ -67,11 +67,15 @@ public class PrintTest {
 	public static void main(String[] args) {
 
 // 서식 없는 출력(print() :출력후 줄을 바꾸지 않는다.  , prirtln() :  출력후 줄을 바꾼다. )
+
 		System.out.print("안녕 \n자바");
 		System.out.println();   //아무것도 출력하지 않고 줄을 바꾼다. 한 줄 바꾸기
 		System.out.println("안녕 자바");
+
 // -------------------------------------------------------------------------
+
 //		"+"    연산자는 "+" 연산자의 양쪽에 모두 숫자가 나올경우 하고 한 쪽이라도 문자열을 열결 하는 연결 연산자로 사용된다.
+
 		System.out.println(" 5 + 3 = " + (5 + 3) );
 		System.out.println(" 5 - 3 = " + (5 - 3) );
 		System.out.println(" 5 / 3 = " + 5 / 3 );
@@ -105,7 +109,9 @@ public class PrintTest {
 		System.out.println(" 5 /  (double) 3 = " + 5/ (double) 3);
 		System.out.println(" A  +  32  = " + (char) ( 'A' + 32) );
 		System.out.println(" a  -  32  = " + (char) ( 'a' - 32) );
-		// -------------------------------------------------------------------------
+
+// -------------------------------------------------------------------------
+
 //		서식 있는 출력(priutf() ==> c언어의 printf 사용법과 같다.
 //		printf( "출력서식",출력할 내용 ) ;
 //	   출력  서식 출 서식 문자를 제외한 나머지 문자는 입력한 그대로 출력된다.
@@ -175,8 +181,13 @@ public class ScannerTest2 {
 		System.out.print("나이를 입력하세요 : ");
 		age = sc.nextInt();
 
+// -------------------------------------------------------------------------
+
 //		문자열을 제외한 데이터를 입력받은 후 nextLine() 메소드가 실행 되야 한다면 키보드 버퍼의 엔터키를 읽어들이는 문제가 발생된다.
 //		문자열을 제외한 데이터를 입력받은 후 키보드 버퍼를 입워주는 동작을 실행하고 nexrLine() 메소드를 실행한다.
+
+// -------------------------------------------------------------------------
+
 		sc .nextLine();        //키보드 버퍼를 비운다.
 
 
@@ -850,4 +861,161 @@ public class WhileTest {
 
 }
 // -------------------------------------------------------------------------
+```
+
+# 카드섞기
+
+```java
+import java.util.Random;
+
+public class CardTest {
+
+	public static void main(String[] args) {
+
+// -------------------------------------------------------------------------
+
+		String number[] = {  "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+
+//		char symbol[] = {'♦', '♠', '♣', '♥' };
+		String symbol[] = {"♦", "♠", "♣", "♥" };
+
+// -------------------------------------------------------------------------
+
+		int card[]  = new int [52];
+		for(int i=0 ; i<card.length  ; i++) {
+			card[i] = i;
+		}
+		for(int i=0 ; i<card.length  ; i++) {
+
+//			System.out.printf("%2s", number [card[i] % 13]);      // 숫자만
+//			System.out.printf("%s", symbol[card[i] / 13] );           // 무늬만
+
+			System.out.printf("%s%2s ", symbol[card[i] / 13] ,  number[card[i] % 13] );
+			if (( i + 1) % 13 ==0 ) {
+				System.out.println();
+			}
+		}
+
+		System.out.println("=================섞기전================");
+
+// -------------------------------------------------------------------------
+
+		Random random = new Random();
+		for(int i=0 ; i<1000000 ; i++) {
+			int r = random.nextInt(51) + 1;
+			int temp = card[0];
+			card[0] = card[r];
+			card[r] = temp ;
+		}
+
+// -------------------------------------------------------------------------
+
+		for(int i=0 ; i<card.length  ; i++) {
+			System.out.printf("%s%2s ", symbol[card[i] / 13] ,  number[card[i] % 13] );
+			if (( i + 1) % 13 ==0 ) {
+				System.out.println();
+			}
+		}
+
+		System.out.println("=================섞은후=================");
+	}
+
+}
+// -------------------------------------------------------------------------
+```
+
+# 14강 야구(숫자맞추기)게임
+
+```java
+import java.util.Random;
+import java.util.Scanner;
+
+public class Baseballgame {
+
+	public static void main(String[] args) {
+
+// -------------------------------------------------------------------------
+
+		int[] ball = {0, 1, 2, 3, 4,  5, 6, 7, 8, 9, };
+		Random random =  new Random();
+		for(int i=0 ; i<100000 ; i++) {
+			int r = random.nextInt(9) + 1;
+			int temp =ball[0];
+			ball[0] = ball[r];
+			ball[r] = temp;
+		}
+
+// -------------------------------------------------------------------------v
+
+		System.out.println("레벨을 입력하세요 : ");
+		Scanner sc = new Scanner(System.in);
+		int level = sc.nextInt();
+
+		System.out.println("CPU : ");
+		for(int i=0 ; i<level ; i++) {
+			System.out.println(ball[i]);
+		}
+		System.out.println();
+
+		sc.nextLine();          // 키보드 버퍼를 비운다.
+
+// -------------------------------------------------------------------------
+
+//		맞출때까지 반복한다.
+
+//		int s = 0, b = 0;
+		int count = 0;
+
+//		System.currentTimeMillis() : 1900년 1월 1일 부터 이 메소드가 실행되는 순간까지 지난 시간을 1/1000초  단위로 얻어온다.
+
+// -------------------------------------------------------------------------
+
+		long start = System.currentTimeMillis();      //  게임 시작 시간
+		while(true) {
+			System.out.println("USER : ");
+			String  user = sc.nextLine();
+			count++;
+
+//			스트라이크와 볼의 개수를 센다.
+//			스트라이크와 볼의 개수는 반복마다 다시 계산해야 하므로 반복안에서 초기화 시켜야 한다.
+			int s = 0, b = 0;
+			for(int i=0 ; i<level ; i++) {
+
+//				스트라이크의 개수
+				if(ball[i] == user.charAt(i) - 48) {
+					s++;
+				}
+
+// -------------------------------------------------------------------------
+
+//				indecOf() : 문자열에서 괄호 안의 문자나 문자열이 최초로 나타나는 위치를 얻어온다.  없으면 -1을 리턴한다.
+//				문자열에 특정한 문자 또는 문자열이 포함되는 문자열이 포함되어 있는가를 알  수 있다.
+//				System.out.println( user.indexOf(ball[i] + ""));
+//				볼의 개수
+				if( user.indexOf(ball[i] + "") >= 0 ) {
+					b++;
+			}
+
+			}
+
+//			맞췄으면 반복을 탈출한다.
+
+			if (s == level) {
+				break;
+			}
+
+			System.out.println(s + "  스트라이크 " + (b - s) + " 볼 ");
+
+		}
+		long end = System.currentTimeMillis();      //  게임 종료 시간
+		System.out.println((end - start) / 1000 + "초 걸려서 " + count + "번 만에 맞췄다.");
+
+
+
+		sc.close();
+
+	}
+
+}
+
 ```
