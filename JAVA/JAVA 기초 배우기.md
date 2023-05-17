@@ -862,14 +862,16 @@ public class WhileTest {
 }
 // -------------------------------------------------------------------------
 ```
-# 12강Lotto추천기
+
+# 12강 Lotto추천기
+
 ```java
 import java.util.Random;
 
 public class LoottoTest {
 
 	public static void main(String[] args) {
-		
+
 // -------------------------------------------------------------------------
 
 //		추천기를 준비한다.
@@ -888,7 +890,7 @@ public class LoottoTest {
 		}
 
 		System.out.println("\n===================섞기전=================");
-		
+
 // -------------------------------------------------------------------------
 
 //		추첨기의 공을 썪는다.
@@ -909,13 +911,13 @@ public class LoottoTest {
 		}
 
 		System.out.println("\n===================섞기후==================");
-		
+
 // -------------------------------------------------------------------------
 
 		System.out.println("1등 번호 : ");
 		for(int i=0 ; i<6 ; i++) {
 			System.out.println(lotto[i] + " ");
-			
+
 //			sieep() : 괄호 안에ㅔ 지정된 시간(1/1000초) 만큼 프로크햄을 잠깐 멈춘다.
 			try {
 			Thread.sleep(1000);
@@ -923,19 +925,17 @@ public class LoottoTest {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		}
 		System.out.println("보너스 : " + lotto[6]);
 
 	}
-	
+
 }
 // -------------------------------------------------------------------------
 ```
 
-
-
-# 12강 카드섞기
+# 13강 카드섞기
 
 ```java
 import java.util.Random;
@@ -1085,6 +1085,126 @@ public class Baseballgame {
 
 
 		sc.close();
+
+	}
+
+}
+// -------------------------------------------------------------------------
+```
+
+# 15강 주민등록번호유효성검사
+
+```java
+import java.util.Scanner;
+
+public class JuminCheck {
+
+	public static void main(String[] args) {
+
+// -------------------------------------------------------------------------
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("주민등록번호 13자리를 '-'없이 입력하세요 : ");
+		String juminNo =  sc.nextLine();
+
+// -------------------------------------------------------------------------
+
+//	    i :          0   1   2   3   4   5   6   7   8   9   10  11  12
+//		i % 8 :      0   1   2   3   4   5   6   7   0   1    2   3
+//		주민등록번호 :   8   3   0   4   2   2   1   1   8   5   6   0   0
+//		              *   *   *   *   *   *   *   *   *   *   *   *
+//		가중치:         2   3   4   5   6   7   8   9   2   3   4   5
+//		               =   =   =   =   =   =   =   =   =   =   =   =
+//		              16 + 9 + 0 + 20 +12 +14 +8 + 9 + 16 +15 +24 +0=  143
+
+//		143 % 11 = 0    11 - 0 = 11   11에서 나머지 를 뺀 결과가 2자리 숫자면 10자리는 버리고 1자리만 취한다.
+//		           1         1 = 10
+//		           2         2 =  9
+//		          10        10 =  1
+
+// -------------------------------------------------------------------------
+
+//		String check = "234567892345";         // 가중치
+
+		int sum = 0;
+		for(int i=0 ; i<12 ; i++) {
+//			문자를 곱셈 연산하면  문자의 유니 코드 값으로 곱한다.
+//			sum +=(juminNo.charAt(i) - 48) * (check.charAt(i) - '0');
+//			sum +=(juminNo.charAt(i) - 48) * (i < 8 ? i + 2 : i -6);
+			sum +=(juminNo.charAt(i) - 48) * (i % 8 + 2);
+
+		}
+
+// -------------------------------------------------------------------------
+
+//		System.out.println(sum);
+
+		int result = (11 - sum % 11) % 10;
+
+		if(result == juminNo.charAt(12) - 48) {
+			System.out.println("정상 ");
+		} else {
+			System.out.println("오류 ");
+		}
+
+		sc.close();
+
+	}
+
+}
+// -------------------------------------------------------------------------
+```
+
+# 16강 메소드
+
+```java
+
+public class MethodClass {
+
+//	메소드의 형식
+//	[접근권한지정자] [static] 메소드의리턴타입 메소드이름([인수, ...]) {      //메소드의 머리
+//	    메소드가 실행알 문장;
+//	    ...;
+//	    [retutn 값;]     //   리턴 값이 없는 메소드는 리턴 타입에 "void"라고 적는다.
+//	}
+
+//	메소드를 호출할 때는 메소드의 이름으로 호출 하고 return 또는 "}"를 만나면 메소드가 호출된 문장으로 되돌아간다.
+
+// -------------------------------------------------------------------------
+
+//	접근 권한 지정자
+//	private : 현재 클래스 외부에서 접근할 수 없다. 상속 불가능
+//	protected : 현재 클래스와 현재 클래스를 상속받은 자식 클래스만 접근가능, 상속 가능
+//	package : 현재 패키지 에서는 public 처럼 사용되되 다른 패키지에서는 private 처럼 사용된다.  상속 가능, 접근 권한을 생략하면 package가 된다.
+//	public : 아무곳에서나 자유롭게 사용할 수 있다. 상속 가능
+
+//	정적(static) 메소드 : 클래스의 객체를 생성하지 않고 클래스 이름에 "."을 찍어서 실행할 수 있다. 자주 사용하는 메소드에 쓴다.
+
+	public static int total() {
+		int sum = 0;
+		for(int i=1 ; i<=100 ; i++) {
+			sum += i;
+		}
+		return sum;
+	}
+
+}
+// -------------------------------------------------------------------------
+```
+
+```java
+
+public class MainClass {
+
+	public static void main(String[] args) {
+
+		System.out.println(Math.sqrt(2));
+
+		MethodClass methodClass = new MethodClass();
+
+		System.out.println("1~100의 합계 : " +  methodClass.total());
+
+		System.out.println("1~100의 합계 : " + MethodClass.total());
 
 	}
 
