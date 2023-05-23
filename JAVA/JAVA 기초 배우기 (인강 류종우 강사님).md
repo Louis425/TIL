@@ -6,6 +6,21 @@
 - [2강 println/ print/ printf (출력)](#2강-println-print-printf-출력)
 - [3강 Scanner](#3강-scanner)
 - [4강 String(문자열)](#4강-string문자열)
+- [5강 if문(성적 처리)](#5강-if문성적-처리)
+- [6강 if문(윤년 평년 계산하기)](#6강-if문윤년-평년-계산하기)
+- [7강 switch문(성적 처리)](#7강-switch문성적-처리)
+- [8강 for문](#8강-for문)
+- [9강 for문(주사위 눈의 개수)](#9강-for문주사위-눈의-개수)
+- [10강 요일계산](#11강-while)
+- [11강 while](#12강-lotto추천기)
+- [12강 Lotto추천기](#12강-lotto추천기)
+- [13강 카드섞기](#13강-카드섞기)
+- [14강 야구(숫자맞추기)게임](#14강-야구숫자맞추기게임)
+- [15강 주민등록번호유효성검사](#15강-주민등록번호유효성검사)
+- [16강 메소드](#16강-메소드)
+- [17강 만년달력만들기1](#17강-만년달력만들기1)
+
+#
 
 <!-- /TOC -->
 
@@ -1653,4 +1668,216 @@ public class MemberTest {
 
 }
 // -------------------------------------------------------------------------
+```
+
+# 23강 클래스 만들기(생성자)
+
+```java
+import java.util.Date;
+
+import javax.xml.crypto.Data;
+
+// -------------------------------------------------------------------------
+
+public class MemoVO {
+
+	private int no;                 // 객체가 생성될 때 마다 자동으로 1씩 증
+	private String name ;
+	private boolean gender;
+	private String memo ;
+	private Date writeDate ;         // 객체가 생성되는 순간의 날짜와 시간
+
+//	생성자 메소드(이하 생성자)
+//	생성자 이름은 반드시 클래스 이흠과 같아야 한다.
+//	생성자는 return을 가지지 않는다. return을 가지지 않은 메소드는 접근 권한에 "void"를 입력하는데 생성자는 접근 권한을 쓰지 않는다.
+//	생성자를 선언하지 않으면 자바 컴파일러사 아무런 일도 하지 않는 기본 생성자를  만들어 준다. 하지만 사용자가 생성자를 선언하면 지본 생성자는
+//	자동으로 생성되지 않는다.
+//	생성다는 객에가 생성될 때 자동으로 실행되면 멤버 변수를 초기화 시키는 목적으로 사용된다.
+//	public NemoVO() {
+//
+//	}
+
+// -------------------------------------------------------------------------
+
+	public MemoVO() {
+//		 System.out.println("기본 생성자가 실행됩니다.");
+//	     name = "무명씨";
+//	     gender  = false;
+//	     memo = "없음";
+	     this("무명씨", false, "없음 "  );       // 생성자 MemoVO(String name, boolean gender, String memo)를 실행한다.
+
+	}
+
+// -------------------------------------------------------------------------
+
+    public MemoVO(String name, boolean gender, String memo) {
+
+//	같은 {} 블록에 같은 이를을 가지는 지역 변수와 멤버 변수가 있를 경우 지역 변수에 우건권을  준다.
+//	super() : 부모 클래스의 생성자를 의미한다. 생략하면 super()를 컴파일러가 자동으로 넣어준다.
+//	this() : 현재 클래스의 생성자를 의미한다.
+//	super()와 this()는 반드시 생성자의 첫줄에 코딩해야 한다.
+//	super : 부모 클래스를 의미한다.
+//	this : 현재 클래스를 의미한다.
+
+	this.name = name;
+	this.gender = gender;
+	this.memo = memo;
+
+    }
+
+//객체에 저장된 내용을 출력해야 한다면 toString() 메소드를 overrid(재정의) 한다.
+
+    @Override
+    public String toString() {
+	     return name + "(" + (gender ? "남" : "여") + ")이 남신말 " + memo;
+}
+
+//   객체에 저장된 내용을 출력해야 한다면 toString() 메소드를 overrid(재정의) 한다.
+
+}
+// -------------------------------------------------------------------------
+```
+
+```java
+
+public class MemoTest {
+
+	public static void main(String[] args) {
+
+		MemoVO vo1 = new MemoVO();
+		MemoVO vo2 = new MemoVO("홍길동", true, "1등 입니다.");
+
+		System.out.println(vo1);
+		System.out.println(vo2.toString());
+
+
+	}
+
+}
+
+```
+
+# 24강 클래스만들기(getter/setter)
+
+```java
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.xml.crypto.Data;
+
+public class MemoVO {
+
+// -------------------------------------------------------------------------
+
+//	멤버 면수의 종류는 정적(static) 멤버 변수와 인스턴스 멤버 변수가 있는데 신스턴스 멤버 변수는 현재 클래스로 생성도는 모든 객체에서
+//  독립된 디억 공간을 가지지 만 정적 멤버 변수는 현재 클래스로 생성되는 모든 객체에서 공유해서 사용한다.
+
+	public static int count;
+	private int no; // 객체가 생성될 때 마다 자동으로 1씩 증
+	private String name;
+	private boolean gender;
+	private String memo;
+	private Date writeDate; // 객체가 생성되는 순간의 날짜와 시간
+
+// -------------------------------------------------------------------------
+
+	public MemoVO() {
+		this("무명씨", false, "없음 ");
+	}
+	public MemoVO(String name, boolean gender, String memo) {
+		no = ++count;
+		this.name = name;
+		this.gender = gender;
+		this.memo = memo;
+		writeDate = new Date();
+	}
+
+// -------------------------------------------------------------------------
+
+//	privete 권한으로 설정된 멤버 변수는 클래스 외부에서 접근할 수 없다.
+//	이 규칙이 너무 엄격히 적용되므로 이 규칙에 대한 예외 지정을 getter & setter 메소드를 사용해서 한다.
+//  getter는 pruvate 권한을 가지는 멤버 변수의 값을 얻어올 때 사용한다.
+//	setter는 pruvate 권한을 가지는 멤버 변수의 값을 수정할 때 사용한다.
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public boolean isGender() {
+		return gender;
+	}
+
+	public void setGender(boolean gender) {
+		this.gender = gender;
+	}
+
+	public String getMemo() {
+		return memo;
+	}
+
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+
+	public Date getWriteDate() {
+		return writeDate;
+	}
+
+	public void setWriteDate(Date writeDate) {
+		this.writeDate = writeDate;
+	}
+
+// -------------------------------------------------------------------------
+
+	@Override
+	public String toString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM,dd(E) HH:mm:ss.SSS");
+		return no + "." + name + "(" + (gender ? "남" : "여") + ")님이 " + sdf.format(writeDate) + "남긴말 " + memo;
+	}
+
+}
+// -------------------------------------------------------------------------
+```
+
+```java
+
+public class MemoTest {
+
+	public static void main(String[] args) {
+
+// -------------------------------------------------------------------------
+
+		MemoVO vo1 = new MemoVO();
+		MemoVO vo2 = new MemoVO("홍길동", true, "1등 입니다.");
+
+		System.out.println(vo1);
+		System.out.println(vo2.toString());
+
+		MemoVO vo3 = new MemoVO("성춘향", false, "이쁘이에요");
+		System.out.println(vo3);
+
+		vo2.count =100;
+		System.out.println(vo3.count);
+
+//		System.out.println(vo2.name);      // name은 private 권한을 가지는 멤버이므로 에러가 발생된다.
+
+		System.out.println(vo2.getMemo());
+		vo2.setName("임꺽정");
+		System.out.println(vo2.getMemo());
+
+	}
+
+}// -------------------------------------------------------------------------v
 ```
