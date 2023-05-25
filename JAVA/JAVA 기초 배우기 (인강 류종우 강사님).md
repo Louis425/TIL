@@ -1879,5 +1879,150 @@ public class MemoTest {
 
 	}
 
-}// -------------------------------------------------------------------------v
+}
+// -------------------------------------------------------------------------
+```
+
+# 25강 arrayList
+
+```java
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+// -------------------------------------------------------------------------
+
+import javax.xml.crypto.Data;
+
+public class MemoVO {
+
+// -------------------------------------------------------------------------
+
+//	멤버 면수의 종류는 정적(static) 멤버 변수와 인스턴스 멤버 변수가 있는데 신스턴스 멤버 변수는 현재 클래스로 생성도는 모든 객체에서
+//  독립된 디억 공간을 가지지 만 정적 멤버 변수는 현재 클래스로 생성되는 모든 객체에서 공유해서 사용한다.
+
+	public static int count;
+	private int no; // 객체가 생성될 때 마다 자동으로 1씩 증
+	private String name;
+	private boolean gender;
+	private String memo;
+	private Date writeDate; // 객체가 생성되는 순간의 날짜와 시간
+
+// -------------------------------------------------------------------------
+
+	public MemoVO() {
+		this("무명씨", false, "없음");
+	}
+
+	public MemoVO(String name, boolean gender, String memo) {
+		no = ++count;
+		this.name = name;
+		this.gender = gender;
+		this.memo = memo;
+		writeDate = new Date();
+	}
+
+//	privete 권한으로 설정된 멤버 변수는 클래스 외부에서 접근할 수 없다.
+//	이 규칙이 너무 엄격히 적용되므로 이 규칙에 대한 예외 지정을 getter & setter 메소드를 사용해서 한다.
+//  getter는 pruvate 권한을 가지는 멤버 변수의 값을 얻어올 때 사용한다.
+//	setter는 pruvate 권한을 가지는 멤버 변수의 값을 수정할 때 사용한다.
+
+// -------------------------------------------------------------------------
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public boolean isGender() {
+		return gender;
+	}
+
+	public void setGender(boolean gender) {
+		this.gender = gender;
+	}
+
+	public String getMemo() {
+		return memo;
+	}
+
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+
+	public Date getWriteDate() {
+		return writeDate;
+	}
+
+	public void setWriteDate(Date writeDate) {
+		this.writeDate = writeDate;
+	}
+
+	@Override
+	public String toString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM,dd(E) HH:mm:ss.SSS");
+		return no + "." + name + "(" + (gender ? "남" : "여") + ")님이 " + sdf.format(writeDate) + "남긴말 " + memo;
+
+	}
+
+}
+// -------------------------------------------------------------------------
+```
+
+```java
+import java.util.ArrayList;
+
+public class ArrayListTest1 {
+
+// -------------------------------------------------------------------------
+
+	public static void main(String[] args) {
+
+//		배열은 한 번 선언하면 프로그램에서 크기를 변경할 수 없다.
+		int[] data = new int[10];
+
+// -------------------------------------------------------------------------
+
+//		<E> : 제네릭리한 부르면 ArrayList에 저장할 자료형을 반드시 클래스로 적는다.
+//	    ArraYList에 저장할 자료가 기본 자료형이라면 기본 자료형을 클래스화 시켜놓은 랩퍼 클래스를 사용한다.
+//		랩퍼 클래스는 지본 자료형의 첫 문자만 대문자로 적으면 되고 Character와 Integer는 풀네임을 사용한다.
+
+//		ArrayList list = new ArrayList();                        // JDK 1.4 이후의 코딩 방법
+//		ArrayList<Integer> list = new ArrayList<Integer>();      // JDK 1.5 이후의 코딩 방법
+		ArrayList<Integer> list = new ArrayList<>();             // JDK 1.7 이후의 코딩 방법
+
+// -------------------------------------------------------------------------
+
+		for(int i=0 ; i<10 ; i++) {
+			data[i] = i + 1;
+			list.add(i + 1);
+		}
+		for(int i=0 ; i<10 ; i++) {
+		System.out.println("data[" + i + "] =" + data[i] + ", list.get(" + i + ") = " + list.get(i));
+		}
+
+		for(int i=10 ; i<20 ; i++) {
+//			data[i] = i + 1;
+			list.add(i + 1);
+		}
+		for(int i=10 ; i<20 ; i++) {
+//		System.out.println("data[" + i + "] =" + data[i]);
+	    System.out.println("list.get(" + i + ") = " + list.get(i));
+		}
+
+	}
+
+}
+// -------------------------------------------------------------------------
 ```
