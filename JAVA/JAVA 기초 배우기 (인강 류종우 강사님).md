@@ -2026,3 +2026,583 @@ public class ArrayListTest1 {
 }
 // -------------------------------------------------------------------------
 ```
+# 26강 도서관리예제1
+```java
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.xml.crypto.Data;
+
+//	책 한 권의 정보를 기억하는 클래스(생성자)
+public class BookVo {
+
+//  맴버 구현
+	public String title; // 도서명
+	public String author; // 저자명
+	public String publisher; // 출판사명
+	public Date date; // 출판일
+	public double price; // 가격
+
+	public BookVo() {
+	}
+// 맴버 구현을 넘겨 받을 생성자!
+
+	public BookVo(String title, String author, String publisher, Date date, double price) {
+		this.title = title;
+		this.author = author;
+		this.publisher = publisher;
+
+		date.setYear(date.getYear() - 1900);
+		date.setMonth(date.getMonth() - 1);
+		this.date = date;
+
+		this.price = price;
+	}
+
+//  게터 세터
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+//	투 스트링
+	@Override
+	public String toString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd(E)");
+		return String.format("%s %s %s %s %f", title, author, publisher, sdf.format(date), price);
+	}
+
+}
+
+```
+
+```java
+import java.util.Date;
+
+//      객체 
+public class BookShop {
+
+	public static void main(String[] args) {
+
+		BookList bookList = new BookList(5);
+
+//      Date date = new Date();              // 현재 컴퓨터 시스템의 날짜와 시간을 얻어온다.
+//		Date date = new Date(년, 월, 일);      // 입력한 년, 월 일에 해당되는 날짜를 만든다.
+//		날짜를 만들거니 입력하는 경우 Date 클래스는 1900년 기준으로 처리하므로 년은 1900을 뺴서 입력한다.
+//      월을 입력할 때는 1을 뺴서 입력해야 정상적으로 처리된다.
+
+		BookVo book1 = new BookVo("자바", "홍길", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book2 = new BookVo("자바", "홍길동", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book3 = new BookVo("자바", "홍동", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book4 = new BookVo("자바", "길동", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book5 = new BookVo("자바", "릿", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book6 = new BookVo("자바", "릿", "코리아출판사", new Date(2023, 5, 15), 35000);
+		bookList.addBook(book1);
+		bookList.addBook(book2);
+		bookList.addBook(book3);
+		bookList.addBook(book4);
+		bookList.addBook(book5);
+		bookList.addBook(book6);
+
+		System.out.println(bookList);
+	}
+
+}
+```
+
+```java
+import java.util.Arrays;
+
+//   여려 권 책 정보(BookVo)를 기억할 클래스
+public class BookList {
+
+//	배열
+	private BookVo[] bookList; // 책 정보를 기억할 배열을 선언만 한 상태
+	private int size; // 배열의 크기
+	private int count; // 배열의 첨자, 배열에 저장된 데이터의 개수
+
+// 기본 생성자가 실행되면 30권의 책을 저장할 수 있는 배열을 만들고 배열의 크기를 넘겨받는 생성자가 실행되면 넘겨받은 크기만큼 배열을 만든다.
+	public BookList() {
+		this(30);
+	}
+
+	public BookList(int size) {
+		this.size = size;
+		bookList = new BookVo[size];
+
+	}
+
+	public BookVo[] getBookList() {
+		return bookList;
+	}
+
+	public void setBookList(BookVo[] bookList) {
+		this.bookList = bookList;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	@Override
+	public String toString() {
+		return "BookList [bookList=" + Arrays.toString(bookList) + "]";
+	}
+
+// bookList에 BookVoo 클래스 객체를 저장하는 메소드
+	public void addBook(BookVo book) {
+		bookList[count++] = book;
+	}
+
+}
+
+```
+# 27강 도서관리예제2
+```java
+import java.awt.DefaultKeyboardFocusManager;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.xml.crypto.Data;
+
+//	책 한 권의 정보를 기억하는 클래스(생성자)
+public class BookVo {
+
+//  맴버 구현
+	public String title; // 도서명
+	public String author; // 저자명
+	public String publisher; // 출판사명
+	public Date date; // 출판일
+	public double price; // 가격
+
+	public BookVo() {
+	}
+// 맴버 구현을 넘겨 받을 생성자!
+
+	public BookVo(String title, String author, String publisher, Date date, double price) {
+		this.title = title;
+		this.author = author;
+		this.publisher = publisher;
+
+		date.setYear(date.getYear() - 1900);
+		date.setMonth(date.getMonth() - 1);
+		this.date = date;
+
+		this.price = price;
+	}
+
+//  게터 세터
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+//	투 스트링
+	@Override
+	public String toString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd(E)");
+
+//		DecimalFormat 클래스는 숫자의 출력서식을 저장한다.
+//		#,##0의 의미는 천 단위마다 컴마를 찍어주라는 의미이므로 무조건 적어주고 별도로 필요한 내용을 #,##0의
+//	    앞,뒤로 붙여주면 된다.
+
+		DecimalFormat df = new DecimalFormat("#,##0원"); // 천 단위 컴마
+		return String.format("%s %s %s %s %s", title, author, publisher, sdf.format(date), df.format(price));
+	}
+
+}
+
+```
+
+```java
+import java.util.Date;
+
+//      객체 
+public class BookShop {
+
+	public static void main(String[] args) {
+
+		BookList bookList = new BookList(5);
+
+//      Date date = new Date();              // 현재 컴퓨터 시스템의 날짜와 시간을 얻어온다.
+//		Date date = new Date(년, 월, 일);      // 입력한 년, 월 일에 해당되는 날짜를 만든다.
+//		날짜를 만들거니 입력하는 경우 Date 클래스는 1900년 기준으로 처리하므로 년은 1900을 뺴서 입력한다.
+//      월을 입력할 때는 1을 뺴서 입력해야 정상적으로 처리된다.
+
+		BookVo book1 = new BookVo("자바", "홍길", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book2 = new BookVo("자바", "홍길동", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book3 = new BookVo("자바", "홍동", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book4 = new BookVo("자바", "길동", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book5 = new BookVo("자바", "릿", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book6 = new BookVo("자바", "릿", "코리아출판사", new Date(2023, 5, 15), 35000);
+		bookList.addBook(book1);
+		bookList.addBook(book2);
+		bookList.addBook(book3);
+		bookList.addBook(book4);
+		bookList.addBook(book5);
+		bookList.addBook(book6);
+
+		System.out.println(bookList);
+	}
+
+}
+
+```
+
+```java
+import java.awt.print.Book;
+import java.text.DecimalFormat;
+import java.util.Arrays;
+
+//   여려 권 책 정보(BookVo)를 기억할 클래스
+public class BookList {
+
+//	배열
+	private BookVo[] bookList; // 책 정보를 기억할 배열을 선언만 한 상태
+	private int size; // 배열의 크기
+	private int count; // 배열의 첨자, 배열에 저장된 데이터의 개수
+
+// 기본 생성자가 실행되면 30권의 책을 저장할 수 있는 배열을 만들고 배열의 크기를 넘겨받는 생성자가 실행되면 넘겨받은 크기만큼 배열을 만든다.
+	public BookList() {
+	}
+
+	public BookList(int size) {
+		this.size = size;
+		bookList = new BookVo[size];
+
+	}
+
+	public BookVo[] getBookList() {
+		return bookList;
+	}
+
+	public void setBookList(BookVo[] bookList) {
+		this.bookList = bookList;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	@Override
+	public String toString() {
+		String str = "";
+		str += "==============================\n";
+		str += " 도서명 저자명 출판사명 출판일 가격\n";
+		str += "==============================\n";
+
+		double total = 0.0;
+		for (int i = 0; i < bookList.length; i++) {
+			if (bookList[i] == null) {
+				break;
+			}
+			str += bookList[i] + "\n";
+			total += bookList[i].getPrice();
+		}
+
+		str += "==============================\n";
+		DecimalFormat df = new DecimalFormat("#,##0원");
+		str += " 합계 금액 : " + df.format(total) + "\n";
+		str += "==============================\n";
+		return str;
+
+//		return "BookList [bookList=" + Arrays.toString(bookList) + "]";
+	}
+
+// bookList에 BookVoo 클래스 객체를 저장하는 메소드
+	public void addBook(BookVo book) {
+
+//		if를 사용하는 전통적인 예외처리
+//		if(count < size) {
+//		
+//	} else {
+//		System.out.println("배열이 가득차서 " + book.getAuthor() + "의 책을 추가할 수 없습니다.");
+//		
+//	}
+
+//  try - catch를 사용하는 자바의 예외처리
+//  예외가 발샹될 것으로 예상되는 문자을 try 블록에 쓴다.
+//  예외가 발생되면 처리할 문장을 catch 블록에 쓴다.
+//	try 블록의 내용을 실행하다가 예외 발생되면 더 이상 try 블록을 싱행하지 않고 햐당 예외의 catch 블록을 실행한다.
+		try {
+			bookList[count++] = book;
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("배열이 가득차서 " + book.getAuthor() + "의 책을 추가할 수 없습니다.");
+		} catch (Exception e) {
+//	    Exception 클레스는 예외의 최상위 클래스로서 모든 예외를 감지할 수 있다.
+//		catch 블록에 Exception을 적을 경우 반드시 맨 마지 catch 블록에 적어야 한다.
+//	    printStackTrace() : 발생된 예외 이름과 예외가 발생된 문장을 발생 순서 역순으로 추적한다.
+			e.printStackTrace();
+		} finally {
+//			finally 블록은 선택 사항으로서 예외 발생 여부와 관계 없이 무조건 실행애야 할 문장이 있으면 적는다.
+//			System.out.println("안됨");
+		}
+	}
+}
+
+```
+# 28강 도서관리예제3
+```java
+import java.awt.DefaultKeyboardFocusManager;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.xml.crypto.Data;
+
+public class BookVo {
+
+	public String title;
+	public String author;
+	public String publisher;
+	public Date date;
+	public double price;
+
+	public BookVo() {
+	}
+
+	public BookVo(String title, String author, String publisher, Date date, double price) {
+		this.title = title;
+		this.author = author;
+		this.publisher = publisher;
+
+		date.setYear(date.getYear() - 1900);
+		date.setMonth(date.getMonth() - 1);
+		this.date = date;
+
+		this.price = price;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd(E)");
+
+		DecimalFormat df = new DecimalFormat("#,##0원");
+		return String.format("%s %s %s %s %s", title, author, publisher, sdf.format(date), df.format(price));
+	}
+
+}
+```
+
+```java
+import java.util.Date;
+
+//      객체 
+public class BookShop {
+
+	public static void main(String[] args) {
+
+		BookList bookList = new BookList();
+
+		BookVo book1 = new BookVo("자바", "홍길", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book2 = new BookVo("자바", "홍길동", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book3 = new BookVo("자바", "홍동", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book4 = new BookVo("자바", "길동", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book5 = new BookVo("자바", "릿", "코리아출판사", new Date(2023, 5, 15), 35000);
+		BookVo book6 = new BookVo("자바", "릿", "코리아출판사", new Date(2023, 5, 15), 35000);
+		bookList.addBook(book1);
+		bookList.addBook(book2);
+		bookList.addBook(book3);
+		bookList.addBook(book4);
+		bookList.addBook(book5);
+		bookList.addBook(book6);
+
+		System.out.println(bookList);
+	}
+
+}
+
+```
+
+```java
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
+public class BookList {
+
+	public ArrayList<BookVo> bookList = new ArrayList<>(); // 여러 권의 책 정보를 기억할 ArrayList
+
+	public ArrayList<BookVo> getBookList() {
+		return bookList;
+	}
+
+	public void setBookList(ArrayList<BookVo> bookList) {
+		this.bookList = bookList;
+	}
+
+	@Override
+	public String toString() {
+		String str = "";
+		str += "==============================\n";
+		str += " 도서명 저자명 출판사명 출판일 가격\n";
+		str += "==============================\n";
+
+		double total = 0.0;
+//		ArrayList에 저장된 테이터의 개수 만큼 반복한다.
+//		for (int i = 0; i < bookList.size(); i++) {
+//			str += bookList.get(i) + "\n";
+//			total += bookList.get(i).getPrice();
+//		}
+
+//	 향상된 for : 배열이나 ArrayList에 저장된 내용을 0번째 값부터 마지막 값가지 전체를 처리할 때 사용하면 효과적인다. 
+//	 for(배열이나 ArrayList의 자료형 변수명 : 배열니나 ArrayList이름){
+//	 반복해 실행할 문장;
+//		...;
+//		}
+
+		for (BookVo book : bookList) {
+			str += book + "\n";
+			total += book.getPrice();
+		}
+
+		str += "==============================\n";
+		DecimalFormat df = new DecimalFormat("#,##0원");
+		str += " 합계 금액 : " + df.format(total) + "\n";
+		str += "==============================\n";
+		return str;
+	}
+
+	public void addBook(BookVo book) {
+		bookList.add(book);
+	}
+}
+```
