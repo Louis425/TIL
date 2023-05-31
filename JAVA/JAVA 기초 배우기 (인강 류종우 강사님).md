@@ -19,6 +19,20 @@
 - [15강 주민등록번호유효성검사](#15강-주민등록번호유효성검사)
 - [16강 메소드](#16강-메소드)
 - [17강 만년달력만들기1](#17강-만년달력만들기1)
+- [18강 만년달력만들기2](#18강-만년달력만들기2)
+- [19강 지그재그채우기2023](#19강-지그재그채우기)
+- [20강 달팽이채우기](#20강-달팽이채우기)
+- [21강 2차원 배열(마방진)](#21강-2차원-배열마방진)
+- [22강 클래스만들기(접근권한지정자)](#22강-클래스만들기접근권한지정자)
+- [23강 클래스 만들기(생성자)](#23강-클래스-만들기생성자)
+- [24강 클래스만들기(getter/setter)](#24강-클래스만들기gettersetter)
+- [25강 arrayList](#25강-arraylist)
+- [26강 도서관리예제1](#26강-도서관리예제1)
+- [27강 도서관리예제2](#27강-도서관리예제2)
+- [28강 도서관리예제3](#28강-도서관리예제3)
+- [29강 상속](#29강-상속)
+- [30강 추상클래스\_다형성](#30강-추상클래스_다형성)
+- [31강 인터페이스 (종강)](#31강-인터페이스-종강)
 
 #
 
@@ -32,12 +46,13 @@
 
 - c, c++에 비해 간편한 언어이다.
 
-- 안드로이드 또는 소프트웨어 게발애 많이 사용된다
+- 웹 게발 안드로이드 또는 소프트웨어 게발 애 많이 사용된다
 
 # JAVA특징
 
 - 객체지향 언어이다.
 - jvm(JAVA로 만들어진 프로그램을 실행해주는 프로그램) 만 있으면 어떤 플랫폼에서도 실행 가능한 독립적인 성향이 있다.
+- 스프링, 스피링 부트 배울때 도움이 된다
 
 # JAVA설치
 
@@ -2026,7 +2041,9 @@ public class ArrayListTest1 {
 }
 // -------------------------------------------------------------------------
 ```
+
 # 26강 도서관리예제1
+
 ```java
 
 import java.text.SimpleDateFormat;
@@ -2116,7 +2133,7 @@ public class BookVo {
 ```java
 import java.util.Date;
 
-//      객체 
+//      객체
 public class BookShop {
 
 	public static void main(String[] args) {
@@ -2206,7 +2223,9 @@ public class BookList {
 }
 
 ```
+
 # 27강 도서관리예제2
+
 ```java
 import java.awt.DefaultKeyboardFocusManager;
 import java.text.DecimalFormat;
@@ -2303,7 +2322,7 @@ public class BookVo {
 ```java
 import java.util.Date;
 
-//      객체 
+//      객체
 public class BookShop {
 
 	public static void main(String[] args) {
@@ -2412,10 +2431,10 @@ public class BookList {
 
 //		if를 사용하는 전통적인 예외처리
 //		if(count < size) {
-//		
+//
 //	} else {
 //		System.out.println("배열이 가득차서 " + book.getAuthor() + "의 책을 추가할 수 없습니다.");
-//		
+//
 //	}
 
 //  try - catch를 사용하는 자바의 예외처리
@@ -2439,7 +2458,9 @@ public class BookList {
 }
 
 ```
+
 # 28강 도서관리예제3
+
 ```java
 import java.awt.DefaultKeyboardFocusManager;
 import java.text.DecimalFormat;
@@ -2525,7 +2546,7 @@ public class BookVo {
 ```java
 import java.util.Date;
 
-//      객체 
+//      객체
 public class BookShop {
 
 	public static void main(String[] args) {
@@ -2583,7 +2604,7 @@ public class BookList {
 //			total += bookList.get(i).getPrice();
 //		}
 
-//	 향상된 for : 배열이나 ArrayList에 저장된 내용을 0번째 값부터 마지막 값가지 전체를 처리할 때 사용하면 효과적인다. 
+//	 향상된 for : 배열이나 ArrayList에 저장된 내용을 0번째 값부터 마지막 값가지 전체를 처리할 때 사용하면 효과적인다.
 //	 for(배열이나 ArrayList의 자료형 변수명 : 배열니나 ArrayList이름){
 //	 반복해 실행할 문장;
 //		...;
@@ -2604,5 +2625,339 @@ public class BookList {
 	public void addBook(BookVo book) {
 		bookList.add(book);
 	}
+}
+```
+
+# 29강 상속
+
+```java
+//  자식 (하위, 서브, 파생) 클래스
+//  Parent 클래스를 상속받아 Child 클래스를 만든다.
+public class child extends Parent {
+
+//	Parent 클래스를 상속 받았으므로 Parent 클래스의 모든 멤버 변수와 메소드를 별로도 정의하지 않아도 사용할 수 있다.
+
+//  부모 클래스의 private 권한을 가진 멤버는 상속은 받았지만 접근할 수 없다.
+	private int age;
+	private String nickName;
+
+	public child() {
+	}
+//	자동 완성 가능을 사용해도 현댜 클래스에서 직업 입력해 겅의하지 않은 멤버는 보이지 않는다.
+	/*
+	 * // 부모 클래스로 부터 상속받은 멤버 변수의 접근 권한이 private일 경우 부모 클래스의 생성자를 호출해서 초기화 시킨다.
+	 *
+	 * public child(String name, boolean gender,int age, String nickName) {
+	 * super(name,gender); this.age = age; this.nickName = nickName; }
+	 */
+//	부모 클래스로 부터 상속받은 멤버 변수의 접근 권한이 private일 경우 부모 클래스에 setter 메소드사 작성되어 있다면
+//	srtter 메소드를 사용해서 초기화 시킬수 있다.
+
+	public child(String name, boolean gender, int age, String nickName) {
+		setNeme(name);
+		setGender(gender);
+		this.age = age;
+		this.nickName = nickName;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	@Override
+	public String toString() {
+//	   부모 클래스로 부터 상속받은 멤버 변수의 접근 권한이 private이면 접근할 수 없으므로 gettet 메소드를 사용해야 한다.
+		return getNeme() + "(" + (isGender() ? "남" : "여") + ") - " + age + "," + nickName;
+	}
+
+}
+
+```
+
+```java
+
+public class InheritanceTest {
+
+	public static void main(String[] args) {
+
+		Parent parent1 = new Parent();
+		System.out.println(parent1);
+		Parent parent2 = new Parent("이몰루", true);
+		System.out.println(parent2);
+
+		child child = new child("미카사", false, 17, "이쁜이");
+		System.out.println(child);
+
+	}
+
+}
+
+```
+
+```java
+import javax.sound.sampled.BooleanControl;
+
+//   부모 (상위, 슈퍼, 기반) 클래스
+public class Parent {
+
+	private String neme;
+	private boolean gender;
+
+	public Parent() {
+		this("무명씨", false);
+	}
+
+	public Parent(String neme, boolean gender) {
+		super();
+		this.neme = neme;
+		this.gender = gender;
+	}
+
+	public String getNeme() {
+		return neme;
+	}
+
+	public void setNeme(String neme) {
+		this.neme = neme;
+	}
+
+	public boolean isGender() {
+		return gender;
+	}
+
+	public void setGender(boolean gender) {
+		this.gender = gender;
+	}
+
+	@Override
+	public String toString() {
+		return neme + "(" + (gender ? "남" : "여") + ")";
+	}
+
+}
+
+```
+
+# 30강 추상클래스\_다형성
+
+```java
+//  추상 클래스 : 한 개 이상의 푸상 메소드를 포함한 클래스로 불완전한 클래스이기 때문에 객체를 만들어 사용할 수 없다.
+//  추상 클래스는 상속을 시키기 위해 만드는 클래스로 추상 클래스를 상속받은 자식 클래스는 상속받은 추상 메소드를 반드시 오버라이드 시켜서 사용해야 한다.
+abstract class Product {
+
+//  추상 메소드 : 아무런 일도 하지 않은 메소드로 {} 블록을 가지지 않는 메소드를 abstract 예약어를 사용해서 만든다.
+//  추상 메소드를 만드는 이유는 상속받을 자식 클래스에서 무조건 오버라이드 시켜서 사용해야 할 메소드는 부모 클래스에서 코딩을 해봐야 어차피 무시되므로
+//  그냥 내용이 없는 메소드로 만드는 것이다. 상속받은 자식 클래스에서  무조건 재정의 시켜 사용해야 할 메소드임을 강제한다.
+	// public void move() { } // 아무런 일도 하지 않는 일반 메소드
+	public abstract void move();
+
+}
+
+// 추상 클래스 Product를 상속받아 Camera 클래스를 만든다.
+class Camera extends Product {
+
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+//  파일 이름과 같은 이름을 가지는 클래스에만 public을 붙여줄 구 있다.
+public class AbstractClass {
+
+	public static void main(String[] args) {
+
+//		Product product = new Product();   // 추상 크래스는 객체를 만들어 사용할 수 없으므로 에러가 발생된다.
+
+	}
+
+}
+
+```
+
+```java
+import java.util.Scanner;
+
+//  다형성이란 하나의 메소드가 서로 다른 클래스에서 다양하게 사용되는 것을 말한다.
+//  다형을 구현할 메소그를 포함한 클래스는 같은 부모 클래스를 가져야 한다.
+//  부모 클래스와 자긷 클래스에 반드시 같은 메소드가 있어야 하고 자식 클래스는 이를 반드시 오버라이드 해서 사용해야 한다.
+//  부모 클래스의 객체에 자식 클래스의 객체를 대입해서 실행해야 한다.
+
+abstract class Shape {
+
+	public abstract void draw(); // 다형성을 구현할 메소드, 추상 메소드
+
+}
+
+class Point extends Shape {
+
+	@Override
+	public void draw() {
+		System.out.println("점으 찍는다.");
+	}
+
+}
+
+class Line extends Shape {
+
+	@Override
+	public void draw() {
+		System.out.println("선을 그린다.");
+	}
+
+}
+
+class Circle extends Shape {
+
+	@Override
+	public void draw() {
+		System.out.println("원을 그린다.");
+	}
+
+}
+
+class Rect extends Shape {
+
+	@Override
+	public void draw() {
+		System.out.println("사각형을 그린다.");
+	}
+
+}
+
+class TriAngle extends Shape {
+
+	@Override
+	public void draw() {
+		System.out.println("삼각형을 그린다.");
+
+	}
+
+}
+
+public class PolymorphismTest {
+
+	public static void main(String[] args) {
+
+//	Shape shape = new Point();
+//	shape.draw();
+
+		Shape[] shapes = { new Point(), new Line(), new Circle(), new Rect(), new TriAngle() };
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("원하는 메누를 선택하세요 : ");
+		int menu = sc.nextInt();
+
+		shapes[menu - 1].draw();
+
+	}
+
+}
+```
+
+# 31강 인터페이스 (종강)
+
+```java
+
+class Point {
+	int x, y;
+
+	public void move() {
+	}
+}
+
+class Shape {
+//	변수 앞에 final이 붙으면 그 변수는 프로그램에서 값을 변경할 수 없다.
+//	프로그램에서 자주 사용하는 데이터는 변수에 저장시켜 사용하면 편리하고 프로그램에서 임의로 값을 변경할 수 없도록 상수로 만들어 사용한다.
+	public static final double PI = 3.141592; // 정적 멤버 변수, 상수
+
+	public void draw() {
+	}
+
+	public void erase() {
+	}
+
+}
+
+//class Line  extends Point, Shape {}  //자바는 다중 상속을 허용하지 않으므로 에러가 발생된다.
+
+//  인터페이스란 정적(statin) 멤버 변수와 추상 메소드로만 구성된 크래스으 특별한 형태이다.
+interface Draw {
+	public static final double PI = 3.141592; // 정적 멤버 변수, 상수
+//  인터페이스는 멤버 변수 선언시 앞의 내영을 아래와 같이 생략해도 자동으로 public static final을 붙여준다.
+	int LIMIT = 1000;
+
+	public abstract void moveTo(); // 추상 메소드
+//  인터페이스는 메소드 선언시 앞의 내용을 생략하면 자동으로  public abstract을 붙여준다.
+
+	void erade();
+
+}
+
+interface Graphic {
+	void rotate();
+
+	void resize();
+}
+
+//class Line extends Draw {  }        // 클래스는 인터페이스를 상속받은 수 없으므로 에러가 발생된다.
+//interface Graphics extends Point { }  // 인터페이스는 클래스를 상속받은 수 없으므로 에러가 발생된다.
+//   클래스는 클래스끼리 인터페이스 인터페이스끼리 상속을 시켜야 한다.
+
+interface Graphics extends Draw, Graphic { // 인터페이스는 자중 상속을 허용한다.
+//	 아무런 내용도 가지지 않는 인터페이스를 표시(marker) 인터페이스라 부른다.
+
+}
+
+// 클래스 선언시 인터페이스에서 정의한 내용을 사용하려면 상속(extends)을 사용할 수 없고 구현(implements을 사용한다.
+// Line 클래스는 Point 클래스를 상받고 Draw 인터페이스와 Graphic 인터페이스를 구현해서 만든다.
+class Line extends Point implements Draw, Graphic {
+
+	@Override
+	public void rotate() {
+
+	}
+
+	@Override
+	public void resize() {
+
+	}
+
+	@Override
+	public void erade() {
+
+	}
+
+	@Override
+	public void moveTo() {
+
+	}
+
+}
+
+public class InterfaceTest {
+
+	public static void main(String[] args) {
+
+		System.out.println(Shape.PI);
+		System.out.println(Draw.PI);
+		System.out.println(Draw.LIMIT);
+
+	}
+
 }
 ```
