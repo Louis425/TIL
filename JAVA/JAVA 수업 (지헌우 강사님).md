@@ -655,3 +655,226 @@ public class DayTest {
 }
 // -------------------------------------------------------------------------
 ```
+
+# 2023/6/4
+
+## 제약사황 - 비기능 요구사항
+
+공통사항 다수의 사용자가 공통괸 내용을 확인할 수 있어야 한다.
+
+```
+자바 스프링프레임워크
+          ↓
+        서버
+          ↓
+     통신방법 - HTTP(REST API), TCP, UDP, 블루투스….
+          ↓
+    클라이언트
+```
+# 반복문
+
+## 1. while 문
+
+어떤 조건을 정해놓고 반복을 하는구조.
+
+```java
+package com.LDG.KoreaJavaBasicProjec.day_4;
+
+public class LoopTest {
+
+	public static void main(String[] args) {
+
+//	i 변수가 10 미만일때, 문자열을,출력하는 동작을 작성하고자 한다.
+
+//	  필요사항
+//	1. 변수 : i
+//	2. 조건 : i < 10
+//  3. 동작 : 문자열 출
+
+//	완전함 문장 연습
+
+//		(정이)
+		int i = 0;
+//		(실현)
+		while (i < 10) {
+			System.out.println("i -> " + i);
+			i++;
+		}
+		System.out.println("끝났습니다. i -> " + i);
+	}
+
+}
+//-------------------------------------------------------------------------
+```
+
+## 1. do while 문
+
+반복 조건을 루프의 끝나
+
+```java
+package com.LDG.KoreaJavaBasicProjec.day_4;
+
+public class LoopTest {
+
+	public static void main(String[] args) {
+		
+		int j = 13;
+		
+		do {
+			System.out.println("j -> " + j);
+			j++;
+		} while (j  < 10);
+		System.out.println("끝났습니다. j -> " + j);
+		
+		
+		
+		
+	}
+	
+}
+//-------------------------------------------------------------------------
+```
+
+## 2. for문
+
+정해진 횟수만큼 반복할 때 사용하는 반복 구조
+
+```java
+package com.LDG.KoreaJavaBasicProjec.day_4;
+
+public class ForLoopExample {
+	public static void main(String[] args) {
+
+//		int j = 0;
+//		while (j < 10) {
+//			j++;
+//		}
+//		중간로 안에있는데 바이다
+
+		for (int i = 0; i < 10; i++) {
+			System.out.println("i -> " + i);
+		}
+
+//		Q. for 문 밖에서 int i 를 사용하면 어떻게 될까요?
+//		개념 - 지역변수
+
+	}
+
+//	void test( ) {
+//		System.out.println(args);
+//	}
+}
+// -------------------------------------------------------------------------
+```
+
+반복문의 중첩
+
+반복문은 중첩괴어 사용할수 있다
+```java
+package com.LDG.KoreaJavaBasicProjec.day_4;
+
+public class NestedLoop {
+
+	public static void main(String[] args) {
+//		********** 1
+//		********** 2
+//		********** 3
+//		********** 4
+//		********** 5
+//		********** 6
+//		********** 7
+//		********** 8
+//		********** 9
+//		********** 10
+
+//		제약상황
+//		1.가로축 x
+//		2.세로축 Y
+
+		for (int y = 0; y < 10; y++) {
+			for (int x = 0; x < 10; x++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
+// -------------------------------------------------------------------------
+```
+```java
+package com.LDG.KoreaJavaBasicProjec.day_4;
+
+public class LoopPractice {
+//		함수(메소드)
+
+//	메서드의 구조
+//	반환형 메소드명(매개변수) {
+//	바디
+//	}
+
+//	메서드 -> 함수
+
+	static void makeSpuare() {
+		for (int y = 0; y < 10; y++) {
+			for (int x = 0; x < 10; x++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
+	public static void main(String[] args) {
+		makeSpuare();
+	}
+
+}
+// -------------------------------------------------------------------------
+```
+
+```java
+package com.LDG.KoreaJavaBasicProjec.day_4;
+
+public class MestedLoopTest {
+
+	static void makeSquare(int width, int height) {
+		System.out.println("사각형을 만듭니다.");
+		System.out.println("사각형의 가로 길이 : " + width);
+		System.out.println("사각형의 새로 길이 : " + height);
+	}
+
+	static void makeSquare() {
+	System.out.println("삼각형을 만듭니다.");
+	}
+
+	public static void main(String[] args) {
+		makeSquare(10, 20);
+	}
+	
+}
+// -------------------------------------------------------------------------
+```
+
+#  생각을 구체화 하는 방범
+  - 표현방법의 입장에서는 
+  - 완전한 문장으로 기술한다.
+  - 누나 / 무엇을 / 언제 / 어디서 / 어떻게 / 왜?
+
+
+- ‘누구’ 의 관점에서 기술하는지가 중요합니다.
+  * 사용자 입장에서 동작이 어떤 의미를 가지는지
+   * 어떤 결과를 보여줘야 하는지
+
+## <예시>
+
+/고객/은 아픕니다.
+
+아파서 /약/을 사먹어야 합니다.
+
+고객은 어떤 약을 먹을지 몰라서 “약을 처방”받고 싶습니다.
+
+/의사/는 고객의 질병을 확인하고 맞는약을 처방합니다.
+
+의사는 처방에 앞서 고객이 “기존에 복용하고 있는 약이 있는지 확인”합니다.
+
+의사는 고객이 복용 중인 약을 확인하고, 적절한 약을 처방합니다.
+
