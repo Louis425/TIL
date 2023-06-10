@@ -878,3 +878,291 @@ public class MestedLoopTest {
 
 의사는 고객이 복용 중인 약을 확인하고, 적절한 약을 처방합니다.
 
+----------------
+
+# 2022년 6월 10일
+
+주제 : 여러분들에게 무한도전이란?
+
+```
+학생 A - 가족들과 함께 재밌는 시간을 보내는 용도
+학생 B - 별로 흥미가 없어서 이거 크게….
+학생 C - 심심하면 그냥 스윽 보는거…
+학생 D - 그냥 나한테는 알기만 아는 유명한 방송…
+학생 E -  토요일 저녁을 책임져준 소중한 존재.
+```
+
+페르소나 (Persona)
+
+회원가입
+
+```
+1. 로그인을 하기 위한 용도
+2. 귀찮지만 꼭 해야하는 것
+3. 가상의 자기 이름(?) 정보 같은 것?
+```
+
+- 정리 : 사용자가 서비스를 이용하기 위해서 본인의 정보를 입력하는 것 입니다.
+
+우리가 사용할 서비스는 ‘배달의 민족’ 입니다
+‘배달의 민족’을 사용하는 사용자는 누가 있습니까?
+
+```
+1. 가게주인 - 동종 업계의 매출정보, 주문정보, 배달원 정보,….etc
+2. 배달원 - 배달품목의 종류, 배송지, 픽업지,…etc
+3. 고객 - 가게 정보, 가격, 배달 시간,…etc
+```
+
+페르소나를 고려하는 이유
+```
+1. 내가 개발하고자 하는 서비스를 ‘누가’ 사용하는지에 따라서 개발의 목적성이 달라집니다.
+```
+
+분석하는 방법, 그리고 분석하는 방법을 훈령하는 방법을 알아보겠습니다.
+
+관심이 있는 사람 (나와 일면식이 없습니다.) 에게 친해지는 법
+```
+1. 말을 걸어야한다
+2. 날씨?
+3. 소통?
+4. 공감대 형성
+
+* 인스타 아이 물어보기
+```
+상대장의 정보가 필요합니다.
+```
+- 관심, 관찰 -> 상대방의 정보 생깁니다. -> 대화의 소재
+```
+무엇을 ‘개발’할지 -> 연결되는 부분
+
+- 관찰
+- 관찰한 내용을 완전한 문장으로 표현한다.
+```
+친해지고 싶은 사람이 있습니다.
+친해지고 싶은 사람이 게임을 하고 있습니다.
+친해지고 싶은 사람이 무슨 게임을 하는지?
+친해지고 싶은 사람이 언제 게임을 하는지?
+```
+유저스토리
+
+요약
+```
+1. 사용자 관점에서 ‘목적’을 정의하고 완전한 문장으로 표현한다.
+```
+
+
+- 소프트웨어 공학의 모든 것
+
+요구 분석
+
+자바 강의
+
+2주차 : 배열
+
+배열이란?
+
+If. 학생 10명이 있고 이들의 성적의 평균을 계산한다.
+```
+1. 학생 10명의 점수를 변수에 저장
+2. 편군값 계산
+```
+1.배열
+```
+ * 여러 개의 변수를 하나로 붂어 넣은 것
+도일한 타입의 데이터를여러 개 저장할 수 있는 저장 장소
+```
+
+배열의 선언과 사용
+```
+배열의 자료형 / 배열의 이름 / 배열의 크기
+```
+
+고급배열
+
+무명배열
+```
+ + 배열의 이름을 지정하지 않고 단순히  초기값만으로 생성한 배열
+```
+
+ArrayList
+```
+실행 도중에 배열의 크기를 변경할 수 있는 동적 배열
+```
+
+페르소나
+
+페르소나(사용자)를 기준으로 ‘목적’을 설정하고 완전한 문장으로 표현한다.
+
+```
+분석을 하는 방법 -> 어떻게 할까요?
+```
+```
+1. 관찰 -> 사용자를 기준으로 사용다가 무엇을 하려고 하는지?
+ 
+언재 하려고 하는지?
+어디서 하려고 하는지?
+ (육하원칙)
+```
+
+```java
+package com.LDG.KoreaJavaBasicProjec.day_5;
+
+import java.util.ArrayList;
+
+public class ArrayListTest {
+	public static void main(String[] args) {
+
+//	    를 선런하고 생
+		ArrayList<String> list = new ArrayList<>();
+
+//		 에 겂을 넣는 방
+		list.add("자바");
+		list.add("바");
+		list.add("자");
+		list.add("자바");
+
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println("list{" + i + "]" + list.get(i));
+		}
+
+//	liet 의 값을 지우기
+		list.remove(0);
+
+		System.out.println("지운 후");
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println("list{" + i + "]" + list.get(i));
+		}
+		list.set(0, "다른 값");
+
+		System.out.println("수정 후");
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println("list{" + i + "]" + list.get(i));
+
+//		
+
+		}
+
+	}
+}
+
+```
+
+```java
+
+package com.LDG.KoreaJavaBasicProjec.day_5;
+
+public class ArrayTest {
+
+	public static void main(String[] args) {
+//		1. 배열을 선언
+//		int[] array = new int[10];
+
+//		
+//		
+//		인덱스는 0 에서부터 시작합니다.
+//		array[0] = 10;
+//		
+//	    System.out.println(array[0]);
+//		
+//		
+//		
+//		for (int i = 0; i < array.length; i++) {
+//			array[i] = i;
+//		}
+//		
+//		for (int i = 0; i < array.length; i++) {
+//			System.out.println("array[" + i + "[ -> + " + array[i]);
+//		}
+//		
+//		
+//		Q. 인덱스의 범위를 벗어난 배열의 사용은 어떻게 될까?
+//		System.out.println(array[10]);
+//		
+//		
+//		
+//		 Q. 배열을 선언함과 동시에 배열을 정의는 할 수 없을까?
+//		
+//		전재조건 : 배열의 크기를 지정해야 사용할 수 있다.
+//		int[] scores = {10, 20, 30, 40 };
+//		for (int i = 0; i < scores.length; i++) {
+//		System.out.println("scores[" + i + "] -> " + scores[i] );
+//		}
+//		
+//	}
+//	
+//	메서드의 구조
+//	(접근권한) 반환형 메서드명(매개변수){
+//	메서드가 수행할 내용
+//}
+
+//	학생 10명의 성적을 입력 받아서, 평균을 구해보겠습니다.
+//	무영배열 사용하는 예시를 보고싶습니다.
+//	System.out.println(
+//			getAverage(
+//					new int[] {1,2,3,4}
+//					)
+//			);
+//	
+//	
+//	public static double getAverage(int[] scores) {
+//		double average = 0;
+
+//		int형 배열로 전달받은 성적으로 평균을 구해야 합니다.
+//		평균은 어떻게 구할까요?
+//		학생이 10명의 성적을 입력받아서 그 합을 구하고, 학생수로 나누면 편균이 됩니다.
+//		그리고 그 값을 반환한다.
+
+//		1. 학생 10명의 성적을 모두 더한다.
+//		int total = 0;
+//		
+//		for( int i = 0; i < scores.length; i++) {
+//		total += scores[i];
+//		
+//		
+//		for (int score : scores) {
+//			total += score;
+//		}
+//		
+//		2.더한 값을 학생수로 나눠서 평균값을 구한다.
+//		average = total / scores.length;
+//		
+//		return average;
+	}
+
+}
+
+```
+```java
+package com.LDG.KoreaJavaBasicProjec.day_5;
+
+public class ArrayTest1 {
+	public static void main(String[] args) {
+//	Call By Value
+		int value = 10;
+		int copvValue = value;
+
+		copvValue = 200;
+
+		System.out.println(value);
+		System.out.println(copvValue);
+
+//	
+//	
+//	int[] list = {1,2,3,4};
+//	int[] copylists = list;
+//	
+//	
+//	System.out.println("list 출력");
+//	for (int data : list) {
+//		System.out.println(data);
+//	}
+//	System.out.println("copylists출력");
+//  for(int data : copylists) {
+//	  System.out.println(data);
+//  }
+//	
+
+	}
+
+}
+```
