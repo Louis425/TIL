@@ -49,6 +49,7 @@
 
 ## 스프링 프레임워크의 특징
 
+```
 - POJO 기반의 구성.
 
 - DI를 통한 객체간의 관계 구성.
@@ -60,6 +61,7 @@
 - 편리한 MVC 구조.
 
 - WAS에 종속적이지 않은 개발 환경.
+```
 
 # 3강 Spring Boot의 특징1
 
@@ -85,15 +87,21 @@
 
 ## 의존성
 
+```
 A ================> B
+
 A객체에서 B객체를 내부에 직접 생성
+```
 
 ---
 
 ## 의존성 주입
 
+```
 A <====> ??? <====> B
+
 A는 B가 필요하다고 신호를 보내고, ???가 B객체를 외부에서 생성하여 주입하게 된다.
+```
 
 ---
 
@@ -121,7 +129,7 @@ A는 B가 필요하다고 신호를 보내고, ???가 B객체를 외부에서 �
 
 - 스프링 프레임워크는 이러한 횡단 관심사를 분리해서 제작하는 것이 가능하고
   횡간 관심사를 모듈로 분리하는 프로그래밍을 AOP라고 한다.
-
+  ㄴ
 - 핵심 비지니스 로직에만 집중하여 코드 개발이 가능해지고, 각 프로젝트마다
   다른 관심사 적용 시 코드 수정을 최소화할 수 있으며, 원하는 관심사의 유지보수가
   수월한 코드로 구성이 가능해진다.
@@ -135,3 +143,101 @@ A는 B가 필요하다고 신호를 보내고, ???가 B객체를 외부에서 �
 
 - 전체 AppLication을 실행하지 않아도 기능별 단위 테스트가 용이하기 때문에
   버그를 줄이고 개발 시간을 단축할 수 있다.
+
+---
+
+# 5강 Spring Boot 환경 구축1: 기본설정 및 기본경로
+
+## 프로젝트 기본 경로
+
+     1)srx/main/java. : 서버단 JAVA 파일
+     2)test/main/java : 단위 테스트 JAVA 파일
+     3)src/main/resources  : 설정 파일 및 뷰단
+     4)src/main/resources/static : css, js, image 등 정적 파일 경로
+     5)src/main/resources/templates :html 파일 경로
+     6)build.gradle.  : 라이브러리 의존성 관리
+     7)application.yml.: 서버 및 DB, 라이브러리 설정 파일
+
+```
+
+package com.example.ex00.dependency;
+
+import lombok.Data;
+
+@Data
+public class Computer {
+    private int ram;
+
+
+}
+```
+
+---
+
+# 6강 Spring Boot 환경 구축2: build.gradle, application.yml
+
+```
+package com.example.ex00.dependency;
+
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+@Getter
+public class Coding {
+
+//    필드 주입
+//    광장히 편하게 주입할 수 있으나 순환 참조(우한 루프)시 오류가 발생하지 않기 때문에 stackOverFlow 발생
+
+    @Autowired
+    private Computer computer;
+}
+
+```
+
+---
+
+```
+package com.example.ex00.dependency;
+
+import lombok.Data;
+import org.springframework.stereotype.Component;
+
+@Component
+@Data
+
+public class Computer {
+    private int ram;
+}
+
+```
+
+---
+
+```
+package com.example.ex00.dependency;
+
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest @Slf4j
+public class ComputerTeats {
+
+//       단위 테스트에서는 팡드주입만 사용 가능하다.
+    @Autowired
+    Coding coding;
+
+    @Test
+    private void ComputerTest(){
+//        메소드 안에서 @Autowired를 사용할 수 없다
+        Coding coding = new Coding();
+        log.info(coding.getComputer().toString());
+    }
+}
+
+```
+
+---
