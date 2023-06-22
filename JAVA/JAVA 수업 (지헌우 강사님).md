@@ -1169,3 +1169,497 @@ public class ArrayTest1 {
 }
 // -------------------------------------------------------------------------
 ```
+
+# 2023/6/17
+
+자바 강의
+
+1 접근 제어 
+
+접근 제어 
+ * 클래스의 멤버에 접근하는 것을 제어하는 것
+ * 클래스 내부에 선언된변수 중에서 민감한 정보를능 클래스 내부에서만 사용하도록 할 필요가 있다.
+
+2 접근 제어 지정자
+
+public
+protected
+없음
+private
+
+
+정규표햔식
+
+```java
+package com.LDG.KoreaJavaBasicProjec.day_7;
+
+public class GetterSetterTest {
+
+	private String name;
+	private int scoreKorean;
+	private int scoreEnglish;
+	private int scoreMath;
+
+	public double getAverage();
+
+	{
+		double average = (scoreKorean + scoreMath + scoreEnglish) / 3;
+
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getScoreKorean() {
+		return scoreKorean;
+	}
+
+	public void setScoreKorean(int scoreKorean) {
+		this.scoreKorean = scoreKorean;
+	}
+
+	public int getScoreEnglish() {
+		return scoreEnglish;
+	}
+
+	public void setScoreEnglish(int scoreEnglish) {
+		this.scoreEnglish = scoreEnglish;
+	}
+
+	public int getScoreMath() {
+		return scoreMath;
+	}
+
+	public void setScoreMath(int scoreMath) {
+		this.scoreMath = scoreMath;
+	}
+
+	@Override
+	public String toString() {
+		return "GetterSetterTest [name=" + name + ", scoreKorean=" + scoreKorean + ", scoreEnglish=" + scoreEnglish
+				+ ", scoreMath=" + scoreMath + "]";
+	}
+
+}
+
+```
+
+```java
+package com.LDG.KoreaJavaBasicProjec.day_7;
+
+public class DayTest {
+	
+	
+	public static void main(String[] args) {
+//		ClassInquiry
+
+		ClassInquiry classInquiry = new ClassInquiry();
+		
+//		classInquiry.personNumber = 100;
+//		classInquiry.acconutNumber =100;
+		
+//		classInquiry.setPersonNumber(100); // setter 호출
+		
+		
+		
+//		callpersonNumber(classInquiry);
+		
+//		System.out.println(classInquiry.getPersonNumber()); // getter 호
+		
+//		classInquiry.readAcconutNumber();
+		
+		
+		
+//	}
+//	static void callpersonNumber(ClassInquiry classInquiry) {
+//		classInquiry.personNumber = 1000;
+//	}
+	
+	
+		
+		
+//		getAverage
+		
+		
+//	평균을 구하는 메서드
+	static void getAverage() {
+	   
+	   // 클래스로 인스턴를 생성
+	   // 아직은 setter 호출X
+		GetterSetterTest getterSetterTest = new GetterSetterTest();
+		getterSetterTest.setScoreKorean(100);
+		getterSetterTest.setScoreEnglish(90);
+		getterSetterTest.setScoreMath(50);
+		
+	}
+
+}
+```
+
+```java
+package com.LDG.KoreaJavaBasicProjec.day_7;
+
+public class ClassInquiry {
+//	필드
+	public int personNumber;     // 주민등록번 -> 이 형식 아니면?
+	public int acconutNumber;   // 계좌번호       //private 접근권한은 해당 클래스의 내부에서만 유효하게 사용이 사능하다.
+	public Strin name;         // 이름
+	public String email;       // 이메일 
+	
+
+
+
+//	public int getPersonNumber() { // 접근자 (getter)
+//		return personNumber;
+//	}
+//
+//
+//
+//	public void setPersonNumber(int personNumber) { // 설정자 (setter)
+//	if (주민등록번호가 맞으면) {     //정규
+//		this.personNumber = personNumber;
+//	}else
+//		 System.err.println("잘못된 입력입니다");
+//		
+//	}
+
+
+
+//
+//
+//	public void readAcconutNumber() {
+//		acconutNumber = 1000;
+//		System.out.println("call readAcconutNumber() -> " + acconutNumber) ;
+//	}
+	
+}
+```
+
+```java
+
+package com.LDG.FakeDiabio;
+
+public class Character {
+
+	private String nickname;
+	private int strength;
+	private int dexterity;
+	private int spirit;
+	private int intelligence;
+	private int power;
+	private int defncr;
+	private int hp;
+
+	
+//	생성자의 특징
+//	1. 메서드명이 클래스명과 동일하다.
+//	2. 반환형 자체가 없다.
+	public Character() {   // 기본 생성자
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+//          메서드 
+	public Character(String nickname, int strength, int dexterity) {    //생성자
+	super();
+	this.nickname = nickname;
+	this.strength = strength;
+	this.dexterity = dexterity;
+	
+	
+	System.out.println(nickname + "이(가) 생성되었습니다.");
+	System.out.println("힘은 " + this.strength);
+	System.out.println("민첩은 " + this.dexterity);
+}
+
+
+	private void useItem(String itemName) {
+		System.out.println(nickname + "이(가)" + itemName + "을(를) 사용했습니다.");
+	}
+
+	public void useItem(String itemName, int count) {
+		System.out.println(nickname + "이(가)" + itemName + "을(를)" + count + "개 사용했습니다." );
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Character [nickname=" + nickname + ", strength=" + strength + ", dexterity=" + dexterity + ", spirit="
+				+ spirit + ", intelligence=" + intelligence + ", power=" + power + ", defncr=" + defncr + ", hp=" + hp
+				+ "]";
+	}
+	
+	
+	
+
+}
+
+```
+
+```java
+package com.LDG.FakeDiabio;
+
+public class Character {
+
+	private String nickname;
+	private int strength;
+	private int dexterity;
+	private int spirit;
+	private int intelligence;
+	private int power;
+	private int defncr;
+	private int hp;
+
+	
+//	생성자의 특징
+//	1. 메서드명이 클래스명과 동일하다.
+//	2. 반환형 자체가 없다.
+	public Character() {   // 기본 생성자
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+//          메서드 
+	public Character(String nickname, int strength, int dexterity) {    //생성자
+	super();
+	this.nickname = nickname;
+	this.strength = strength;
+	this.dexterity = dexterity;
+	
+	
+	System.out.println(nickname + "이(가) 생성되었습니다.");
+	System.out.println("힘은 " + this.strength);
+	System.out.println("민첩은 " + this.dexterity);
+}
+
+
+	private void useItem(String itemName) {
+		System.out.println(nickname + "이(가)" + itemName + "을(를) 사용했습니다.");
+	}
+
+	public void useItem(String itemName, int count) {
+		System.out.println(nickname + "이(가)" + itemName + "을(를)" + count + "개 사용했습니다." );
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Character [nickname=" + nickname + ", strength=" + strength + ", dexterity=" + dexterity + ", spirit="
+				+ spirit + ", intelligence=" + intelligence + ", power=" + power + ", defncr=" + defncr + ", hp=" + hp
+				+ "]";
+	}
+	
+	
+	
+
+}
+```
+
+```java
+package com.LDG.FakeDiabio;
+
+public class DiabloTest {
+
+	public static void main(String[] args) {
+		Character charactr1 = new Character(); // 여기까지는 선언
+//		                             생성자
+		
+		System.out.println(charactr1.toString());
+		
+		Character character2 = new Character("LDG", 1, 4);
+		
+		System.out.println(character2.toString());
+		
+		
+		
+		
+		
+	}
+
+}
+```
+
+```
+클래스                클래스
+CladdInquiry       DayTest
+
+1, 클래스를 사용하는 방법
+  1.1 인스턴스를 생성해서 사용하는 방범(ㅇ)
+           'new'
+  1.2 클래스 자체를 그냥 호출하는 방범 
+```
+
+## 접근자와 설정자
+
+1. 접근자
+   필드값을 반환
+2. 설정자 
+ 필드값을 설정
+ 3. 접근자와 설정자 의 사용 이유
+ * 접근자와 설정자를 사용해야만 나중에 클래스를 업그레이드 할 때 편한다.
+ * 설정자에서 매개 변수를 통하여 잘못된 값이 넘오는 경우, 이름 사전에 차단할 수 있다.
+ * 필요한 태마다 필드값을 계산하여 반환할 수 있다.
+ * 접근자만을 제공하며 자동적으로 잆기만 가능한 필드를 만들 수 있다.
+
+## 생성자
+
+1. 생성자
+ * 객체가 생성될 때 객체를 초기화하는 특수한 메소드
+  클래스 이름과 동일한 메소드가 바로 생성자
+  리턴 타입 X
+
+
+
+
+
+
+  # 2023/6/18
+   생성자
+    this -> 해당 인스턴를 가리킵니다
+
+	메서드로 캑체 전달 및 반환 
+	 자바레서 인수   메개 변수 로 값이 전달 되는 방법은 기본적으로 call-by-value
+	 call-by-value -> 값에 의한 전달 -> 실제 값을 복사해서 준다.
+	 (primitive 기본 자료형)
+	 call-by-value -> 참조헤 의한 전달 -> 실제 값이 위피한 주소값을 전달 -> 값을수정하게 되면 다른 참조 변수의 값에 연양이 생긴다
+
+	 1. 객페가 전달되는 겨우
+	 참조변수의 경. 참조값이 복사되어 서 매개변수로 전달.
+
+	 게층 레이어를 구분 합니다.
+
+	 MVC 패턴
+
+	 Model
+
+	 Controller = 서버
+	     
+	 View
+
+정적 멤버
+
+정적 멤버는 하나의 내용을 여러 곳에서 공통으로 사용하고 싶은 때,
+-> 미리 만들어 놓고 여러 곳에서 접근이 가능하다.
+
+java -> Compile ->  Byte Code -> 한줄한줄 읽어서 실행.
+
+1. 정적 멤버
+ 모든 객체를 통틀어서 하나만 생성되고 모든 객체가 이것을 공유
+ 
+* static 멤버는 static 멤버끼리만 호출 가능하다 -> static 으로 정의된 메서드의 경우
+
+1. 주의사항
+ 객체가 생성되지 않은 상태에서 호출되는 메서드이로 객체 안에서만 존제하는 인스터스
+ 변수들은 사영할 수 없다. 정적 변와 지역 변수만을 사용할 수 있다.
+
+2. 상수
+ + static, final 수식어를 공유한다
+
+ 상수, Convention 전부 태문자, 두 개 이상의 단어 조합일때, _로 구분
+
+## 숙제
+
+1942
+1. 게임플에이 화면을 시청
+2. '사용자' 입장에서 게임을 플레이 하는 동안의 일련의 '모든' 과정을 순차적으로 기술한다.
+3. 꼼꼼이,
+
+제출 기한 : 6월 25일 오후6시 까지
+재출 양식 : 이메일
+이메일 재목 코리아IT_과제_게임분석
+
+## 상속1
+1. 상속
+ + 기존에 존재하는 클래스로부터 코드와 데이터를 이어받고 자식이 필요한 기능을 추가하는 기법
+ + 부모클래스 , 자식클래스
+ + 'extends'
+ 
+ 무엇이 상속이 되는가?
+   부모 클래스의 필드
+   부모 클래스의 메소드
+
+## 왜 상속이 필요한다?
+ + 유지보수 증가
+ + 코드 재사용성이 증가
+ + 중복 코드 제거
+ + *다중상속은 허용하지 않느다!*
+
+ 상속과 접근 제어
+
+ 상속관걔애서는 상속시킬 멤버와 상속시키지 않을 멤버를 지장할 수 있다.
+ 자식클래스는 부모 클래스의 public멤버,    를 상속받음
+ 부모클래스의 privare 멤버는 상속되지 않습니다
+ 
+ ```java
+package com.LDG.KoreaJavaBasicProjec.day_8;
+
+public class SedanTest {
+
+	public static void main(String[] args) {
+		Sedan sedan = new Sedan();	
+	      sedan.setCerNumber("90나 1234");
+	      
+	      System.out.println(sedan.getCerNumber());
+	
+	}
+	
+}
+```
+
+```java
+package com.LDG.KoreaJavaBasicProjec.day_8;
+
+public class Sedan extends Car{ // 세단도 자동차 입니다.
+	// 상속을 받았기 때문에
+	// 부모의 필드와 메서드를 이어받을 수 있습니다.
+	// Q, car 클래스를 상속받지 않고 구현한다면?
+	// 자동차도 자동차인데, 세단도 자동차 아닙니까?
+	// 세단은 자동차랑 똑같은 속성과 동작을 가지는데?
+	
+	
+
+	private String wing;
+
+	public String getWing() {
+		return wing;
+	}
+
+	public void setWing(String wing) {
+		this.wing = wing;
+	}
+	
+	
+
+}
+
+```
+
+```java
+package com.LDG.KoreaJavaBasicProjec.day_8;
+
+public class Car {
+	private String cerNumber;
+	private int MaxSpeed;
+	public String getCerNumber() {
+		return cerNumber;
+	}
+	public void setCerNumber(String cerNumber) {
+		this.cerNumber = cerNumber;
+	}
+	public int getMaxSpeed() {
+		return MaxSpeed;
+	}
+	public void setMaxSpeed(int maxSpeed) {
+		MaxSpeed = maxSpeed;
+	}
+	
+
+}
+```
+
+
