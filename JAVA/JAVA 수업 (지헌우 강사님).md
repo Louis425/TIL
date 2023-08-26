@@ -40,6 +40,7 @@ public class HelloWorld {
 
 //		자료형
 //		기본 자료형
+//		정수 실수 논리형 문자형
 
 //		참조형
 
