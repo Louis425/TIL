@@ -1,4 +1,5 @@
 # 2023년 5월 20일
+
 ```java
 
 package com.helloworld.java;
@@ -9,19 +10,19 @@ public class HelloWorld {
 
 //  java란?
 
-//	객체 지향적이다 
+//	객체 지향적이다
 
 //	처음에는 가전재품 내에 탑제해 동작하는 프로그렘 이였다
 
-//		참조형 주소 매모리 주소 저장 
+//		참조형 주소 매모리 주소 저장
 
-//	jvm을 설치할 수 있는 시스템에서는 어디서나 사용할수있다 
+//	jvm을 설치할 수 있는 시스템에서는 어디서나 사용할수있다
 
 //	매소드
-//	특정한 작을 수행라는 코드의 묶음 
+//	특정한 작을 수행라는 코드의 묶음
 
-//	변수 
-//	데이터를 담아주는 상자 
+//	변수
+//	데이터를 담아주는 상자
 //	사영하기 전, 반즈시 미리 선언해야 한다.->컴하일러에게 어떤 변수를 사용하겠다고 미리 알리는 것
 
 // -------------------------------------------------------------------------
@@ -34,16 +35,15 @@ public class HelloWorld {
 
 // -------------------------------------------------------------------------
 
-//		리터널 
-//		문자형 리터럴 
+//		리터널
+//		문자형 리터럴
 
-//		자료형 
-//		기본 자료형 
-//		정수 실수 논리형 문자형 
+//		자료형
+//		기본 자료형
 
-//		참조형 
+//		참조형
 
-//	    부동소점형 
+//	    부동소점형
 //		대부분 double 사용
 
 //		문자형
@@ -52,25 +52,25 @@ public class HelloWorld {
 //		리터널
 //		소스 코드의 고정된 값을 나타내는 표기법
 
-//		정수형 리너털 
+//		정수형 리너털
 //		정수형 리터널른 부호 있는 int 형으로 저장되는 것이 기본
 
 //		부동소수저명 리터널
 
-//		형상관리 
+//		형상관리
 //		svn, git
 
 //		깃 장점
 //       비공게 온로드 가능
-//		3명까지 팀 가능 
+//		3명까지 팀 가능
 
-//		내일 수업 연산자 
+//		내일 수업 연산자
 
 //		자바 장점: 객체 지향적
 //	처음에는 가전재품 내에 탑제해 동작하는 프로그렘 이였다
-//		참조형 주소 매모리 주소 저장 
+//		참조형 주소 매모리 주소 저장
 
-//		jvm을 설치할 수 있는 시스템에서는 어디서나 사용할수있다 
+//		jvm을 설치할 수 있는 시스템에서는 어디서나 사용할수있다
 
 //      주석
 
@@ -80,9 +80,9 @@ public class HelloWorld {
 
 		/*
 		 * 상세한 코드들을 적을데 사용
-		 * 
-		 * 
-		 * 
+		 *
+		 *
+		 *
 		 */
 
 	}
@@ -97,38 +97,38 @@ public class HelloWorld {
 package com.ldg.seconprojrct.day_2;
 
 public class OperaratorTest {
-	
+
 	public static void main(String[] args) {
 
 // -------------------------------------------------------------------------
-		
+
 		int velue = 100;            // sum --> value 변수에 10을가한
 		int sum = velue + 300;      //sum % 13
 		int  restValue = sum % 13;
-		
+
 // -------------------------------------------------------------------------
-		
+
 		System.out.println("velue is -> " + velue);
 		System.out.println("sum is -> " + sum);
 		System.out.println(" restValue is " + restValue) ;
-		
+
 // -------------------------------------------------------------------------
-    
+
 		int num = 10;
 		num += 1;
 //		num - num  + 1;
 		System.out.println ("unm is==>" + num);
-		
+
 		int testVeluel1 = 1;
 //		++testVeluel1 ;
 		int testVeluel2 = 1 ;
 //		testVeluel2++;
-		
+
 		System.out.println("testVeluel1==>" + (++testVeluel1));
 
 		System.out.println("testVeluel2==>" + (testVeluel2++));
 		System.out.println("testVeluel2==>" + (testVeluel2++));
-		
+
 	}
 
 // -------------------------------------------------------------------------
@@ -137,7 +137,6 @@ public class OperaratorTest {
 
 // -------------------------------------------------------------------------
 ```
-
 
 ```java
 package com.ldg.seconprojrct.day_2;
@@ -145,90 +144,92 @@ package com.ldg.seconprojrct.day_2;
 public class CompairisinOprator {
 
 	public static void main(String[] args) {
-		
+
 // -------------------------------------------------------------------------
 
 		int compareValue1 = 3;
-		
+
 		int compareValue2 = 4;
-		
+
 
 // -------------------------------------------------------------------------
 
 		System.out.println((compareValue1 == compareValue2));
-		
+
 		System.out.println((compareValue1 != compareValue2));
-		
+
 		System.out.println((compareValue1 > compareValue2));
-		
+
 		System.out.println((compareValue1 < compareValue2));
-		
+
 		System.out.println((compareValue1 <= compareValue2));
-		
+
 		System.out.println((compareValue1 >= compareValue2));
-		
+
 	}
-	
+
 }
 // -------------------------------------------------------------------------
 ```
+
 ```java
 package com.ldg.seconprojrct.day_2;
 
 public class LogicalOpreator {
-	
+
 	public static void main(String[] args) {
 
 // -------------------------------------------------------------------------
 
-		 
+
         int compareValue1 = 3;
-		
+
 		int compareValue2 = 4;
-		
+
 		System.out.println(
-				(compareValue1 == 3) && (compareValue2 == 7) 
+				(compareValue1 == 3) && (compareValue2 == 7)
 				);
-		
+
 		System.out.println((compareValue1 == 3) || (compareValue2 == 7) );
-		
+
 		System.out.println(!(compareValue1 == 3));
-		
+
 		double value = compareValue2;
-		
+
 		System.out.println(value);
-		
+
 	}
 // -------------------------------------------------------------------------
 ```
+
 ```java
 package com.ldg.seconprojrct.day_2;
 
 import java.util.Scanner;
 
 public class ScannerTest {
-	
+
 	public static void main(String[] args) {
 
 // -------------------------------------------------------------------------
-		
+
 	   Scanner input = new Scanner(System.in);
-	   
+
 	   int firdtInput;
 	   int seconrInput;
-	   
+
 	   System.out.println("첫 반째 숫자를 입력하세요 :");
-	   
+
 	   firdtInput = input.nextInt();
-		
+
 		System.out.println("두 번쨰 숫자를 입력하세요 :");
-		
+
 		seconrInput = input.nextInt();
 		System.out.println("입역받은 값은 " + firdtInput + ", " + seconrInput +" 입니다." );
-		
+
 // -------------------------------------------------------------------------
 
-		
+
 	}
 
 }
@@ -242,7 +243,7 @@ public class TypeConversion {
 	public static void main(String[] args) {
 
 		int value = 129;
-		
+
 		byte value1 = (byte) value;
 
 		System.out.println(value1);
@@ -258,38 +259,38 @@ package com.ldg.seconprojrct.day_2;
 import java.util.Scanner;
 
 public class DayTest {
-	
+
 	public static void main(String[] args) {
-		
+
 // -------------------------------------------------------------------------
 
 //		int value1  = 2;
-//		
+//
 //		int value2 = 2;
-//		
+//
 //		System.out.println( value2 * value1 );
-//		
+//
 // -------------------------------------------------------------------------
 		 Scanner input = new Scanner(System.in);
 
 		   int firdtInput;
 		   int seconrInput;
-		   
+
 		    System.out.println("사각형의 가로 넓이를 입력하세요 :");
-		   
+
 		    firdtInput = input.nextInt();
-			
+
 			System.out.println("사각형의 세로 넓이를 입력하세요 :");
-			
+
 			seconrInput = input.nextInt();
 			System.out.println("사각형의 넓이값은 " + ( firdtInput * seconrInput) + "입니다. ");
-			
+
 //			"문자열" + 저장값 + "문자열"
-			
+
 // -------------------------------------------------------------------------
 
 	}
-	
+
 }
 // -------------------------------------------------------------------------
 ```
@@ -298,20 +299,20 @@ public class DayTest {
 package com.ldg.seconprojrct.day_2;
 
 public class TernaryOperator {
-	
-	public static void main(String[] args) {
-		
-		int valur1 = 3;
-		
-		int valur2 = 4;
-		
-//      삼항연산자 
 
-//		(조건) ? '참에 대한 결과물 (코드)' : '거짓에 대한 결과물 (코드)' 
-		
+	public static void main(String[] args) {
+
+		int valur1 = 3;
+
+		int valur2 = 4;
+
+//      삼항연산자
+
+//		(조건) ? '참에 대한 결과물 (코드)' : '거짓에 대한 결과물 (코드)'
+
 		System.out.println(( valur1 > valur2) ? "valur1 이 valur2 보다 큽니다 " : "valur1 이 velur2 보다 작습니다.");
-		
-		
+
+
 	}
 
 }
@@ -322,13 +323,13 @@ public class TernaryOperator {
 
 ## 조건문.
 
-* 조건에 따라 여러 개의. 실행 경로 가운데 하나를 선택해야 하는 경우 사용 되는 문장
+- 조건에 따라 여러 개의. 실행 경로 가운데 하나를 선택해야 하는 경우 사용 되는 문장
 
-* If ~ else 문
+- If ~ else 문
 
-* Switch 문
+- Switch 문
 
-* 삼항 연산자
+- 삼항 연산자
 
 ```java
 package com.LDG.KoreaJavaBasicProjec;
@@ -344,36 +345,36 @@ public class ConditionTest {
 		if (isGoodWeather) {
 			// 해당 조건문이 true 일 떄, 수행하는 동작을 작성
 			System.out.println("날씨가 좋은니까 나갑니다.");
-			
+
 		} else {
 			// 해당 조건무이 false 일 떄, 수행하는 동작을 작성
 			System.out.println("날씨가 안좋으니까 집에 있을겁니다. ");
 		}
 
 		/**
-		 * 우리가 파악하고자 하는 조건을 다음과 같다. 
-		 * 1. 학생은 시험을 치르고 성적을 받는다. 
-		 * 2. 성적에 따라서 학점을 부여한다. 
+		 * 우리가 파악하고자 하는 조건을 다음과 같다.
+		 * 1. 학생은 시험을 치르고 성적을 받는다.
+		 * 2. 성적에 따라서 학점을 부여한다.
 		 * 2.1 90점
 		 * 이상은 A 2.2 그 외는 F
-		 * 
+		 *
 		 * v1
 		 */
-		
-		
-		
+
+
+
 		/**
-		 * 우리가 파악하고자 하는 조건을 다음과 같다. 
-		 * 1. 학생은 시험을 치르고 성적을 받는다. 
-		 * 2. 성적에 따라서 학점을 부여한다. 
+		 * 우리가 파악하고자 하는 조건을 다음과 같다.
+		 * 1. 학생은 시험을 치르고 성적을 받는다.
+		 * 2. 성적에 따라서 학점을 부여한다.
 		 * 2.1 90점 이상은 A (srore >= 90)
 		 * 2.2 80점 이상은 B (90 > srore >= 80)
 		 * 2.3 70점 이상은 C (70 > srore >= 60)
-		 * 2,4 그 외 F 
-		 * 
+		 * 2,4 그 외 F
+		 *
 		 * v2
 		 */
-		
+
 		// 의문사향
 				// 1. 과연 조건이 이게 전부일까?
 				// 2. 이게 최선일가?
@@ -382,9 +383,9 @@ public class ConditionTest {
 				//ex) 우리는 수학시점을 치르고 점수도 받고, 학점도 받았습니다.
 				//ex) 그런데 선생님이 국어시험도 치자고 합니다.
 				//ex) 국어시험의 결과로 성적도 받고 학점도 부여 받을 예졍입니다.
-		
+
 				//제약사항 - 국어성적의 학점은 수학성적에 영향을 받습니다.
-		        //       - 수학성적이 90점 이상이면서 국어성적이 90 이상 
+		        //       - 수학성적이 90점 이상이면서 국어성적이 90 이상
                 //	학생, 시험, 성적, 학정, A, B, C, F,
 
 		String studentName = "LDG"; // 학생이름
@@ -393,8 +394,8 @@ public class ConditionTest {
 
 		int mathscore = 90; // 학생의 성적 (점수)
 
-		int koreamscore = 90; // 국어성적 
-		
+		int koreamscore = 90; // 국어성적
+
 		String GradesA = "A"; // 학점 A
 		String GradesB = "B"; // 학점 B
 		String GradesC = "C"; // 학점 C
@@ -402,30 +403,30 @@ public class ConditionTest {
 
 //		== 같은지 비교
 //		!= 같지 않은지
-		
-		
+
+
 		// 제약사항 - 국어성적의 학점은 수학성적에 영향을 받습니다.
 		//        - 수학성적이 90점 이상이면서 국어성적이 90점 이상이면 합격입니다.
-		
+
 		if (mathscore >= 90 && koreamscore >= 90) {
 			System.out.println(studentName + "는 합격입니다! ");
 		}
-		
+
 		if (mathscore >= 90) {
 			// 성적이 90점 이상일 때,
 			// 학생은 A 학생을 부여받는다.
 
-			
+
 			System.out.println(studentName + "은 " + IicenseName + "에서 학점 " + GradesA + "를 받았습니다.");
-			
+
 			if(koreamscore >= 90) {
-				
+
 				System.out.println(studentName + "는 합격입니다! ");
-				
+
 		} else if (mathscore >= 80){
 			// 성적이 80점 이상일 때,
 			// 학생은 B 학생을 부여받는다.
-			
+
 			System.out.println(studentName + "은 " + IicenseName + "에서 학점 " + GradesB + "를 받았습니다.");
 			}
 		}else if (mathscore >= 70){
@@ -437,13 +438,13 @@ public class ConditionTest {
 		}else
 			// 성적이 70점 이상일 때,
 			// 학생은 F 학생을 부여받는다.
-			
+
 			System.out.println(studentName + "은 " + IicenseName + "에서 학점 " + GradesF + "를 받았습니다.");
-			
-			
+
+
 //		System.out.println(score >= 90 ? studentName + "은 " + IicenseName + "에서 학점 " + GradesA + "를 받았습니다."
 //				: studentName + "은 " + IicenseName + "에서 학점 " + GradesF + "를 받았습니다.");
-		
+
 	}
 
 }
@@ -456,55 +457,55 @@ package com.LDG.KoreaJavaBasicProjec;
 import java.beans.Customizer;
 
 public class SwitchTest {
-	
+
 	public static void main(String[] args) {
-		
+
 //		상황 - 우리는 쇼핑몰을 운여하고 있습나다.
 //		    - 고객에게 쿠폰을 지금하려고 합니다
 //		    - 일반고객은 10원 쿠폰을 줍니다.
 //		    - VIP는 100원 쿠폰릉 줍니다.
 //		    - VVIP 1,000원 쿠폰을 줍니다
-//		    
+//
 //		    쇼핑몰의 고객은 다음과 같습니다.
-		
+
 //		    1. 일반고겍
 //		    1.1 일반고겍은 회원가입만 한 고겍입니다.                     (deprecated)
-//		    2. VIP 
+//		    2. VIP
 //		    2.1 는 회원가입을 했고, 100,000원 이상을 구매한 고겍입니다.    (deprecated)
 //		    3. VVIP
 //		    3.1 vvip은 회원가을 헸고, 1,000,000원 이상 구매한 고겍입니다. (deprecated)
-//		    
+//
 		   String customer = "일반고객"; // 고객
-		   
+
 		   switch (customer) {
 		case "일반고객":
-			// 해당 조건일 수행할 코드를 입력 
+			// 해당 조건일 수행할 코드를 입력
 			System.out.println("일반고객 입니다.");
 			break;
 		case "vip":
-			// 해당 조건일 수행할 코드를 입력 
+			// 해당 조건일 수행할 코드를 입력
 			System.out.println("VIP 입니다.");
 			break;
 		case "vvip":
-			// 해당 조건일 수행할 코드를 입력 
+			// 해당 조건일 수행할 코드를 입력
 			System.out.println("VVIP 입니다.");
 			break;
 		default:
-			// 해당 조건일 수행할 코드를 입력 
+			// 해당 조건일 수행할 코드를 입력
 			System.out.println("예외 입니다.");
 			break;
 		}
-		
+
 		if (customer == "일반고객") {
 			System.out.println("일반고객 입니다.");
 		} else if (customer == "VIP"){
 			System.out.println("VIP 입니다.");
 		} else if (customer == "VVIP"){
 			System.out.println("VVIP 입니다.");
-		} else 
+		} else
 			System.out.println("예외 입니다.");
 		}
-		
+
 	}
 // -------------------------------------------------------------------------
 ```
@@ -517,7 +518,7 @@ import java.util.Scanner;
 public class DayTest {
 	public static void main(String[] args) {
 		/**
-		 * 
+		 *
 		상황.
 
 		1.학생 성적을 입력 받습니다.
@@ -536,7 +537,7 @@ public class DayTest {
 
 		3.1 평균이 80점 이상은 합격입니다.
 		3.2 그외는 불합격 입니다.
-		
+
 		*/
 
 		Scanner input = new Scanner(System.in);
@@ -568,7 +569,7 @@ public class DayTest {
 
 		} else
 			System.out.println("수학 성적 F입니다 ");
-		
+
 		if (B >= 90) {
 			System.out.println(" 국어 성적 A입니다 ");
 
@@ -580,7 +581,7 @@ public class DayTest {
 
 		} else
 			System.out.println(" 국어 성적 F입니다 ");
-		
+
 		if (C >= 90) {
 			System.out.println(" 영어 성적 A입니다 ");
 
@@ -592,56 +593,56 @@ public class DayTest {
 
 		} else
 			System.out.println(" 영어 성적 F입니다 ");
-		
+
 		if( A == B == C >= 80) {
 			System.out.println("합격입니다");
 		}else if(A == B == C >= 70)
 		System.out.println("불합격입니다");
 
 	    switch ( A ) {
-		case 100 : 
-		case 90 : 
+		case 100 :
+		case 90 :
 			System.out.println(" 수학 성적 A입니다 ");
 			break;
-		case 80 : 
+		case 80 :
 			System.out.println(" 수학 성적 B입니다 ");
 			break;
-		case 70 : 
+		case 70 :
 			System.out.println(" 수학 성적 C입니다 ");
 			break;
-		case 60 : 
+		case 60 :
 			System.out.println(" 수학 성적 F입니다 ");
 			break;
 
 	    }
 	    switch ( B ) {
-		case 100 : 
-		case 90 : 
+		case 100 :
+		case 90 :
 			System.out.println(" 국어 성적 A입니다 ");
 			break;
-		case 80 : 
+		case 80 :
 			System.out.println(" 국어 성적 B입니다 ");
 			break;
-		case 70 : 
+		case 70 :
 			System.out.println(" 수학 국어 C입니다 ");
 			break;
-		case 60 : 
+		case 60 :
 			System.out.println(" 수학 국어 F입니다 ");
 			break;
 
 	    }
 	    switch ( C ) {
-		case 100 : 
-		case 90 : 
+		case 100 :
+		case 90 :
 			System.out.println(" 영어 성적 A입니다 ");
 			break;
-		case 80 : 
+		case 80 :
 			System.out.println(" 영어 성적 B입니다 ");
 			break;
-		case 70 : 
+		case 70 :
 			System.out.println(" 영어 성적 C입니다 ");
 			break;
-		case 60 : 
+		case 60 :
 			System.out.println(" 영어 성적 F입니다 ");
 			break;
 
@@ -671,6 +672,7 @@ public class DayTest {
           ↓
     클라이언트
 ```
+
 # 반복문
 
 ## 1. while 문
@@ -717,20 +719,20 @@ package com.LDG.KoreaJavaBasicProjec.day_4;
 public class LoopTest {
 
 	public static void main(String[] args) {
-		
+
 		int j = 13;
-		
+
 		do {
 			System.out.println("j -> " + j);
 			j++;
 		} while (j  < 10);
 		System.out.println("끝났습니다. j -> " + j);
-		
-		
-		
-		
+
+
+
+
 	}
-	
+
 }
 //-------------------------------------------------------------------------
 ```
@@ -770,6 +772,7 @@ public class ForLoopExample {
 반복문의 중첩
 
 반복문은 중첩괴어 사용할수 있다
+
 ```java
 package com.LDG.KoreaJavaBasicProjec.day_4;
 
@@ -801,6 +804,7 @@ public class NestedLoop {
 }
 // -------------------------------------------------------------------------
 ```
+
 ```java
 package com.LDG.KoreaJavaBasicProjec.day_4;
 
@@ -849,20 +853,20 @@ public class MestedLoopTest {
 	public static void main(String[] args) {
 		makeSquare(10, 20);
 	}
-	
+
 }
 // -------------------------------------------------------------------------
 ```
 
-#  생각을 구체화 하는 방범
-  - 표현방법의 입장에서는 
-  - 완전한 문장으로 기술한다.
-  - 누나 / 무엇을 / 언제 / 어디서 / 어떻게 / 왜?
+# 생각을 구체화 하는 방범
 
+- 표현방법의 입장에서는
+- 완전한 문장으로 기술한다.
+- 누나 / 무엇을 / 언제 / 어디서 / 어떻게 / 왜?
 
 - ‘누구’ 의 관점에서 기술하는지가 중요합니다.
-  * 사용자 입장에서 동작이 어떤 의미를 가지는지
-   * 어떤 결과를 보여줘야 하는지
+  - 사용자 입장에서 동작이 어떤 의미를 가지는지
+  - 어떤 결과를 보여줘야 하는지
 
 ## <예시>
 
@@ -878,7 +882,7 @@ public class MestedLoopTest {
 
 의사는 고객이 복용 중인 약을 확인하고, 적절한 약을 처방합니다.
 
-----------------
+---
 
 # 2022년 6월 10일
 
@@ -931,27 +935,32 @@ public class MestedLoopTest {
 
 * 인스타 아이 물어보기
 ```
+
 상대장의 정보가 필요합니다.
+
 ```
 - 관심, 관찰 -> 상대방의 정보 생깁니다. -> 대화의 소재
 ```
+
 무엇을 ‘개발’할지 -> 연결되는 부분
 
 - 관찰
 - 관찰한 내용을 완전한 문장으로 표현한다.
+
 ```
 친해지고 싶은 사람이 있습니다.
 친해지고 싶은 사람이 게임을 하고 있습니다.
 친해지고 싶은 사람이 무슨 게임을 하는지?
 친해지고 싶은 사람이 언제 게임을 하는지?
 ```
+
 유저스토리
 
 요약
+
 ```
 1. 사용자 관점에서 ‘목적’을 정의하고 완전한 문장으로 표현한다.
 ```
-
 
 - 소프트웨어 공학의 모든 것
 
@@ -964,17 +973,21 @@ public class MestedLoopTest {
 배열이란?
 
 If. 학생 10명이 있고 이들의 성적의 평균을 계산한다.
+
 ```
 1. 학생 10명의 점수를 변수에 저장
 2. 편군값 계산
 ```
+
 1.배열
+
 ```
  * 여러 개의 변수를 하나로 붂어 넣은 것
 도일한 타입의 데이터를여러 개 저장할 수 있는 저장 장소
 ```
 
 배열의 선언과 사용
+
 ```
 배열의 자료형 / 배열의 이름 / 배열의 크기
 ```
@@ -982,11 +995,13 @@ If. 학생 10명이 있고 이들의 성적의 평균을 계산한다.
 고급배열
 
 무명배열
+
 ```
  + 배열의 이름을 지정하지 않고 단순히  초기값만으로 생성한 배열
 ```
 
 ArrayList
+
 ```
 실행 도중에 배열의 크기를 변경할 수 있는 동적 배열
 ```
@@ -998,9 +1013,10 @@ ArrayList
 ```
 분석을 하는 방법 -> 어떻게 할까요?
 ```
+
 ```
 1. 관찰 -> 사용자를 기준으로 사용다가 무엇을 하려고 하는지?
- 
+
 언재 하려고 하는지?
 어디서 하려고 하는지?
  (육하원칙)
@@ -1040,7 +1056,7 @@ public class ArrayListTest {
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println("list{" + i + "]" + list.get(i));
 
-//		
+//
 
 		}
 
@@ -1059,39 +1075,39 @@ public class ArrayTest {
 //		1. 배열을 선언
 //		int[] array = new int[10];
 
-//		
-//		
+//
+//
 //		인덱스는 0 에서부터 시작합니다.
 //		array[0] = 10;
-//		
+//
 //	    System.out.println(array[0]);
-//		
-//		
-//		
+//
+//
+//
 //		for (int i = 0; i < array.length; i++) {
 //			array[i] = i;
 //		}
-//		
+//
 //		for (int i = 0; i < array.length; i++) {
 //			System.out.println("array[" + i + "[ -> + " + array[i]);
 //		}
-//		
-//		
+//
+//
 //		Q. 인덱스의 범위를 벗어난 배열의 사용은 어떻게 될까?
 //		System.out.println(array[10]);
-//		
-//		
-//		
+//
+//
+//
 //		 Q. 배열을 선언함과 동시에 배열을 정의는 할 수 없을까?
-//		
+//
 //		전재조건 : 배열의 크기를 지정해야 사용할 수 있다.
 //		int[] scores = {10, 20, 30, 40 };
 //		for (int i = 0; i < scores.length; i++) {
 //		System.out.println("scores[" + i + "] -> " + scores[i] );
 //		}
-//		
+//
 //	}
-//	
+//
 //	메서드의 구조
 //	(접근권한) 반환형 메서드명(매개변수){
 //	메서드가 수행할 내용
@@ -1104,8 +1120,8 @@ public class ArrayTest {
 //					new int[] {1,2,3,4}
 //					)
 //			);
-//	
-//	
+//
+//
 //	public static double getAverage(int[] scores) {
 //		double average = 0;
 
@@ -1116,24 +1132,25 @@ public class ArrayTest {
 
 //		1. 학생 10명의 성적을 모두 더한다.
 //		int total = 0;
-//		
+//
 //		for( int i = 0; i < scores.length; i++) {
 //		total += scores[i];
-//		
-//		
+//
+//
 //		for (int score : scores) {
 //			total += score;
 //		}
-//		
+//
 //		2.더한 값을 학생수로 나눠서 평균값을 구한다.
 //		average = total / scores.length;
-//		
+//
 //		return average;
 	}
 
 }
 // -------------------------------------------------------------------------
 ```
+
 ```java
 package com.LDG.KoreaJavaBasicProjec.day_5;
 
@@ -1148,12 +1165,12 @@ public class ArrayTest1 {
 		System.out.println(value);
 		System.out.println(copvValue);
 
-//	
-//	
+//
+//
 //	int[] list = {1,2,3,4};
 //	int[] copylists = list;
-//	
-//	
+//
+//
 //	System.out.println("list 출력");
 //	for (int data : list) {
 //		System.out.println(data);
@@ -1162,7 +1179,7 @@ public class ArrayTest1 {
 //  for(int data : copylists) {
 //	  System.out.println(data);
 //  }
-//	
+//
 
 	}
 
@@ -1174,11 +1191,12 @@ public class ArrayTest1 {
 
 자바 강의
 
-1 접근 제어 
+1 접근 제어
 
-접근 제어 
- * 클래스의 멤버에 접근하는 것을 제어하는 것
- * 클래스 내부에 선언된변수 중에서 민감한 정보를능 클래스 내부에서만 사용하도록 할 필요가 있다.
+접근 제어
+
+- 클래스의 멤버에 접근하는 것을 제어하는 것
+- 클래스 내부에 선언된변수 중에서 민감한 정보를능 클래스 내부에서만 사용하도록 할 필요가 있다.
 
 2 접근 제어 지정자
 
@@ -1186,7 +1204,6 @@ public
 protected
 없음
 private
-
 
 정규표햔식
 
@@ -1253,49 +1270,49 @@ public class GetterSetterTest {
 package com.LDG.KoreaJavaBasicProjec.day_7;
 
 public class DayTest {
-	
-	
+
+
 	public static void main(String[] args) {
 //		ClassInquiry
 
 		ClassInquiry classInquiry = new ClassInquiry();
-		
+
 //		classInquiry.personNumber = 100;
 //		classInquiry.acconutNumber =100;
-		
+
 //		classInquiry.setPersonNumber(100); // setter 호출
-		
-		
-		
+
+
+
 //		callpersonNumber(classInquiry);
-		
+
 //		System.out.println(classInquiry.getPersonNumber()); // getter 호
-		
+
 //		classInquiry.readAcconutNumber();
-		
-		
-		
+
+
+
 //	}
 //	static void callpersonNumber(ClassInquiry classInquiry) {
 //		classInquiry.personNumber = 1000;
 //	}
-	
-	
-		
-		
+
+
+
+
 //		getAverage
-		
-		
+
+
 //	평균을 구하는 메서드
 	static void getAverage() {
-	   
+
 	   // 클래스로 인스턴를 생성
 	   // 아직은 setter 호출X
 		GetterSetterTest getterSetterTest = new GetterSetterTest();
 		getterSetterTest.setScoreKorean(100);
 		getterSetterTest.setScoreEnglish(90);
 		getterSetterTest.setScoreMath(50);
-		
+
 	}
 
 }
@@ -1309,8 +1326,8 @@ public class ClassInquiry {
 	public int personNumber;     // 주민등록번 -> 이 형식 아니면?
 	public int acconutNumber;   // 계좌번호       //private 접근권한은 해당 클래스의 내부에서만 유효하게 사용이 사능하다.
 	public Strin name;         // 이름
-	public String email;       // 이메일 
-	
+	public String email;       // 이메일
+
 
 
 
@@ -1325,7 +1342,7 @@ public class ClassInquiry {
 //		this.personNumber = personNumber;
 //	}else
 //		 System.err.println("잘못된 입력입니다");
-//		
+//
 //	}
 
 
@@ -1336,7 +1353,7 @@ public class ClassInquiry {
 //		acconutNumber = 1000;
 //		System.out.println("call readAcconutNumber() -> " + acconutNumber) ;
 //	}
-	
+
 }
 ```
 
@@ -1355,7 +1372,7 @@ public class Character {
 	private int defncr;
 	private int hp;
 
-	
+
 //	생성자의 특징
 //	1. 메서드명이 클래스명과 동일하다.
 //	2. 반환형 자체가 없다.
@@ -1363,15 +1380,15 @@ public class Character {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-//          메서드 
+
+//          메서드
 	public Character(String nickname, int strength, int dexterity) {    //생성자
 	super();
 	this.nickname = nickname;
 	this.strength = strength;
 	this.dexterity = dexterity;
-	
-	
+
+
 	System.out.println(nickname + "이(가) 생성되었습니다.");
 	System.out.println("힘은 " + this.strength);
 	System.out.println("민첩은 " + this.dexterity);
@@ -1385,17 +1402,17 @@ public class Character {
 	public void useItem(String itemName, int count) {
 		System.out.println(nickname + "이(가)" + itemName + "을(를)" + count + "개 사용했습니다." );
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
 		return "Character [nickname=" + nickname + ", strength=" + strength + ", dexterity=" + dexterity + ", spirit="
 				+ spirit + ", intelligence=" + intelligence + ", power=" + power + ", defncr=" + defncr + ", hp=" + hp
 				+ "]";
 	}
-	
-	
-	
+
+
+
 
 }
 
@@ -1415,7 +1432,7 @@ public class Character {
 	private int defncr;
 	private int hp;
 
-	
+
 //	생성자의 특징
 //	1. 메서드명이 클래스명과 동일하다.
 //	2. 반환형 자체가 없다.
@@ -1423,15 +1440,15 @@ public class Character {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-//          메서드 
+
+//          메서드
 	public Character(String nickname, int strength, int dexterity) {    //생성자
 	super();
 	this.nickname = nickname;
 	this.strength = strength;
 	this.dexterity = dexterity;
-	
-	
+
+
 	System.out.println(nickname + "이(가) 생성되었습니다.");
 	System.out.println("힘은 " + this.strength);
 	System.out.println("민첩은 " + this.dexterity);
@@ -1445,17 +1462,17 @@ public class Character {
 	public void useItem(String itemName, int count) {
 		System.out.println(nickname + "이(가)" + itemName + "을(를)" + count + "개 사용했습니다." );
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
 		return "Character [nickname=" + nickname + ", strength=" + strength + ", dexterity=" + dexterity + ", spirit="
 				+ spirit + ", intelligence=" + intelligence + ", power=" + power + ", defncr=" + defncr + ", hp=" + hp
 				+ "]";
 	}
-	
-	
-	
+
+
+
 
 }
 ```
@@ -1468,17 +1485,17 @@ public class DiabloTest {
 	public static void main(String[] args) {
 		Character charactr1 = new Character(); // 여기까지는 선언
 //		                             생성자
-		
+
 		System.out.println(charactr1.toString());
-		
+
 		Character character2 = new Character("LDG", 1, 4);
-		
+
 		System.out.println(character2.toString());
-		
-		
-		
-		
-		
+
+
+
+
+
 	}
 
 }
@@ -1491,123 +1508,126 @@ CladdInquiry       DayTest
 1, 클래스를 사용하는 방법
   1.1 인스턴스를 생성해서 사용하는 방범(ㅇ)
            'new'
-  1.2 클래스 자체를 그냥 호출하는 방범 
+  1.2 클래스 자체를 그냥 호출하는 방범
 ```
 
 ## 접근자와 설정자
 
 1. 접근자
    필드값을 반환
-2. 설정자 
- 필드값을 설정
- 3. 접근자와 설정자 의 사용 이유
- * 접근자와 설정자를 사용해야만 나중에 클래스를 업그레이드 할 때 편한다.
- * 설정자에서 매개 변수를 통하여 잘못된 값이 넘오는 경우, 이름 사전에 차단할 수 있다.
- * 필요한 태마다 필드값을 계산하여 반환할 수 있다.
- * 접근자만을 제공하며 자동적으로 잆기만 가능한 필드를 만들 수 있다.
+2. 설정자
+   필드값을 설정
+3. 접근자와 설정자 의 사용 이유
+
+- 접근자와 설정자를 사용해야만 나중에 클래스를 업그레이드 할 때 편한다.
+- 설정자에서 매개 변수를 통하여 잘못된 값이 넘오는 경우, 이름 사전에 차단할 수 있다.
+- 필요한 태마다 필드값을 계산하여 반환할 수 있다.
+- 접근자만을 제공하며 자동적으로 잆기만 가능한 필드를 만들 수 있다.
 
 ## 생성자
 
 1. 생성자
- * 객체가 생성될 때 객체를 초기화하는 특수한 메소드
+
+- 객체가 생성될 때 객체를 초기화하는 특수한 메소드
   클래스 이름과 동일한 메소드가 바로 생성자
   리턴 타입 X
 
+# 2023/6/18
 
+생성자
+this -> 해당 인스턴를 가리킵니다
 
+    메서드로 캑체 전달 및 반환
+     자바레서 인수   메개 변수 로 값이 전달 되는 방법은 기본적으로 call-by-value
+     call-by-value -> 값에 의한 전달 -> 실제 값을 복사해서 준다.
+     (primitive 기본 자료형)
+     call-by-value -> 참조헤 의한 전달 -> 실제 값이 위피한 주소값을 전달 -> 값을수정하게 되면 다른 참조 변수의 값에 연양이 생긴다
 
+     1. 객페가 전달되는 겨우
+     참조변수의 경. 참조값이 복사되어 서 매개변수로 전달.
 
+     게층 레이어를 구분 합니다.
 
-  # 2023/6/18
-   생성자
-    this -> 해당 인스턴를 가리킵니다
+     MVC 패턴
 
-	메서드로 캑체 전달 및 반환 
-	 자바레서 인수   메개 변수 로 값이 전달 되는 방법은 기본적으로 call-by-value
-	 call-by-value -> 값에 의한 전달 -> 실제 값을 복사해서 준다.
-	 (primitive 기본 자료형)
-	 call-by-value -> 참조헤 의한 전달 -> 실제 값이 위피한 주소값을 전달 -> 값을수정하게 되면 다른 참조 변수의 값에 연양이 생긴다
+     Model
 
-	 1. 객페가 전달되는 겨우
-	 참조변수의 경. 참조값이 복사되어 서 매개변수로 전달.
+     Controller = 서버
 
-	 게층 레이어를 구분 합니다.
-
-	 MVC 패턴
-
-	 Model
-
-	 Controller = 서버
-	     
-	 View
+     View
 
 정적 멤버
 
 정적 멤버는 하나의 내용을 여러 곳에서 공통으로 사용하고 싶은 때,
 -> 미리 만들어 놓고 여러 곳에서 접근이 가능하다.
 
-java -> Compile ->  Byte Code -> 한줄한줄 읽어서 실행.
+java -> Compile -> Byte Code -> 한줄한줄 읽어서 실행.
 
 1. 정적 멤버
- 모든 객체를 통틀어서 하나만 생성되고 모든 객체가 이것을 공유
- 
-* static 멤버는 static 멤버끼리만 호출 가능하다 -> static 으로 정의된 메서드의 경우
+   모든 객체를 통틀어서 하나만 생성되고 모든 객체가 이것을 공유
+
+- static 멤버는 static 멤버끼리만 호출 가능하다 -> static 으로 정의된 메서드의 경우
 
 1. 주의사항
- 객체가 생성되지 않은 상태에서 호출되는 메서드이로 객체 안에서만 존제하는 인스터스
- 변수들은 사영할 수 없다. 정적 변와 지역 변수만을 사용할 수 있다.
+   객체가 생성되지 않은 상태에서 호출되는 메서드이로 객체 안에서만 존제하는 인스터스
+   변수들은 사영할 수 없다. 정적 변와 지역 변수만을 사용할 수 있다.
 
 2. 상수
- + static, final 수식어를 공유한다
 
- 상수, Convention 전부 태문자, 두 개 이상의 단어 조합일때, _로 구분
+- static, final 수식어를 공유한다
+
+상수, Convention 전부 태문자, 두 개 이상의 단어 조합일때, \_로 구분
 
 ## 숙제
 
 1942
+
 1. 게임플에이 화면을 시청
 2. '사용자' 입장에서 게임을 플레이 하는 동안의 일련의 '모든' 과정을 순차적으로 기술한다.
 3. 꼼꼼이,
 
 제출 기한 : 6월 25일 오후6시 까지
 재출 양식 : 이메일
-이메일 재목 코리아IT_과제_게임분석
+이메일 재목 코리아IT*과제*게임분석
 
 ## 상속1
+
 1. 상속
- + 기존에 존재하는 클래스로부터 코드와 데이터를 이어받고 자식이 필요한 기능을 추가하는 기법
- + 부모클래스 , 자식클래스
- + 'extends'
- 
- 무엇이 상속이 되는가?
-   부모 클래스의 필드
-   부모 클래스의 메소드
+
+- 기존에 존재하는 클래스로부터 코드와 데이터를 이어받고 자식이 필요한 기능을 추가하는 기법
+- 부모클래스 , 자식클래스
+- 'extends'
+
+무엇이 상속이 되는가?
+부모 클래스의 필드
+부모 클래스의 메소드
 
 ## 왜 상속이 필요한다?
- + 유지보수 증가
- + 코드 재사용성이 증가
- + 중복 코드 제거
- + *다중상속은 허용하지 않느다!*
 
- 상속과 접근 제어
+- 유지보수 증가
+- 코드 재사용성이 증가
+- 중복 코드 제거
+- _다중상속은 허용하지 않느다!_
 
- 상속관걔애서는 상속시킬 멤버와 상속시키지 않을 멤버를 지장할 수 있다.
- 자식클래스는 부모 클래스의 public멤버,    를 상속받음
- 부모클래스의 privare 멤버는 상속되지 않습니다
- 
- ```java
+상속과 접근 제어
+
+상속관걔애서는 상속시킬 멤버와 상속시키지 않을 멤버를 지장할 수 있다.
+자식클래스는 부모 클래스의 public멤버, 를 상속받음
+부모클래스의 privare 멤버는 상속되지 않습니다
+
+```java
 package com.LDG.KoreaJavaBasicProjec.day_8;
 
 public class SedanTest {
 
 	public static void main(String[] args) {
-		Sedan sedan = new Sedan();	
+		Sedan sedan = new Sedan();
 	      sedan.setCerNumber("90나 1234");
-	      
+
 	      System.out.println(sedan.getCerNumber());
-	
+
 	}
-	
+
 }
 ```
 
@@ -1620,8 +1640,8 @@ public class Sedan extends Car{ // 세단도 자동차 입니다.
 	// Q, car 클래스를 상속받지 않고 구현한다면?
 	// 자동차도 자동차인데, 세단도 자동차 아닙니까?
 	// 세단은 자동차랑 똑같은 속성과 동작을 가지는데?
-	
-	
+
+
 
 	private String wing;
 
@@ -1632,8 +1652,8 @@ public class Sedan extends Car{ // 세단도 자동차 입니다.
 	public void setWing(String wing) {
 		this.wing = wing;
 	}
-	
-	
+
+
 
 }
 
@@ -1657,7 +1677,7 @@ public class Car {
 	public void setMaxSpeed(int maxSpeed) {
 		MaxSpeed = maxSpeed;
 	}
-	
+
 
 }
 ```
@@ -1668,15 +1688,16 @@ public class Car {
 
 예외와 예외처리
 
-예외 처리 
+예외 처리
 오류가 발생 했을때 , 오류를 사용자에가ㅔ 알려두고 모든 데이터를 저장아게 한우 에서 사용자에게 '우아하게' 프로그램을 종료할수 있도록 하는것
 
 오류의 종류
- + 사용자 입력 오류 
+
+- 사용자 입력 오류
   ex) 사용다가 잘못된 값을 입력하여 발생하는 오류등
-  + 장치 오류
+- 장치 오류
   네트워크 오류, 하드 디스트 작동 실페 등
-  + 코드 오류
+- 코드 오류
   배열 또는 리스트에 잘못된 인텍스로 접근 등
 
 예외의 종류
@@ -1689,23 +1710,20 @@ Error
 RuntimeException
 프로그래밍 버그 또는 논리 오류에서 기인한다.
 
-
-
 자바에서 예외를 처리하는 방법
 
-1) 예외를 잡아서 그 자리에서 처리하는 방법()
+1. 예외를 잡아서 그 자리에서 처리하는 방법()
 
-2) 메서드가 예외를 방생시킨다고 기술하는 방법(throws)
+2. 메서드가 예외를 방생시킨다고 기술하는 방법(throws)
 
- 에외 객체는 눈가 생성하는 것일까?
+에외 객체는 눈가 생성하는 것일까?
 
- 에외는 주로 자바 라이브러리에서 만힝 상행하지만  실제로 오쫀 코드라도 예외를 발생시킬수 있다.
-
-
-
+에외는 주로 자바 라이브러리에서 만힝 상행하지만 실제로 오쫀 코드라도 예외를 발생시킬수 있다.
 
 # 2023/7/8
+
 ## 제네릭
+
 ㅈ네릭 프로그래이밍
 다양한 종류의 데이터을 퍼리할 ㅛ수이쓴느 클래스와 메소드를 작성하는 기법
 자바 1.5 부터 등장
@@ -1720,7 +1738,7 @@ RuntimeException
 
 # 제네릭 메서드
 
-일반 클래스의 메서드에서도 타입 매개 변수를 사용하여서 네네릭 메서드를 저의 가능 
+일반 클래스의 메서드에서도 타입 매개 변수를 사용하여서 네네릭 메서드를 저의 가능
 이 셩우, 타입 매개 변수의 범위가 메서드 내부로 제한
 
 # 컬렉션
@@ -1729,11 +1747,13 @@ RuntimeException
 자바에서 자료 구조를 구현한 클래스들을 칭하는 용어
 
 자료구조
- 자료를 저장하기 위한 구조
+자료를 저장하기 위한 구조
 
 1. stack (Last ln First Out)
+
 - 자료를 담아두는 공간
 - 담아둔 자료를 처리하는 순서가 다음과 같다.
+
 ```
 
 3   1
@@ -1742,6 +1762,7 @@ RuntimeException
 ```
 
 2. Queue (First In First Out)
+
 - 자료를 담아두는 공간
 
 ```
@@ -1749,15 +1770,18 @@ RuntimeException
 ```
 
 3. Set
+
 - 집합
 - 중복을 허용하지 않습니다.
 - 순서를 보장하지 않습니다.
 
 4. Map
+
 - Key, Value
+
 ```
 Key     Value
-가나다    라마바사  
+가나다    라마바사
 ...      ...
 ```
 
@@ -1780,9 +1804,6 @@ set 인테페이스는 Collection 인터페이스를 제공하는 메서드만�
 
 map
 
-
-
-
 2023/7/9
 
 동기 비동가
@@ -1793,12 +1814,11 @@ map
 동시에 두가지 이상의 작업을 처리하는 것 >멀티 테스킹
 멀티 데스킹을 위한 두가지 도구
 프로세스
-스레드  내부에 존재 하면서 실행 흐름을 나타내는 것
+스레드 내부에 존재 하면서 실행 흐름을 나타내는 것
 프로그램 파일이 존재하지만 아지 메모리에 올라가지 않은 상태, 실행되지 않은 코드의 집합
 프로그램을 싱행 > 메모리에 적제 > 프로세스
 프로세스는 독립적으로 메로리에 등록됨
 -> 여러개의 프로그램을 동시에 실행할 수있는이유
-
 
 스래드 생성과 실행
 thread 클래스 상속
@@ -1819,7 +1839,7 @@ t 가 현재 싱행 중인 스레드 겍체이면 다음 문장은 t가 종료�
 
 동기화
 스래드 등은 동일한 데이터를 공류하기 때문에 매우 효율적으로 작어 가능
-2가지 문제 상행 가능 
+2가지 문제 상행 가능
 스레드 간섭
 메모리 일치 오류
 
@@ -1834,9 +1854,3 @@ t 가 현재 싱행 중인 스레드 겍체이면 다음 문장은 t가 종료�
 메로리 불일피 오류
 서로 다른 스레드가 동리한 데이터의 값을 서로 다르게 볼때, 발생
 동기화로 해결
-
-
-
-
-
-
