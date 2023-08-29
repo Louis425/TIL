@@ -3,7 +3,7 @@
 - [1강\_JAVA 프로그래밍이란?](#1강-java-프로그래밍이란)
 - [2강\_JAVA 프로그램의 실행 구조](#2강_java-프로그램의-실행-구조)
 - [3강\_변수](#3강_변수)
-- [4강\_기본자료형]()
+- [4강\_기본자료형](#4강_기본자로형)
 - [5강\_특수분자와 서식문자]()
 - [6강\_연산자]()
 - [7강\_배열]()
@@ -232,5 +232,115 @@ public class MainClass {
 	}
 
 }
+
+```
+
+# 4강\_기본자로형
+
+## 4-1 : 기본자료형과 객체자료형
+
+### 기본 자로형은 데이터가 변수에 직접 저장되고, 객체 자로형은 객체 메모리 주소가 변수에 저장된다.
+
+```java
+
+                           기본 자료형                 객체 자로형
+                             메모리(여기저기)             메모리
+int i = 39;                      10                 odj      0x44ec56
+                           39  8.5 40              ↗            ↓
+                               20             0x44ec56         odj
+
+                                                C진영에서 포인터라고 하고,
+                                               JAVA진영에서는 레퍼런스라고 한다.
+
+
+```
+
+## 4-1 : java 기본자료형
+
+```java
+
+                         ㅣ  byte   1byte
+                         ㅣ  *char  2byte*
+                 정수형 →  ㅣ  short  2byte
+                         ㅣ *int    4byte*
+                         ㅣ  long   8byte
+  기본자로형
+                 실수형 →  ㅣ float   4byte
+                         ㅣ *double 8byte*
+
+                 논리형 →  ㅣ*boolean 1byte*
+
+```
+
+## 4-2 : java 기본자료형
+
+```java
+
+package lec04Pjt001;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+
+		char c = 'a';
+		System.out.println("c = " + c);
+
+		int i = 10;
+		System.out.println("i = " + i);
+
+		double d = 10.258;
+		System.out.println("d = " + d);
+
+		boolean b = false;
+		System.out.println("b = " + b);
+
+		String s = "Hello Java Wrold!!";
+		System.out.println("s = " + s);
+
+  }
+
+}
+
+console
+
+C = a
+i = 10
+d = 10.258
+b = false
+s = Hello java Wrold!!
+
+```
+
+## 4-3 : 형 변환
+
+```java
+
+package lec04Pjt001;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+
+//자동(묵시적) 형 변환:
+//작은 공간의 메모리에서 큰 공간의 메모리로 이동 byte by = 10;
+int in = by;
+System.out.println("in = " + in);
+
+//명시적 형 변환:
+//큰 공간의 메모리에서 작은 공간의 메모리로 이동 int iVar = 100;
+byte bVar = (byte)iVar;
+System.out.println("bVar = " + bVar);
+
+//명시적형변환은데이터가누실될수있다.
+iVar = 123456; bVar = (byte)iVar;
+System.out.println("bVar = " + bVar);
+  }
+
+}
+
+console
+in = 10
+bVar = 100
+bVer = 64
 
 ```
