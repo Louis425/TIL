@@ -4,8 +4,8 @@
 - [2강\_JAVA 프로그램의 실행 구조](#2강_java-프로그램의-실행-구조)
 - [3강\_변수](#3강_변수)
 - [4강\_기본자료형](#4강_기본자로형)
-- [5강\_특수분자와 서식문자]()
-- [6강\_연산자]()
+- [5강\_특수분자와 서식문자](#5강_특수-문와-서식-문자)
+- [6강\_연산자](#6강_연산자)
 - [7강\_배열]()
 - [8강\_배열관 메모리]()
 - [9강\_조간문]()
@@ -474,5 +474,202 @@ System.out.printf("%.3f\n", 1.23);
   }
 
 }
+
+```
+
+# 6강\_연산자
+
+## 6-1 : 피연산자 개수에 의한 연산자 구분
+
+### 피연산자 개수에 따라서 단항, 이항 그리고 삼향 연산자로 구분할 구 있다.
+
+```java
+
+   단항 연산자                 이항 연산자                      삼향 연산자
+
+피연산자가 하나 존재          피연산자가 두개 존재                피연산자가 세개 존재
+
+  +x, -x, !x            x = y, x < y, x != y          조건식 : true ? false
+
+```
+
+## 6-2 : 대입 연산자
+
+### 대입 연산자는 오른쪽의 결과를 왼쪽에 대입(할당) 한다.
+
+```java
+
+‘=’는 수학에서 ‘오른쪽 값과 왼쪽 값이 같다’ 라는 의미 이지만,
+프로그램에서는 ‘오른쪽 값을 왼쪽에 대입’ 하는 의미로 쓰인다.
+
+프로그램에서 ‘오른쪽와 왼쪽이 같다’ 의미는 ‘==’이다.
+
+int x = 10;
+int y = 20;
+
+// 대입 연산자
+System.out.println("x = " + x);
+System.out.println("y = " + y);
+
+x = y;
+System.out.println("x = " + x);
+System.out.println("y = " + y);
+
+```
+
+## 6-3 : 산술 연산자
+
+### 치연산자를 이용해서 +,-,\*,/,% 등을 수행한다.
+
+```java
+
++ 덧셈
+- 뺄셈
+* 곱셈
+/ 나눗셈
+% 나머지
+
+x = 10; y = 20;
+// 산술 연산자
+System.out.println("x + y = " + (x + y));
+System.out.println("x - y = " + (x - y));
+System.out.println("x * y = " + (x * y));
+System.out.println("x / y = " + (x / y));
+System.out.println("x % y = " + (x % y));
+
+```
+
+## 6-4 : 복합 대입연산자
+
+### 산술 연산자와 대입 연산자를 결합한 연산자이다.
+
+```java
+
++= 더하고 대입
+-= 빼고 대입
+*= 곱하고 대입
+/= 나누고 대입
+%= 나머지를 대입
+
+// 복합대입 연산자
+x = 10;
+System.out.println("x += 10 : " + (x += 10));
+x = 10;
+System.out.println("x -= 10 : " + (x -= 10));
+x = 10;
+System.out.println("x *= 10 : " + (x *= 10));
+x = 10;
+System.out.println("x /= 10 : " + (x /= 10));
+x = 10;
+System.out.println("x %= 10 : " + (x %= 10));
+
+```
+
+## 6-5 : 관계 연산자
+
+### 두개의 피연산자를 비교해서 참/거짓의 결론 을 돌출한다.
+
+```java
+
+>    a>b : a가 b보다 크면 참
+<    a<b : a가 b보다 작으면 참
+>=   a>=b : a가 b보다 크거나 같으면 참
+<=   a<=b : a가 b보다 작거나 같으면 참
+==   a==b : a와 b가 같으면 참
+!=   a!=b : a와 b가 같지 않으면 참
+
+// 관계 연산자
+x = 10; y = 20;
+System.out.println("x > y : " + (x > y));
+System.out.println("x < y : " + (x < y));
+System.out.println("x >= y : " + (x >= y));
+System.out.println("x <= y : " + (x <= y));
+System.out.println("x == y : " + (x == y));
+System.out.println("x != y : " + (x != y));
+
+```
+
+## 6-6 : 증가 연산자
+
+### 1만큼 증가 하거나 감소를 수행한다.
+
+```java
+
+++ 1만큼 증가
+-- 1만큼 감소
+
+ 증감 연산자
+x = 10;
+System.out.println("++x : " + (++x));
+x = 10;
+System.out.println("--x : " + (--x));
+x = 10;
+System.out.println("x++ : " + (x++));
+System.out.println("x : " + x);
+x = 10;
+System.out.println("x-- : " + (x--));
+System.out.println("x : " + x);
+
+```
+
+## 6-7 : 논리 연산자
+
+### 피연산자의 논리곱(AND), 논리합(OR), 논리부정(NOT)을 수행한다.
+
+```java
+
+&& 논리곱(AND)     a && b : a와 b가 모두 참이면 참
+|| 논리합(OR)      a || b : a와 b중 하나라도 참이면 참
+! 논리부정(NOT)     ! a : a의 상태를 부정
+
+// 논리 연산자
+boolean b1 = false;
+boolean b2 = true;
+System.out.println("b1 && b2 : " + (b1 && b2));
+System.out.println("b1 || b2 : " + (b1 || b2));
+System.out.println("!b1 : " + !b1);
+System.out.println("!b2 : " + !b2);
+
+```
+
+## 6-8 : 조건(삼항) 연산자
+
+### 삼항 연산자로 두개의 피연산자 연산 결과에 따라서 나머지 피연산자가 결정된다.
+
+```java
+
+조건식?식1:식2     조건식이 참이면 식1이 실행되고,
+                조건식이 거짓이면 식2가 실행된다.
+
+// 조건(삼항) 연산자
+x = 10; y = 20;
+int result = 0;
+result = (x > y) ? 100 : 200;
+System.out.println("result : " + result);
+
+result = (x < y) ? 100 : 200;
+System.out.println("result : " + result);
+
+result = (x == y) ? 100 : 200;
+System.out.println("result : " + result);
+
+```
+
+## 6-9 : 비트 연산자
+
+### 데이터를 비트(bit)단위로 환산하여 연산을 수행하며, 다른 연산자보다 연산 속도가 향상된다.
+
+```java
+
+& : AND 연산     a & b : a와 b가 모두 1이면 1
+| : OR 연산      a | b : a와 b중 하나라도 1이면 1
+^: XOR연산       a^b : a와 b가 같지 않으면 1
+
+// 비트 연산자
+x = 2;
+y = 3;
+System.out.println("x & y : " + (x & y));
+System.out.println("x | y : " + (x | y));
+System.out.println("x ^ y : " + (x ^ y));
 
 ```

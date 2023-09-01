@@ -1,7 +1,18 @@
 <!-- TOC -->
 
 - [1강\_웹 프로그램 개요](#1강_웹-프로그램-개요)
-
+- [2강\_개발 환경 설정](#2강_개발-환경-설정)
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
+- []()
 <!-- /TOC -->
 
 # 1강\_웹 프로그램 개요
@@ -100,3 +111,25 @@ User(browser)                 Web Server            DataBase
                         정적 데이터  |  동적 데이터
 
 ```
+
+# 2강\_개발 환경 설정
+
+## 2-1 : JDK
+
+### JDK(Java Development Kit) 설치
+
+- https://www.oracle.com/kr/java/technologies/downloads/
+
+## 2-2 Path 설정
+
+### javac.exe, java.exe를 다른 디렉토리에서도 실행할 수 있도록 하기 위해 환경 변수(Path)에 bin 경로를 등록 한다.
+
+## 2-3 : 이클립스 다운로드
+
+### IDE(Integrated Development Environment : 통합개발환경) 설치 - eclipse
+
+- https://www.eclipse.org/downloads/
+
+## 2-4 : 웹 컨테이너(ApacheTomcat 8.5) 설치
+
+- http://tomcat.apache.org/
