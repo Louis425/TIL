@@ -133,3 +133,95 @@ User(browser)                 Web Server            DataBase
 ## 2-4 : 웹 컨테이너(ApacheTomcat 8.5) 설치
 
 - http://tomcat.apache.org/
+
+# 3강\_JSP 맛보기
+
+## 3-1 : 웹 컨테이너 구조
+
+```java
+
+                                      웹 컨테이너(tomcat)
+                        <------------------------------------------->
+xxx.jsp --> request --> xxx_jspjava --> xxx_jsp.class --> xxx_jsp.obj --> response --> HTML
+
+```
+
+## 3-2 : JSP 파일 작성
+
+### 파일 생성
+
+> Project Explorer 박스 안 우클릭
+>
+> > New
+>
+> > > Dynamic Web Project
+>
+> > > > Project name :
+>
+> > > > lec03pjt001
+>
+> > > > > Finish
+
+---
+
+### JSP 만들기
+
+> lec03Pjt001 우클릭
+>
+> > New
+>
+> > > JSP File
+>
+> > > > WebContent 파일선택
+>
+> > > > hello.jsp.jsp
+>
+> > > > > Finish
+
+---
+
+### JSP 작성
+
+```java
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+    <title>Hello JSP</title>
+  </head>
+
+  <body>
+   Hello JSP~ </br>
+   안녕 Java Server Page~
+  </body>
+</html>
+
+```
+
+---
+
+### JSP 실행
+
+> hello.Jsp.jsp
+>
+> > Rnu As
+>
+> > Run on Server
+>
+> > > Tomcat v8.5 Sever at localhost
+>
+> > > Finish
+
+## : java 파일 확인
+
+```
+
+  C:\jsp\download\apache-tomcat-8.5.24\work\Catalina\localhost\lec03Pjt001\org\apache\jsp
+
+  xxx.jsp --> xxx_jsp.java --> xxx_jsp.class
+
+
+```
