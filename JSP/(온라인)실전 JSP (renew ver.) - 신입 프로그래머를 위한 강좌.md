@@ -3,7 +3,7 @@
 - [1강\_웹 프로그램 개요](#1강_웹-프로그램-개요)
 - [2강\_개발 환경 설정](#2강_개발-환경-설정)
 - [3강\_JSP 맛보기](#3강_jsp-맛보기)
-- []()
+- [4강\_Servlet 맛보기](#4강_servlet-맛보기)
 - []()
 - []()
 - []()
@@ -223,5 +223,96 @@ pageEncoding="EUC-KR"%>
 
   xxx.jsp --> xxx_jsp.java --> xxx_jsp.class
 
+
+```
+
+# 4강\_Servlet 맛보기
+
+## 4-1 : 웹 컨테이너 구조
+
+```java
+
+                                      웹 컨테이너(tomcat)
+                        <------------------------------------------->
+Browser --> request --> xxx.java --> xxx.class --> xxx.obj --> response --> Browser
+
+```
+
+## 4-2 : Servlet 파일 작성
+
+### 파일 생성
+
+> Project Explorer 박스 안 우클릭
+>
+> > New
+>
+> > > Dynamic Web Project
+>
+> > > > Project name :
+>
+> > > > lec04pjt001
+>
+> > > > > Next > 2X
+>
+> > > > > > Context: lec04Pjt001
+>
+> > > > > > Content directory: WebContent
+>
+> > > > > > ✅ Generate web.xml deployment descriptor
+>
+> > > > > > Finish
+
+---
+
+### Servlet 만들기
+
+> src 우클릭
+>
+> > New
+>
+> > > Servlet
+>
+> > > > java package: com.servlet
+>
+> > > > Class name: HelloServlet
+>
+> > > > Superclass: javax.servlet.HttpServlet
+>
+> > > > > Next >
+>
+> > > > > > /HelloServlet 수정 --> /Hello
+>
+> > > > > > Next
+>
+> > > > > > > Finish
+
+---
+
+### Servlet 작성
+
+```java
+
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+PrintWriter out = response.getWriter();
+out.print("<html>");
+out.print("<head>");
+out.print("</head>");
+out.print("<body>");
+out.print("Hello Servlet~");
+out.print("</body>");
+out.print("</html>");
+
+}
+
+```
+
+## 4-3: class 파일 확인
+
+```java
+
+       C:\jsp\pjt\lec04Pjt001\build\classes\com\servlet
+
+              browser --> xxx.java --> xxx.class
 
 ```

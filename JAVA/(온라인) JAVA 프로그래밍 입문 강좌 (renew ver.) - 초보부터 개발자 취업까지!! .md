@@ -8,7 +8,7 @@
 - [6강\_연산자](#6강_연산자)
 - [7강\_배열](#7강_배열)
 - [8강\_배열관 메모리](#8강_배열과-메모리)
-- [9강\_조간문]()
+- [9강\_조간문](#9강_조건문)
 - [10강\_반복문]()
 - [11강\_객체지향 프로그래밍이란]()
 - [12강\_클래스 제작과 객체 생성]()
@@ -845,5 +845,91 @@ arrMul[2][1] = 300;
 System.out.println("arrMul[0] : " + Arrays.toString(arrMul[0]));
 System.out.println("arrMul[1] : " + Arrays.toString(arrMul[1]));
 System.out.println("arrMul[2] : " + Arrays.toString(arrMul[2]));
+
+```
+
+# 9강\_조건문
+
+## 9-1 : 조건문이란?
+
+### 조건의 결과에 따라서 양다 택일 또는 ㄷ다자 택일 진행한다.
+
+```java
+                  조건문
+                  ↓  ↓
+                ↓     ↓
+               ↓       ↓
+          양자택일       다자 택일
+  (주로 if문이 쓰임)      (주로 switch문이 쓰임)
+
+```
+
+## 9-2 if문
+
+### if(조건식), if(조건식) else, if(조건식) else if(조건식)
+
+```java
+
+int num1 = 10;
+int num2 = 20;
+
+// if(조건식)
+if(num1 < num2) {
+  System.out.println("num1는 num2보다 작다.");
+}
+
+System.out.println();
+
+// if(조건식) else
+if(num1 < num2) {
+  System.out.println("num1는 num2보다 작다.");
+} else {
+  System.out.println("num1는 num2보다 크거나 같다.");
+}
+
+System.out.println();
+
+// if(조건식) else if(조건식)
+if(num1 < num2) {
+System.out.println("num1는 num2보다 작다.");
+} else if(num1 > num2){
+  System.out.println("num1는 num2보다 크다.");
+} else {
+  System.out.println("num1과 num2는 같다.");
+}
+
+```
+
+## 9-3 : switch문
+
+### 비교대상이 되는 결과값과 선택사항이 많을 경우 주로 사용한다.
+
+```java
+
+// switch문
+System.out.print("점수를 입력하세요. : ");
+Scanner inputNum = new Scanner(System.in);
+int score = inputNum.nextInt();
+
+switch (score) {
+case 100:
+case 90:
+  System.out.println("수");
+break;
+
+case 80:
+  System.out.println("우");
+break;
+
+case 70:
+  System.out.println("미");
+break;
+
+default:
+  System.out.println("try again!!");
+break;
+}
+
+inputNum.close();
 
 ```
