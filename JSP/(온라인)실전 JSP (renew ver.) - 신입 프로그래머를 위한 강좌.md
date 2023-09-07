@@ -316,3 +316,95 @@ out.print("</html>");
               browser --> xxx.java --> xxx.class
 
 ```
+
+# 10_JSP request, response
+
+## 10-1 : request 객체
+
+```java
+
+                                                             <%
+<form action="mSignUp.jsp" method="get">                       m_name = request.getParameter("m_name");
+                                                               m_pass = request.getParameter("m_pass");
+user data                                      Request         m_gender = request.getParameter("m_gender");
+                                              --------->       m_hobby = request.getParameterValues("m_hobby");
+  <input type="submit" value="sign up">                        m_residence = request.getParameter("m_residence");
+</form>                                                      %>
+
+                Request       웹 서버
+      user     --------->      jsp
+
+```
+
+## 5강\_Servlet 맵핑
+
+### 5-1 : Servlet 맵핑이란?
+
+```java
+
+                        Request                웹 컨테이너(tomcat)
+                      서블릿 구분 필요     <----------------------------->
+          Browse -->    ----↓---->      servlet servlet servlet servlet
+                            ↓
+                      서블릿 구분 방법
+                            ↓
+                            ↓
+   full path : http://localhost:8090/lec05Pjt001/servlet/com.servlet.ServletEx <-- 보안 취약, 복잡한 URL
+                                     <---------> <--------------------------->
+                                          ↓       ↓
+                                     <---------> <>
+mapping path : http://localhost:8090/lec05Pjt001/SE <-- 간결한 URL
+
+```
+
+## 5-2 : web.xml 파일을 이용한 맵핑
+
+```java
+
+web.xml  --> 배치 지시자(deployment descriptior)
+
+<servlet>
+  <servlet-name>servletEx</servlet-name> ----------------->ㅣ
+  <servlet-class>com.servlet.ServletEx</servlet-class>     ㅣ
+</servlet>                                                 ㅣ
+<servlet-mapping>                                          ㅣ
+  <servlet-name>servletEx</servlet-name> ----------------->ㅣ
+  <url-pattern>/SE</url-pattern> ------------------------->ㅣ
+</servlet-mapping>                                         ㅣ
+                                                           ↓
+                                              http://localhost:8090/lec05Pjt001/SE
+
+```
+
+## 5-3 : Java Annotation을 이용한 맵핑
+
+```java
+
+ㅣ----> @WebServlet("/Hello")
+ㅣ      public class ServletEx extends HttpServlet {
+ㅣ
+ㅣ      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ㅣ
+ㅣ      PrintWriter out = response.getWriter();
+ㅣ        out.print("<html>");
+ㅣ        out.print("<head><title>ServletEX</title></head>");
+ㅣ        out.print("<body>");
+ㅣ        out.print("Hello Servlet~");
+ㅣ        out.print("</body>");
+ㅣ        out.print("</html>");
+ㅣ      }
+ㅣ
+ㅣ      }
+↓
+http://localhost:8090/lec05Pjt001/Hello
+↓
+Hello Servlet~~
+
+
+
+@WebServlet("/Hello")
+      ↓
+WebServlet(name="servletEx", urlPatterns= {"/Hello", "/SE"})
+
+
+```
