@@ -9,7 +9,7 @@
 - [7강\_배열](#7강_배열)
 - [8강\_배열관 메모리](#8강_배열과-메모리)
 - [9강\_조간문](#9강_조건문)
-- [10강\_반복문]()
+- [10강\_반복문](#10강_-반복문)
 - [11강\_객체지향 프로그래밍이란]()
 - [12강\_클래스 제작과 객체 생성]()
 - [13강\_메서드]()
@@ -931,5 +931,85 @@ break;
 }
 
 inputNum.close();
+
+```
+
+# 10강\_ 반복문
+
+## 10-1 : 반복문이란?
+
+### 프로그램 진행을 특정 조건에 따라 반복적으로 진행하는 것이다.
+
+```java
+
+              for, while문 : 조건이 참일 때까지 반복 수행
+
+                           [예1]
+     구구단을 구하기 위해서 1에서부터 1씩 더하면서 9까지 곱셉 연산을 진행한다.
+
+                           [예2]
+     조도 센서를 센싱한 데이터가 10미만이면 건물의 LED를 1초 간격으로 계속 점등한다.
+
+```
+
+## _ 10-2 : for문_
+
+### for(int i = 0; i < 10;i++) {...}
+
+```java
+
+for (int i = 1; i < 10; i++)
+i가1부터10보다작을때까지i에 1씩 더해가며 프로그램 반복 진행
+
+for (int i = 1; i < 10; i = i + 2)
+i가1부터10보다작을때까지i에 2씩 더해가며 프로그램 반복 진행
+
+
+
+// for문
+System.out.print("INPUT NUMBER : ");
+Scanner scanner = new Scanner(System.in);
+int inputNum = scanner.nextInt();
+
+for (int i = 1; i < 10; i++) {
+  System.out.printf("%d * %d = %d\n", inputNum, i, (inputNum * i));
+}
+
+```
+
+## 10-3 : while문
+
+### while(trur or false) {...}
+
+```java
+
+while(rNum < 10)
+rNum이가 10보다 작을 때 까지 프로그램 반복 진행
+
+// while문
+System.out.print("INPUT NUMBER : ");
+int num = scanner.nextInt();
+int i = 1;
+while (i < 10) {
+  System.out.printf("%d * %d = %d\n", num, i, (num * i));
+  i++;
+}
+
+```
+
+## 10-4 : do ~ while문
+
+### while문과 비슷하며, 차이점은 조건 결과에 상관없이 무조건 최초한번은 {...}의 프로그램을 수행한다.
+
+```java
+
+do{...}while(rNum < 10)
+rNum이가 10보다 작을 때 까지 프로그램 반복 진행. 단, rNum의 조건에 상관없이 {...}의 프로그램 은 1번 수행한다.
+
+
+// do ~ while문
+do {
+  System.out.println("무조건 1번은 실행합니다.");
+} while (false);
 
 ```
