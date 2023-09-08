@@ -5,7 +5,7 @@
 - [3강\_JSP 맛보기](#3강_jsp-맛보기)
 - [4강\_Servlet 맛보기](#4강_servlet-맛보기)
 - [5강\_Servlet 맵핑](#5강_servlet-맵핑)
-- []()
+- [6강_Servlet reqeust, response](#6강_servlet-reqeust-response)
 - []()
 - []()
 - []()
@@ -146,6 +146,8 @@ xxx.jsp --> request --> xxx_jspjava --> xxx_jsp.class --> xxx_jsp.obj --> respon
 
 ```
 
+---
+
 ## 3-2 : JSP 파일 작성
 
 ### 파일 생성
@@ -215,6 +217,8 @@ pageEncoding="EUC-KR"%>
 >
 > > > Finish
 
+---
+
 ## : java 파일 확인
 
 ```
@@ -223,8 +227,9 @@ pageEncoding="EUC-KR"%>
 
   xxx.jsp --> xxx_jsp.java --> xxx_jsp.class
 
-
 ```
+
+---
 
 # 4강\_Servlet 맛보기
 
@@ -307,6 +312,8 @@ out.print("</html>");
 
 ```
 
+---
+
 ## 4-3: class 파일 확인
 
 ```java
@@ -336,6 +343,9 @@ user data                                      Request         m_gender = reques
 
 ```
 
+---
+
+
 ## 5강\_Servlet 맵핑
 
 ### 5-1 : Servlet 맵핑이란?
@@ -357,6 +367,8 @@ mapping path : http://localhost:8090/lec05Pjt001/SE <-- 간결한 URL
 
 ```
 
+---
+
 ## 5-2 : web.xml 파일을 이용한 맵핑
 
 ```java
@@ -375,6 +387,8 @@ web.xml  --> 배치 지시자(deployment descriptior)
                                               http://localhost:8090/lec05Pjt001/SE
 
 ```
+
+---
 
 ## 5-3 : Java Annotation을 이용한 맵핑
 
@@ -408,3 +422,137 @@ WebServlet(name="servletEx", urlPatterns= {"/Hello", "/SE"})
 
 
 ```
+
+---
+
+# 6강_Servlet reqeust, response
+
+## 6-1 HttpServlet
+
+```java
+       
+                웹 컨테이너 (tomcat)
+                      ↓
+       Request        ↓
+user ---------->   servlet
+     <---------- 
+       Response
+
+
+  ServletConfig          Servlet         Serializable
+   (interface)         (interface)        (interface)
+       ↑                     ↑                 ↑
+       ㅣ                    ㅣ                 ㅣ
+       ㅣ                    ㅣ                 ㅣ
+       ㅣ                    ㅣ                 ㅣ
+       ------------------------------------------
+                            ↑ 
+                      GenericServlet
+                      (abstract class)
+                          ↑
+                      HttpServlet
+                      (abstract class)
+                           ↑
+                      ServletEx 
+                      (class)
+
+```
+
+```java
+
+package com.servlet;
+
+@WebServlet("/SE")
+public class ServleEx extends HttpServlet{
+
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+}
+
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  doGet(request, response);
+  }
+
+}
+
+```
+
+---
+
+## 6-2 : HttpServletRequest
+
+```java
+
+package com.servlet;
+
+@WebServlet("/SE")
+public class ServletEx extends HttpServlet {
+
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+                       <---------------->
+  }
+
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { doGet(request, response);
+  }                     <---------------->
+
+}
+
+```
+
+```java
+
+                   웹 컨테이너 (tomcat)
+         Request         ↓
+ user  ---------->    servlet
+
+HttpServletRequest
+요청에 대한 정보를 가지고 있는 
+
+request.getCookies();   request.getSession();
+request.getAttribute(null); request.setAttribute(null, null);
+request.getParameter(null); request.getParameterNames();
+request.getParameterValues(null);
+
+```
+
+---
+
+
+## 6-3 : HttpServletResponse
+
+```java
+
+package com.servlet;
+
+@WebServlet("/SE")
+public class ServletEx extends HttpServlet {
+
+ protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+                                                  <----------------->
+ }
+
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { doGet(request, response);
+  }                                                 <----------------->
+
+}
+
+
+```
+
+```java
+
+                    웹 컨테이너 (tomcat)
+          Response        ↓
+ user   <----------    servlet
+
+
+HttpServletResponse
+응답에 대한 정보를 가지고 있는 객체
+
+response.addCookie(null); response.getWriter();
+response.getStatus(); response.getOutputStream();
+response.sendRedirect(null);
+
+```
+
+----
