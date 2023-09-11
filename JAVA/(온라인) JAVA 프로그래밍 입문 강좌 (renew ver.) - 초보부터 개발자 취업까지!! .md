@@ -11,7 +11,7 @@
 - [9강\_조간문](#9강_조건문)
 - [10강\_반복문](#10강_-반복문)
 - [11강\_객체지향 프로그래밍이란](#11강_-객체-지향-프로그래밍이란)
-- [12강\_클래스 제작과 객체 생성]()
+- [12강\_클래스 제작과 객체 생성](#12강_클래스-제작관-객체-생성)
 - [13강\_메서드]()
 - [14강\_객체와 메모리]()
 - [15강\_생성자와 소멸자 그리고 this키워드]()
@@ -1069,3 +1069,117 @@ do {
   기어 변속, 가속, 브레이크
 
 ```
+
+# 12강_클래스 제작관 객체 생성
+
+## 12-1 : 클래스 제작 
+
+### 클래스는 멤버 변수(속성), 메서드 (기능), 생성다 등으로 구성돤다.
+
+```java
+
+package lec11Pjt001;
+
+ public class Grandeur {  <-------------------------- 클래스 이름 : 일반적으로 첫글자는 대문자로 한다.
+
+ public String color; ㅣ
+ public String gear;  ㅣ  <--------------------------- 멤버 변수(속성)
+ public int price;    ㅣ
+ 
+ public Grandeur() {  <------------------------------ 생성자
+  System.out.println("Grandeur constructor");
+ }
+
+ public void run() { <------------------------------- 메서드(기능)
+  System.out.println("-- run --");
+ }
+ public void stop() { <------------------------------ 메서드(기능)
+  System.out.println("-- stop --");
+ }
+
+}
+
+```
+
+## 12-2 : 객체 생성
+
+### 클래스로 부터 'new'를 이용해서 객체를 생성 한다.
+
+```java
+
+Grandeur myCar1 = new Grandeur();
+myCar1.color = "red";
+myCar1.gear = "auto";
+myCar1.price = 30000000;
+
+myCar1.run();
+myCar1.stop();
+myCar1.info();
+
+System.out.println();
+
+Grandeur myCar2 = new Grandeur();
+myCar2.color = "blue";
+myCar2.gear = "manual";
+myCar2.price = 25000000;
+
+myCar2.run();
+myCar2.stop();
+myCar2.info();  
+
+```
+```java
+
+      myCar1 --> Grandeur 
+       주소         객체
+      레퍼런스
+
+      myCar2 --> Grandeur  
+       주소         객체
+      레퍼런스
+
+```
+
+## 12-3 : 생성자
+
+### 클래스에서 객체를 생성할 때 가장 먼저 호출된다.
+
+```java
+
+public class Bicycle {
+  
+String color;
+int price;
+
+public Bicycle() {  <------------------------------- 생성자
+  System.out.println("Bicycle constructor - I");
+}
+자
+public Bicycle(String c, int p) {  <---------------- 생성자
+  System.out.println("Bicycle constructor - II");
+
+  color = c;
+  price = p;
+  }
+
+public void info() {
+  System.out.println("-- info --");
+  System.out.println("color : " + color);
+  System.out.println("price : " + price);
+  }
+
+}
+
+```
+
+```java
+
+Bicycle myBicycle1 = new Bicycle();
+myBicycle1.info();
+
+Bicycle myBicycle2 = new Bicycle("red", 100000);
+myBicycle2.info();
+
+```
+
+---

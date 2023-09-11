@@ -6,7 +6,7 @@
 - [4강\_Servlet 맛보기](#4강_servlet-맛보기)
 - [5강\_Servlet 맵핑](#5강_servlet-맵핑)
 - [6강_Servlet reqeust, response](#6강_servlet-reqeust-response)
-- []()
+- [7강_Servlet life-cycle](#7강_servlet-life-cycle)
 - []()
 - []()
 - []()
@@ -556,3 +556,53 @@ response.sendRedirect(null);
 ```
 
 ----
+
+# 7강_Servlet life-cycle
+
+## 7-1 : Servlet 생명주기
+
+```java
+
+     @PostConstruct
+           ↓ 
+         init()   ㅣ 
+           ↓      ㅣ
+        service   ㅣ ------> Servlet 생성 및 종료
+           ↓      ㅣ 
+        destroy() ㅣ
+           ↓
+      @PreDestroy
+
+```
+
+## 7-2 : 생성 및 종료 
+
+```java
+
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  System.out.println(" -- doGet() -- ");
+}
+
+@PostConstruct <----------------------------------------- @PostConstruct
+public void postConstruct() {                             ↓
+  System.out.println(" -- postConstruct() -- ");          ↓
+}                                                         ↓
+                                                          ↓
+@Override                                                 ↓
+public void init() throws ServletException {  <---------- init()
+  System.out.println(" -- init() -- ");                   ↓
+}                                                         ↓
+                                                          service
+                                                          ↓
+@Override                                                 ↓
+public void destroy() {  <------------------------------- destroy()
+  System.out.println(" -- destroy() -- ");                ↓
+}                                                         ↓
+                                                          ↓
+@PreDestroy                                               ↓
+public void preDestory() {  <---------------------------- preDestory 
+  System.out.println(" -- preDestory() -- ");
+}
+
+
+```
