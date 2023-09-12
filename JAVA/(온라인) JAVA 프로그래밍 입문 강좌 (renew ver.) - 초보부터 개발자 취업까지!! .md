@@ -12,7 +12,7 @@
 - [10강\_반복문](#10강_-반복문)
 - [11강\_객체지향 프로그래밍이란](#11강_-객체-지향-프로그래밍이란)
 - [12강\_클래스 제작과 객체 생성](#12강_클래스-제작관-객체-생성)
-- [13강\_메서드]()
+- [13강\_메서드](#13강_메서드)
 - [14강\_객체와 메모리]()
 - [15강\_생성자와 소멸자 그리고 this키워드]()
 - [16강\_패키지 static]()
@@ -1014,7 +1014,7 @@ do {
 
 ```
 
-# 11강_ 객체 지향 프로그래밍이란?
+# 11강\_ 객체 지향 프로그래밍이란?
 
 ## 11-1 : 객체란?
 
@@ -1041,13 +1041,13 @@ do {
 ```java
 
                   ㅣ→→→→→→→→→→그랜저
-                  ㅣ      색상(검정), 바퀴(일반)       
+                  ㅣ      색상(검정), 바퀴(일반)
                   ㅣ      배기량(2000cc)
       그랜저 →→→→→→→ㅣ→→→→→→→→→→ 그랜저
   속성 : 색상, 바퀴   ㅣ       색상(흰색), 바퀴(광폭)
   기능 : 배기량      ㅣ        배기량(2500cc)
                   ㅣ→→→→→→→→→→→→→그랜저
-                  ㅣ         색상(회색), 바퀴(일반) 
+                  ㅣ         색상(회색), 바퀴(일반)
                   ㅣ         배기량(3000cc)
                   ↓
                  복제
@@ -1070,9 +1070,9 @@ do {
 
 ```
 
-# 12강_클래스 제작관 객체 생성
+# 12강\_클래스 제작관 객체 생성
 
-## 12-1 : 클래스 제작 
+## 12-1 : 클래스 제작
 
 ### 클래스는 멤버 변수(속성), 메서드 (기능), 생성다 등으로 구성돤다.
 
@@ -1085,7 +1085,7 @@ package lec11Pjt001;
  public String color; ㅣ
  public String gear;  ㅣ  <--------------------------- 멤버 변수(속성)
  public int price;    ㅣ
- 
+
  public Grandeur() {  <------------------------------ 생성자
   System.out.println("Grandeur constructor");
  }
@@ -1125,16 +1125,17 @@ myCar2.price = 25000000;
 
 myCar2.run();
 myCar2.stop();
-myCar2.info();  
+myCar2.info();
 
 ```
+
 ```java
 
-      myCar1 --> Grandeur 
+      myCar1 --> Grandeur
        주소         객체
       레퍼런스
 
-      myCar2 --> Grandeur  
+      myCar2 --> Grandeur
        주소         객체
       레퍼런스
 
@@ -1147,7 +1148,7 @@ myCar2.info();
 ```java
 
 public class Bicycle {
-  
+
 String color;
 int price;
 
@@ -1183,3 +1184,101 @@ myBicycle2.info();
 ```
 
 ---
+
+# 13강\_메서드
+
+## 13-1 : 메서드 선언과 호출
+
+### 메서드도 변수와 같이 선언 및 정의 후 필요시에 호출해서 사용한다.
+
+```java
+
+ 접근자        메서드 이름
+   ↓   반환 형    ↓  메개변수
+   ↓     ↓      ↓    ↓
+------ ---- ------- --
+public void getInfo () { <--------------------- 메서드 선언
+
+  System.out.println(" i = " + i); ㅣ
+  System.out.println(" b = " + b); ㅣ
+  System.out.println(" d = " + d); ㅣ <-------- 메서드 정의
+  System.out.println(" c = " + c); ㅣ
+  System.out.println(" s = " + s); ㅣ
+
+}
+
+```
+
+```java
+
+ChildClass childClass = new ChildClass();
+childClass.getInfo();
+
+```
+
+---
+
+## 13-2 : 매개변수(parameter)
+
+### 메서드를 호출할 때 데이터를 전달할 수 있다.
+
+```java
+
+public void getInfo() { <---------------------- 매개변수(parameter)는 필요시에만 정의된다.
+                                                ↓
+  ...                                           ↓
+                                                ↓
+}                                               ↓
+                   ----------------------------------------------
+public void setInfo(int i, boolean b, double d, char c, String s) {
+                           ---------
+  ...                         ↓
+                              ↓
+}                             ↓
+                              ↓
+        매개변수(parameter)는 자료형과 변수(지역변수)로 이루어진다.
+
+```
+
+## 13-3 : 중복 메서드(overloading)
+
+### 이름은 같고, 매개변수의 개수 또는 타입이 다른 메서드를 만들 수 있다.
+
+```java
+
+public void getIngo() {
+            ---------
+  System.out.println("-- getInfo - I --");
+
+}
+public void getIngo(int x, int y) {
+            ---------------------
+  System.out.println("-- getInfo - II --");
+  System.out.printf("parameter --> x : %d, y : %d\n", x, y);
+
+}
+
+public void getIngo(String s1, String s2) {
+            -----------------------------
+  System.out.println("-- getInfo - III --");
+  System.out.printf("parameter --> s1 : %s, s2 : %s\n", s1, s2);
+  
+}
+
+```
+
+## 13-4 : 접근자
+
+### 메서드를 호출할 때 접근자에 따라서 호출이 불가할 수 있다.
+
+```java
+
+         ㅣ----- X ----> privatr 메서드
+         ㅣ            ------------
+         ㅣ              ↓    ↑
+메서드 --> ㅣ              O    O
+         ㅣ              ↓    ↑
+         ㅣ            ----------
+         ㅣ----- O ----> pubic 메서드
+
+```

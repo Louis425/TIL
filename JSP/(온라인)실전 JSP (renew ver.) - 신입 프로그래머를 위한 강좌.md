@@ -606,3 +606,76 @@ public void preDestory() {  <---------------------------- preDestory
 
 
 ```
+
+# 8강_ form 테이터 처리
+
+## 8-1 : form 태그
+
+```java
+
+                     웹 컨테이너(tomcat)
+          Request       ↓
+             ↓       -------
+Browser ---DATA----> servlet
+
+
+```
+
+```java
+
+form 관련 태그 ㅣ             ㅣ request 객체
+     ↓       ㅣ             ㅣ      ↓
+    user     ㅣ ----------> ㅣ    user
+    dara     ㅣ             ㅣ    dara
+             ㅣ             ㅣ
+
+```
+---
+
+## 8-2 : doGet
+
+```java
+
+      데이터가 웹 브라우저 URL에 노출되어 웹 서버로 전송
+                    ↓
+                    ↓
+form 관련 태그 ㅣ ----------> ㅣ request 객체
+     ↓       ㅣ  보안에 약하다 ㅣ      ↓
+    user     ㅣ             ㅣ    user
+    dara     ㅣ             ㅣ    dara
+
+method=“get” -----------------> doGet()
+
+http://localhost:8090/lec08Pjt001/mSignUp?m_name=Hong+gildong&
+                                          -------------------
+m_pass=1234&m_gender=M&m_hobby=sport&m_hobby=cooking&m_residenc e=jeju
+            ---------- -------------
+                             ↓
+                    사용자 정보가 URL에 노출
+
+```
+
+---
+
+## 8-3 : doPost
+
+```java
+
+      데이터가 HTTP Request에 포함되어 웹 서버로 전송
+                    ↓
+                    ↓
+form 관련 태그 ㅣ ----------> ㅣ request 객체
+     ↓       ㅣ  보안에 약하다 ㅣ      ↓
+    user     ㅣ             ㅣ    user
+    dara     ㅣ             ㅣ    dara
+
+method=“Post” -----------------> doPost()
+
+http://localhost:8090/lec08Pjt001/mSignUp
+                                  -------
+                                     ↓
+                                맵핑 정보만 노출
+
+```
+
+---
