@@ -13,7 +13,7 @@
 - [11강\_객체지향 프로그래밍이란](#11강_-객체-지향-프로그래밍이란)
 - [12강\_클래스 제작과 객체 생성](#12강_클래스-제작관-객체-생성)
 - [13강\_메서드](#13강_메서드)
-- [14강\_객체와 메모리]()
+- [14강\_객체와 메모리](#14강_객체와-메모리)
 - [15강\_생성자와 소멸자 그리고 this키워드]()
 - [16강\_패키지 static]()
 - [17강\_데이터 은닉]()
@@ -1282,3 +1282,75 @@ public void getIngo(String s1, String s2) {
          ㅣ----- O ----> pubic 메서드
 
 ```
+
+# 14강_객체와 메모리
+
+## 14-1 : 메모리에서 객체 생성(동적 생성)
+
+### 객체는 메모리에서 동적으로 생성되며, 객체가 더 이상 필요 없게 되면 GC(Gabage Collector)에 의해서 제거된다.
+
+---
+
+## 14-2 : 레퍼런스(가리킨다)
+
+### 생성한 객체의 주소를 변수에 저장하는 것을 레퍼런스라고 한다.
+
+```java
+
+ObjectClass obj1 = new ObjectClass();
+ObjectClass obj2 = new ObjectClass();
+ObjectClass obj3 = new ObjectClass();
+
+System.out.println("obj1 ----> " + obj1);
+System.out.println("obj2 ----> " + obj2);
+System.out.println("obj3 ----> " + obj3);
+
+```
+
+## 14-3 : 자료형이 같아도 다른 객체
+
+### 자료형이 같아도 다른 공간에 존재하는 객체는 다른 객체이다.
+
+```java
+
+ObjectClass obj1 = new ObjectClass();
+ObjectClass obj2 = new ObjectClass();
+ObjectClass obj3 = new ObjectClass();
+
+
+if(obj1 == obj2) {
+  System.out.println("obj1 == obj2");
+} else {
+  System.out.println("obj1 != obj2");
+}
+
+if(obj2 == obj3) { 
+  System.out.println("obj2 == obj3");
+} else {
+  System.out.println("obj2 != obj3");
+}
+
+if(obj1 == obj3) { 
+  System.out.println("obj1 == obj3");
+} else {
+  System.out.println("obj1 != obj3");
+}
+
+```
+
+## 14-4 : null과 NullPointException
+
+### 레퍼런스에 null 저장되면 객체의 연결이 끊기며, 더 이상 객체를 이용할 수 없다.
+
+```java
+
+System.out.println("obj1 ----> " + obj1);
+obj1.getInfo();
+
+obj1 = null;
+System.out.println("obj1 ----> " + obj1);
+obj1.getInfo();
+
+```
+
+---

@@ -679,3 +679,126 @@ http://localhost:8090/lec08Pjt001/mSignUp
 ```
 
 ---
+
+# 9강_JSP 스크립트
+
+## 9-1 : Servlet vs JSP
+
+```java
+
+xxx.java -> xxx.class    vs   xxx.jsp -> xxx_jsp.java -> xxx_jsp.class
+
+```
+
+## 9-2:JSP 파일 HTML 포맷 설정
+
+> Window
+>
+> > Preferences
+>
+> > > Servlet
+>
+> > > > Templates -> New
+>
+> > > > > Class name: HelloServlet
+>
+> > > > > Name: html5 fomat
+>
+> > > > > Context New JSP
+>
+> > > > > Descriptior: html5 fomat
+>
+> > > > > Pattem: ↓
+
+```java
+
+<%@ page language="java" contentType="text/html; charset=${encoding}"    pageEncoding="${encoding}"%>
+<!DOCTYPE html> <html>
+ <head>
+  <meta charset="${encoding}"> <title>Insert title here</title>
+ </head>
+ <body>
+ </body>
+</html>
+
+```
+
+## 9-3 : JSP 주요 스크립트
+
+### [선언 태그] JSP 페이지에서 Java의 멤버변수 또는 메서드를 선언
+
+```java
+
+<%!            
+int num = 10;          ㅣ------------------------------->  변수선언및초기화 
+String str = "jsp";    ㅣ  
+ArrayList<String> list = new ArrayList<String>(); ㅣ---->  객체생성및인스턴스초기화
+
+
+public void jspMethod() {                    ㅣ
+  System.out.println(" -- jspMethod() -- "); ㅣ--------->  메서드선언및정의
+}                                            ㅣ
+%>
+
+```
+
+### [주석 태그] jsp 주석은 jsp 파일이 서블릿 파일로 변환될 때 제외된다.
+
+```java
+
+<!-- 주석 태그 -->     <--------------  HTML 주석
+<%-- Hello JSP World!! --%>    <----  JSP 주석
+
+```
+
+## 9-3 : JSP 주요 스크립트
+
+### [스크립트릿 태그] JSP 페이지에서 Java 코드를 넣기 위한 태그
+
+```java
+
+<%
+if(num > 0) {  <----------- Java 코드
+%>
+  <p> num > 0 </p>   <----- HTML 코드
+<%
+} else {  <---------------- Java 코드
+%>
+  <p> num <= 0 </p>  <----- HTML 코드
+<%
+  }  <--------------------- Java 코드
+%>
+
+```
+
+### [표현식 태그] Java의 변수 및 메서드의 반환값을 출력하는 태그
+
+```java
+   
+  HTML코드   Java코드
+     ↓        ↓
+  ------     ---                     
+  num is <%= num %>   
+
+```
+
+---
+
+## 9-3 : JSP 주요 스크립트
+
+### [지시어] 서버에서 jsp페이지를 처리하는 방법에 대한 정의
+
+```java
+
+1) page : 페이지 기본 설정 -> <% page 속성=“속성 값”>
+<%@ page language="java" contentType="text/html; charset=EUC-KR“ pageEncoding="EUC-KR"%>
+
+2) include : include file 설정 -> <% include file=“파일명”>
+<%@ include file=“header.jsp"%>
+
+3) taglib : 외부라이브러리 태그 설정 -> <% taglib uri=“uri” prefix=“네임스페이스명”>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix=“c"%>
+
+```
+
+---
