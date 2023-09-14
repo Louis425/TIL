@@ -802,3 +802,76 @@ if(num > 0) {  <----------- Java 코드
 ```
 
 ---
+
+# 10강_JSP request, response
+
+## 10-1 : request 객체
+
+```java
+
+<form action="mSignUp.jsp" method="get">
+
+user data
+
+  <input type="submit" value="sign up">
+</form>
+
+            ㅣ
+            ㅣ <--- Request
+            ㅣ
+            ↓
+
+<%
+  m_name = request.getParameter("m_name");
+  m_pass = request.getParameter("m_pass");
+  m_gender = request.getParameter("m_gender");
+  m_hobby = request.getParameterValues("m_hobby");
+  m_residence = request.getParameter("m_residence");
+%>
+
+```
+
+```java
+              
+                웹 서버
+      Request     ↓
+user --------->  jsp
+
+```
+
+---
+
+## 10-2 : response 객체
+
+```java
+
+<body>
+
+  Second Page
+
+</body>
+
+       ↑
+       ㅣ
+       ㅣ <--- Response
+       ㅣ
+
+<body>
+
+  First Page</br>
+
+  <%
+    response.sendRedirect("secondPage.jsp");
+%>
+
+    </body>
+
+```
+
+```java
+              
+                웹 서버
+      Response    ↓
+user <---------  jsp
+
+```
