@@ -875,3 +875,108 @@ user --------->  jsp
 user <---------  jsp
 
 ```
+
+# 11강_JSP 내장객체
+
+```java
+
+<init-param>
+  <param-name>adminId</param-name>
+  <param-value>admin</param-value>
+</init-param>
+<init-param>
+  <param-name>adminPw</param-name>
+  <param-value>1234</param-value>
+</init-param>
+↓
+↓
+↓
+```
+
+```java
+↓
+↓
+↓
+String adminId =
+getServletConfig().getInitParameter("adminId");
+String adminPw =
+getServletConfig().getInitParameter("adminPw");
+
+```
+## 11-1 config 객체
+
+```java
+
+<context-param>
+  <param-name>imgDir</param-name>
+  <param-value>/upload/img</param-value>
+</context-param>
+<context-param>
+  <param-name>testServerIP</param-name>
+  <param-value>127.0.0.1</param-value>
+</context-param>
+↓
+↓
+↓
+```
+
+```java
+↓
+↓
+↓
+String imgDir =
+getServletContext().getInitParameter("imgDir");
+String testServerIP =
+getServletContext().getInitParameter("testServerIP");
+
+```
+
+## 11-2 application 객체
+
+```java
+
+getServletContext().setAttribute("connectedIP", "165.62.58.23");
+getServletContext().setAttribute("connectedUser", "hong");
+                            ↕
+   (String)getServletContext().getAttribute("connectedIP");
+   (String)getServletContext().getAttribute("connectedUser");
+
+```
+
+## 11-3 out 객체
+
+```java
+
+<%
+  out.print("<h1>Hello JAVA World!!</h1>");
+  out.print("<h2>Hello JSP World!!</h2>");
+  out.print("<h3>Hello Servlet World!!</h3>");
+%>
+
+```
+
+## 11-4 exception 객체
+
+```java
+
+<!-- exception 객체 -->
+<%
+  out.print(str.toString());
+%>
+↓
+↓
+↓
+```
+
+```java
+↓
+↓
+↓
+<%
+  response.setStatus(200);
+  String msg = exception.getMessage();
+%>
+
+<h1> error message : <%= msg %> </h1>
+
+```

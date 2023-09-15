@@ -1492,3 +1492,95 @@ public ObjectEx(int i, String s, int is[]) {
 }
 
 ```
+
+# 17강_데이터 은닉
+
+## 17-1 : 멤버 변수의 private 설정
+
+### 멤버 변수(속성)는 주로 private으로 설정해서, 외부로부터 데이터가 변질되는 것을 막는다.
+
+```java
+
+DATA ----O---> public 속성
+
+DATA ----X---> private 속성
+
+```
+
+
+데이터(속성) 변질이 우려되는 시나리오
+---
++ 직원 급여 프로그램에서, 급여 담당자가 실수로 급여액 을 잘못 입력하는 경우.
++ 변경될수없는사번이변경되는경우.
+
+```java
+
+package com.java.employee;
+
+public class Employee {
+
+  String name;  ㅣ
+  String no;    ㅣ--------> 외부에서 쉽게 데이터를 변경할 수 있다.
+  int pay;      ㅣ
+
+public Employee(String name, String no, int pay) {
+  this.name = name;
+  this.no = no;
+  this.pay = pay;
+  }
+} 
+
+```
+
+## 17-2 : setter, getter
+
+### 멤버 변수를 외부에서 변경할 수 있도록 하는 메서드이다.
+
+### MainClass
+
+```java
+
+import com.java.employee.Employee;
+
+public class MainClass {
+
+  public static void main(String[] args) {
+
+    Employee employeePark = new Employee("박찬호", "2018-00001", 1000000);
+
+    employeePark.getInfo();
+
+    //employeePark.no = "2018-00002";
+    //employeePark.pay = 900000;
+
+    employeePark.setName("박병호");  // 1
+    employeePark.setPay(900000);   // 2
+
+    employeePark.getInfo();
+  }
+}
+
+```
+
+### Employee
+
+```java
+
+public void setName(String name) {                              ㅣ
+  System.out.println(" -- The name can not be modified.-- ");   ㅣ
+}                                                               ㅣ
+                                                                ㅣ--------> 1
+public void setNo(String no) {                                  ㅣ
+System.out.println(" -- The no can not be modified.-- ");       ㅣ
+}                                                               ㅣ
+                                                                ㅣ
+public void setPay(int pay) {                                                               ㅣ
+  if(pay < 1000000) {                                                                       ㅣ
+    System.out.println(" -- The salary can not be reduced to less than 1,000,000 won.-- "); ㅣ
+  } else {                                                                                  ㅣ--> 2
+    System.out.println(" -- The salary has been modified -- ");                             ㅣ
+    this.pay = pay;                                                                         ㅣ
+  }                                                                                         ㅣ
+}                                                                                           ㅣ
+
+```
