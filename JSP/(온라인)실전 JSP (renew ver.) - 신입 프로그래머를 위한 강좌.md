@@ -9,8 +9,8 @@
 - [7강_Servlet life-cycle](#7강_servlet-life-cycle)
 - [8강_ form 테이터 처리](#8강_-form-테이터-처리)
 - [10강_JSP request, response](#10강_jsp-request-response)
-- []()
-- []()
+- [11강_JSP 내장객체](#11강_jsp-내장객체)
+- [12강_Servlet 데이터 공유](#12강_servlet-데이터-공유)
 - []()
 - []()
 <!-- /TOC -->
@@ -980,3 +980,67 @@ getServletContext().setAttribute("connectedUser", "hong");
 <h1> error message : <%= msg %> </h1>
 
 ```
+
+# 12강_Servlet 데이터 공유
+
+## 12-1 : servlet parameter
+
+```java
+
+<init-param>
+  <param-name>adminId</param-name>
+  <param-value>admin</param-value>
+</init-param>
+<init-param>
+  <param-name>adminPw</param-name>
+  <param-value>1234</param-value>
+</init-param>
+     ↓
+     ↓
+     ↓
+String adminId = 
+getServletConfig().getInitParameter("adminId"); 
+String adminPw = 
+getServletConfig().getInitParameter("adminPw");
+
+```
+
+---
+
+## 12-2 : context parameter
+
+```java
+
+<context-param>
+  <param-name>imgDir</param-name>
+  <param-value>/upload/img</param-value>
+</context-param>
+
+<context-param>
+  <param-name>testServerIP</param-name>
+  <param-value>127.0.0.1</param-value>
+</context-param>
+     ↓
+     ↓
+     ↓
+String imgDir =
+getServletContext().getInitParameter("imgDir");
+String testServerIP =
+getServletContext().getInitParameter("testServerIP");
+
+```
+
+## 12-3 : context attribute
+
+```java
+
+getServletContext().setAttribute("connectedIP", "165.62.58.23"); getServletContext().setAttribute("connectedUser", "hong");
+                    ↕
+                    ↕
+                    ↕
+(String)getServletContext().getAttribute("connectedIP");
+(String)getServletContext().getAttribute("connectedUser");
+
+```
+
+---

@@ -15,8 +15,8 @@
 - [13강\_메서드](#13강_메서드)
 - [14강\_객체와 메모리](#14강_객체와-메모리)
 - [15강\_생성자와 소멸자 그리고 this키워드](#15강_생성자와-소멸자-그리고-this-키워드)
-- [16강\_패키지 static]()
-- [17강\_데이터 은닉]()
+- [16강\_패키지 static](#16강_패키지와-static)
+- [17강\_데이터 은닉](#17강_데이터-은닉)
 - [18강\_상속]()
 
 #
@@ -1492,6 +1492,98 @@ public ObjectEx(int i, String s, int is[]) {
 }
 
 ```
+
+# 16강_패키지와 static
+
+## 16-1 : 패키지
+
+### java 프로그램은 많은 클래스로 구성되고, 이러한 클래스를 폴더 형식으로 관리하는 것을 패키지라고 한다.
+
+---
+
+### 패키지이름결정요령
+
+---
+
+- 패키지이름은패키지에속해있는클래스가최대한다 른 클래스와 중복되는 것을 방지하도록 만든다.
+- 패키지 이름은 일반적으로 도메인을 거꾸로 이용한다.
+- 개발중에패키지의이름과구조는변경될수있다.
+- 패키지이름만보고도해당패키지안에있는클래스가
+  어떤속성과기능을가지고있는예상이될수있도록이 름을 만든다.
+
+## 16-2 : import
+
+### 다른 패키지에 있는 클래스를 사용하기 위해서는 import 키워드를 이용한다.
+
+```java
+
+ package com.java.main;
+
+ import com.java.dailyJournal.DailyJournal; 
+ import com.java.employee.Employee;
+ import com.java.pay.Payment;
+ import com.java.pay.fullTime.FullTime; 
+ import com.java.util.Util;
+ import com.java.welfare.Welfare;
+
+public class MainClass {
+
+  public static void main(String[] args) {
+
+    DailyJournal dailyJournal = new DailyJournal(); 
+    Employee employee = new Employee();
+    Payment payment = new Payment();
+    FullTime fullTime = new FullTime();
+    com.java.pay.partTime.PartTime partTime = new com.java.pay.partTime.PartTime();
+    Util util = new Util();
+    Welfare welfare = new Welfare();
+
+  }
+
+}
+
+```
+
+---
+
+## 16-3 : static
+
+### 클래스의 속성과 메서드에 static 키워드를 사용하면 어디서나 속성과 메서드를 공유할 수 있다.
+
+```java
+
+  package com.java.employeeBank; 
+
+  public class EmployeeBank {
+
+    String name;
+    static int amount = 0;
+
+    public EmployeeBank(String name) { 
+      this.name = name;
+    }
+
+    public void saveMoney(int money) {
+      amount += money; 
+      System.out.println("amount : " + amount);
+    }
+
+    public void spendMoney(int money) {
+      amount -= money; 
+      System.out.println("amount : " + amount);
+    }
+
+    public void getBankInfo() { 
+      System.out.println("Employee name : " + this.name); 
+      System.out.println("amount : " + amount);
+    }
+
+}
+
+```
+
+---
+
 
 # 17강_데이터 은닉
 
