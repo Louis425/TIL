@@ -17,7 +17,7 @@
 - [15강\_생성자와 소멸자 그리고 this키워드](#15강_생성자와-소멸자-그리고-this-키워드)
 - [16강\_패키지 static](#16강_패키지와-static)
 - [17강\_데이터 은닉](#17강_데이터-은닉)
-- [18강\_상속]()
+- [18강\_상속](#18강_상속)
 
 #
 
@@ -1676,3 +1676,106 @@ public void setPay(int pay) {                                                   
 }                                                                                           ㅣ
 
 ```
+
+---
+
+
+# 18강_상속
+
+## 18-1 : 상속이란?
+
+### 부모 클래스를 상속받은 자식 클래스는 부모 클래스의 속성과 기능도 이용할 수 있다.
+
+```java
+
+     할아버지
+      (집)
+       ↑
+      상속
+       ↑
+     아버지
+   (집 + 자동차)
+       ↑
+      상속
+       ↑
+      아들 
+(집 + 자동차 + 요트)
+
+```
+
+---
+
+## 18-2 : 상속의 필요성
+
+### 기존의 검증된 class를 이용해서 빠르고 쉽게 새로운 class를 만들 수 있다.
+
+```java
+
+     A음식점      모든 메뉴를 새롭게 만들어야 한다.
+  (할아버지 운영)
+       ↓
+    비법 계승
+       ↓
+     B음식점      B음식점의 메뉴는 A음식점의 메뉴에 -----> ㅣ
+   (아버지 운영)   새로운 몇 가지만 추가하면 된다.          ㅣ
+       ↓                                          ㅣ ----> 검증된 메뉴를 이용해서 쉽고
+    비법 계승                                       ㅣ        빠르게 개업할 수 있다.
+       ↓                                          ㅣ
+     C음식점      C음식점의 메뉴는 P음식점의 메뉴에 ----->  ㅣ
+   (아들 운영)     새로운 몇 가지만 추가하면 된다.
+
+```
+
+---
+
+## 18-3:상속구현
+
+### extend 키워드를 이용해서 상속을 구현한다.
+
+```java
+
+package lec18Pjt001;
+
+public class ParentClass {
+
+  public ParentClass() {
+    System.out.println("ParentClass constructor");
+  } 
+  public void parentFun() {
+    System.out.println("-- parentFun() START -- ");
+  }
+}
+                  ↑  
+                 상속
+                  ↑ 
+package lec18Pjt001;
+
+public class ChildClass extends ParentClass {
+                        -------------------
+  public ChildClass() { 
+    System.out.println("ChildClass constructor");
+  }
+
+  public void childFun() {
+    System.out.println("-- childFun() START -- ");
+  } 
+}
+
+```
+
+```java
+
+ChildClass child = new ChildClass();
+
+child.parentFun();
+child.childFun();
+
+```
+
+---
+
+## 18-4 : 부모 클래스의 private 접근자
+
+### 자식 클래스는 부모 클래스의 모든 자원을 사용할 수 있지만, private 접근자의 속성과 메서드는 사용할 수 없다.
+
+---

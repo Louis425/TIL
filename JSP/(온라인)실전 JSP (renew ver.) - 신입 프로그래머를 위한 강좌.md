@@ -1044,3 +1044,54 @@ getServletContext().setAttribute("connectedIP", "165.62.58.23"); getServletConte
 ```
 
 ---
+
+# 13강_Cookie
+
+## 13-1 : Cookie란?
+
+```java
+
+             ㅣ  --- request -->   ㅣ
+             ㅣ                    ㅣ
+    브라우저    ㅣ --- response -->  ㅣ  서버
+  (클라이언트)  ㅣ                    ㅣ
+             ㅣ  <-- 연결 해제 X --> ㅣ
+                       ↓ 
+             ㅣ  --- request -->   ㅣ
+             ㅣ                    ㅣ
+    브라우저    ㅣ --- response -->  ㅣ  서버
+  (클라이언트)  ㅣ                    ㅣ
+기존 연결정보 저장ㅣ  <-- 연결 해제 X --> ㅣ
+      ↓ 
+   Cookie
+
+```
+
+## 13-2 : Cookie 구현
+
+```java
+
+Cookie[] cookies = request.getCookies(); 
+Cookie cookie = null;
+
+for (Cookie c : cookies) { 
+  
+  System.out.println("c.getName() : " + c.getName() + ",
+c.getValue() : " + c.getValue());
+
+  if(c.getName().equals("memberId")) { 
+    cookie = c;
+  }
+}
+
+if(cookie == null) { 
+  System.out.println("cookie is null"); 
+  cookie = new Cookie("memberId", mId);
+}
+
+response.addCookie(cookie);
+cookie.setMaxAge(60*60);
+
+response.sendRedirect("loginOk.jsp");
+
+```
