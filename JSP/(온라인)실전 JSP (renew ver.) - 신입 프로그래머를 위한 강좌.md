@@ -1095,3 +1095,41 @@ cookie.setMaxAge(60*60);
 response.sendRedirect("loginOk.jsp");
 
 ```
+
+# 14강_Session
+
+## 14-1 : Session이란?
+
+```java
+
+             ㅣ  --- request -->   ㅣ
+             ㅣ                    ㅣ
+    브라우저    ㅣ --- response -->  ㅣ  서버
+  (클라이언트)  ㅣ                    ㅣ
+             ㅣ  <-- 연결 해제 X --> ㅣ
+                       ↓ 
+             ㅣ  --- request -->   ㅣ
+             ㅣ                    ㅣ
+    브라우저    ㅣ --- response -->  ㅣ  서버
+  (클라이언트)  ㅣ                    ㅣ
+기존 연결정보 저장ㅣ  <-- 연결 해제 X --> ㅣ 기존 연결정보 저장
+                                           ↓ 
+                                        Session
+
+```
+
+## 14-2 : Session 구현
+
+```java
+
+session == null - false -> 로그인 정보 출력 
+         ↓                    ↓ 
+       true                   ↓ 
+         ↓                    ↓ 
+     로그인 유도                 ↓  
+         ↓                    ↓ 
+         redirect : loginOk.jsp
+                   ↓
+                로그아웃
+
+```

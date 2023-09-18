@@ -1718,7 +1718,7 @@ public void setPay(int pay) {                                                   
        ↓
      B음식점      B음식점의 메뉴는 A음식점의 메뉴에 -----> ㅣ
    (아버지 운영)   새로운 몇 가지만 추가하면 된다.          ㅣ
-       ↓                                          ㅣ ----> 검증된 메뉴를 이용해서 쉽고
+       ↓                                          ㅣ ----> 검증된 메뉴를 이용해서 쉽고                                        ㅣ
     비법 계승                                       ㅣ        빠르게 개업할 수 있다.
        ↓                                          ㅣ
      C음식점      C음식점의 메뉴는 P음식점의 메뉴에 ----->  ㅣ
@@ -1777,5 +1777,140 @@ child.childFun();
 ## 18-4 : 부모 클래스의 private 접근자
 
 ### 자식 클래스는 부모 클래스의 모든 자원을 사용할 수 있지만, private 접근자의 속성과 메서드는 사용할 수 없다.
+
+---
+
+# 19강_Controller 객체 구현 - II
+
+## 9-1 : @ModelAttribute
+
+```java
+
+@ModelAttribute를 이용하면 커멘드 객체의 이름을 변경할 수 있고, 이렇게 변경된 이름은 뷰에서 커멘드 객체를 참조할 때 사용된다.
+
+컨트롤러
+
+pubilc String memJoin(Member member)
+↓
+ID : ${member.memlb}
+
+pubilc String memLogin(Member member)
+↓
+ID : ${member.memlb}
+
+pubilc String memRemove(@ModelAttribute("mem") Member member)
+↓
+ID : ${mem.memld}
+
+```
+
+## 19-2 : 커맨드 객체 프로퍼티 데이터 타입
+
+```java
+데이터가 기초데이터 타입인 경우
+
+memberJoin.html
+
+ID : <input type="text" name="memId" >
+PW : <input type="password" name="memPw" >
+MAIL : <input type="text" name="memMail" >
+AGE : <input type="text" name="memAge" size="4" value="0">
+↓
+Member.java
+
+private String memId;
+private String memPw;
+private String memMail;
+private int memAge;
+
+```
+
+---
+
+## 19-2 : 커맨드 객체 프로퍼티 데이터 타입
+
+```java
+데이터가 중첩 커멘드 객체을 이용한 List 구조인 경우
+
+memberJoin.html
+
+PHONE1 : <input type="text" 
+name="memPhones[0].memPhone1" size="5"> -
+<input type="text" 
+name="memPhones[0].memPhone2" size="5"> -
+<input type="text" 
+name="memPhones[0].memPhone3" size="5"> 
+PHONE2 : <input type="text" 
+name="memPhones[1].memPhone1" size="5"> -
+<input type="text" 
+name="memPhones[1].memPhone2" size="5"> -
+<input type="text" 
+name="memPhones[1].memPhone3" size="5">
+↓
+Member.java
+
+private List<MemPhone> memPhones;
+
+```
+
+---
+
+## 19-3 : Model & ModelAndView
+
+```java
+컨트롤러에서 뷰에 데이터를 전달하기 위해 사용되는 객체로 Model과 ModelAndView가 있다.두 객체의 차이점은 Model은 뷰에 데이터만을 전달하기 위한 객체이고, ModelAndView는 데이터와 뷰의 이름을 함께 전달하는 객체이다.
+
+Model
+@RequestMapping(value = "/memModify", method = RequestMethod.POST)
+public String memModify(Model model, Member member) {
+
+    Member[] members = service.memberModify(member);
+
+    model.addAttribute("memBef", members[0]);
+    model.addAttribute("memAft", members[1]);
+
+   return "memModifyOk";
+
+```
+
+---
+
+```java
+Model 이용
+
+@RequestMapping(value ="memModify", method = RequestMethid.POST)
+public String memModify(Model model, Member member) {
+    
+    Member[] members = service.memberModify(member);
+
+    model.addAttribute("memBef", members[0]); *
+    model.addAttribute("memAft", members[1]); *
+
+    return "memModifyOK"; **
+}
+```
+
+```java
+ModelAndView 이용
+
+@RequestMapping(value ="memModify", method = RequestMethid.POST)
+public String memModify(Model model, Member member) {
+    
+    Member[] members = service.memberModify(member);
+
+    ModelAndView mav = ModelAndView();
+    model.addAttribute("memBef", members[0]); *
+    model.addAttribute("memAft", members[1]); *
+
+    mav.setViewNama("memModifyOK"); **
+
+    return mav;
+}
+
+
+* : 데이터 이름 & 데이터
+** : 뷰이름
+
+```
 
 ---
