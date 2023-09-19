@@ -1914,3 +1914,9 @@ public String memModify(Model model, Member member) {
 ```
 
 ---
+
+# 20강_내부 클래스와 익명 클래스
+
+## 20-1 : 내부(inner) 클래스
+
+### 클래스 안에 또 다른 클래스를 선언하는 것으로 이렇게 하면 두 클래스의 멤버에 쉽게 접근할 수 있다.

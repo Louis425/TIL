@@ -1133,3 +1133,47 @@ session == null - false -> 로그인 정보 출력
                 로그아웃
 
 ```
+
+# 15강_한글처리
+
+## 15-1 : 한글처리
+
+```java
+
+        post : 서블릿에 request.setCharacterEncoding("UTF-8");
+브라우저 ---------------------------------------------------------> 웹서버
+        get : server.xml에 <Connector URIEncoding="UTF-8" /> 추가
+
+```
+
+---
+
+## 14-2 : Filter
+
+```java
+
+        request
+브라우저 --------- Filter -->   
+       <-- Filter --------- 웹서버
+                   response
+
+  Filter
+(interface)
+    ↑
+UserFilter 
+ (class)
+    ↓
+public class TempFilter implements Filter {
+
+  @Override
+  public void init(FilterConfig arg0) throws ServletException {}
+
+  @Override
+  public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+throws IOException, ServletException {}
+
+  @Override
+  public void destroy() {}
+  
+}
+```
