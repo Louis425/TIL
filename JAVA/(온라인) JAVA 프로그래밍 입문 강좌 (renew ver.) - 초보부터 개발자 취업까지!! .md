@@ -2020,3 +2020,108 @@ new AnonymousClass() {
   };
 }.method();
 ```
+
+# 21강_인터페이스
+
+## 21-1 : 인터페이스란?
+
+```java
+class -- 생성 --> 객체
+
+-------------------------
+
+interpace -- 생성 X -> 객페
+   ↑
+  구현
+   ↑
+ class -- 생성 --> 객체
+```
+
+## 21-2 : 인터페이스를 사용하는 이유
+
+### 인터페이스를 사용하는 이유는 많지만, 가장 큰 이유는 객체가 다양한 자료형(타입)을 가질 수 있기 때문이다.
+
+```java
+         ㅣ->interpaceA
+         ㅣ
+         ㅣ->interpaceB
+class -->ㅣ
+         ㅣ->interpaceC
+         ㅣ
+         ㅣ->interpaceD
+--------------------------------
+public class ImplementClass implements InterfaceA, InterfaceB, InterfaceC, InterfaceD {
+  public ImplementClass() {
+    System.out.println("ImplementClass constructor"); 
+  }
+}
+```
+
+## 21-3 : 인터페이스 구현
+
+### class 대신 interface 키워드를 사용하며, extend 대신 implements 키워드를 이용한다.
+
+```java
+public interface InterfaceA {  
+  public void funA();
+}
+
+public interface InterfaceB {
+  public void funB();
+}
+
+public interface InterfaceC {
+  public void funC();
+}
+
+public interface InterfaceD {
+  public void funD();
+}
+
+-----------------------------
+
+public class ImplementClass implements InterfaceA, InterfaceB, InterfaceC, InterfaceD { 
+
+  @Override
+  public void funA() { System.out.println(" -- funA START --"); } 
+
+  @Override
+  public void funB() { System.out.println(" -- funB START --"); } 
+  
+  @Override
+  public void funC() { System.out.println(" -- funC START --"); } 
+
+  @Override
+  public void funD() { System.out.println(" -- funD START --"); } 
+  
+}
+```
+
+## 21-4 : 장난감 인터페이스
+
+### interface를 이용하면 객체가 다양한 자료형(타입)을 가길 수 있다.
+
+```java
+      ㅣ-> ToyRobot
+Toy ->ㅣ
+      ㅣ-> ToyAirplane
+
+-----------------------
+
+Toy robot = new ToyRobot();
+Toy airplane = new ToyAirplane();
+
+Toy toys[] = {robot, airplane};
+
+for (int i = 0; i < toys.length; i++) {
+  toys[i].walk();
+  toys[i].run();
+  toys[i].alarm();
+  toys[i].light(); 
+  
+  System.out.println();
+}
+
+
+
+```
