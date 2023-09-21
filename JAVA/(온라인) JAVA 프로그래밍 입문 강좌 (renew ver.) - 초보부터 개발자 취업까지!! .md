@@ -21,7 +21,7 @@
 - [19강_Controller 객체 구현 - II](#19강_controller-객체-구현---ii)
 - [20강_내부 클래스와 익명 클래스](#20강_내부-클래스와-익명-클래스)
 - [21강_인터페이스](#21강_인터페이스)
-- [22강_추상클래스]()
+- [22강_추상클래스](#22강_추상클래스)
 - [23강_람다식]()  
 - [24강_문자열 클래스]()
 - [25강_Collections]()
@@ -2121,4 +2121,118 @@ for (int i = 0; i < toys.length; i++) {
 
   System.out.println();
 }
+```
+
+# 22강_추상클래스
+
+## 22-1 추상클래스란?
+
+### 클래스의 공통된 부분을 뽑아서 별도의 클래스(추상클래스)로 만들어 놓고, 이것을 상속해서 사용한다.
+
+```java
+abstract class
+      ↑
+     상속
+      ↑
+    class - 생성 -> 객체
+
+---------------------------
+abstract 클래스의 특징
+
+• 멤버변수를 가진다.
+• abstract 클래스를 상속하기 위해서는 extends 를 이용한다.
+• abstract 메서드를 가지며, 상속한 클래스에서 반듯이 구현해야 한다.
+• 일반메서드도가질수있다.
+• 일반 클래스와 마찬가지로 생성자도 있다.
+```
+
+---
+
+## 22-2 추상클래스 구현
+
+### 클래스 상속과 마찬가지로 extends 키워드를 이용해서 상속하고 abstract(추상)메서드를 구현한다.
+
+```java
+public abstract class AbstractClassEx {
+
+int num;
+String str;
+
+public AbstractClassEx() { 
+System.out.println("AbstractClassEx constructor"); 
+}
+
+public AbstractClassEx(int i, String s) { 
+System.out.println("AbstractClassEx constructor");
+
+this.num = i; 
+this.str = s; 
+}
+
+public void fun1() {
+System.out.println(" -- fun1() START -- "); 
+}
+
+public abstract void fun2(); <-- 강제로 반듯이 구현하도록 함
+
+}
+
+--------------------------------------------
+public class ClassEx extends AbstractClassEx {
+
+public ClassEx() { 
+System.out.println("ClassEx constructor"); 
+}
+
+public ClassEx(int i, String s) { 
+super(i, s);
+}
+
+@Override 
+public void fun2() {
+System.out.println(" -- fun2() START -- ");  <-- 강제로 반듯이 구현하도록 함
+}
+
+}
+
+-----------------------------------------
+AbstractClassEx ex = new ClassEx(10, "java"); 
+ex.fun1();
+ex.fun2();
+```
+
+## 22-3 Bank 추상클래스
+
+```java
+abstract Bank 클래스
+       ↑
+      상속
+       ↑
+   MyBank 클래스
+
+------------------
+Bank myBank = new MyBank("박찬호", "123-4567-89012", 10000);
+myBank.deposit();// 예금 
+myBank.withdraw();// 출금 
+myBank.installmentSavings();// 적금 
+myBank.cancellation();// 해약
+
+System.out.println(); 
+
+myBank.getInfo();
+```
+
+## 22-4 인터페이스 vs 추상클래스
+
+```java
+     interface                         abstract class
+                        공통점
+                   추상 메서드를 가진다
+          객체 생성이 불가하며 자료형(타입)으로 사용된다.
+
+                        차이점
+상수, 추상메서드만 가진다.           클래스가 가지는 모든 속성과 기능을 가진다.
+추상 메서드를 구현만 하도록 한다.      추상 메서드 구현 및 상속의 기능을 가진다.
+다형성을 지원한다.                  단일 상속만 지원한다.
+ 
 ```

@@ -15,7 +15,7 @@
 - [14강_Session](#14강_session)
 - [15강_한글처리](#15강_한글처리)
 - [16강_오라클 설치](#16강_오라클-설치)
-- [17강_SQL]()
+- [17강_SQL](#17강_sql)
 - [18강_JDBC]()
 - [19강_DAO와 DTO]()
 - [20강_Connection Pool]()
@@ -1192,4 +1192,95 @@ throws IOException, ServletException {}
 ## 16-2 : SQL developer
 
 ### http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html
+
+---
+
+# 17강_SQL
+
+## 17-1:테이블생성및삭제
+
+```java
+-- table 생성
+CREATE TABLE book (
+  book_id NUMBER(4), 
+  book_name VARCHAR2(20),
+  book_loc VARCHAR2(20)
+);
+
+-- 테이블 검색
+SELECT * FROM tab;
+
+-- 테이블 삭제
+DROP TABLE book;
+
+-- table 생성 - 제약조건
+CREATE TABLE book (
+  book_id NUMBER(4) CONSTRAINT book_id_pk PRIMARY KEY,
+  book_name VARCHAR2(20),
+  book_loc VARCHAR2(20)
+);
+```
+
+---
+
+## 17-2 : 데이터 추가, 수정, 삭제
+
+```java
+-- 시퀀스 생성
+CREATE SEQUENCE book_seq;
+
+-- 데이터 추가
+INSERT INTO
+  book(book_id, book_name, book_loc)
+VALUES
+  (BOOK_SEQ.NEXTVAL, 'book5', '001-00005');
+
+INSERT INTO
+  book
+VALUES
+  (BOOK_SEQ.NEXTVAL, 'book6', '001-00006');
+
+-- 수정
+  UPDATE book SET book_loc = '001-00006123' 
+  WHERE book_name = 'book6';
+
+-- 삭제
+  DELETE FROM book 
+  WHERE book_id = 6;
+```
+
+---
+
+## 17-3 : 데이터 검색
+
+```java
+-- 데이터 검색
+SELECT * FROM book;
+
+SELECT book_name, book_loc FROM book;
+
+SELECT book_name AS 책이름, book_loc AS 책위치 FROM book;
+
+-- 조건 - WHERE
+SELECT * FROM book WHERE book_id > 3;
+SELECT * FROM book WHERE book_id > 3 AND book_id <= 5;
+
+-- 조건 - BETWEEN AND
+SELECT * FROM book WHERE book_id BETWEEN 2 AND 4;
+
+-- 조건 - LIKE
+SELECT * FROM book WHERE book_id LIKE 3;
+SELECT * FROM book WHERE book_loc LIKE '%3';
+SELECT * FROM book WHERE book_name LIKE 'book%';
+SELECT * FROM book WHERE book_name LIKE '%ok%';
+
+-- 정렬
+SELECT * FROM book ORDER BY book_id ASC;
+SELECT * FROM book ORDER BY book_id DESC;
+
+SELECT * FROM book ORDER BY book_name ASC;
+SELECT * FROM book ORDER BY book_name DESC;
+```
+
+---
 
