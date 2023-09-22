@@ -1284,3 +1284,41 @@ SELECT * FROM book ORDER BY book_name DESC;
 
 ---
 
+# 18강_JDBC
+
+## 18-1 JDBC 설정
+
+```java
+Java가 DB와 통신할수 있게 해주는 API
+
+      Java <- JDBC -> DB
+
+------------------------------
+eclipse에서도 Oracle의 API를 이용하기 위해서,
+Oracle LIB를 eclipse에 복사한다.
+
+ eclipse <- Library -- ORACLE
+```
+```java
+C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib
+                      ↓
+             copy : ojdbc6_g.jar
+                      ↓
+ C:\Program Files\Java\jre1.8.0_151\lib\ext
+```
+
+## 18-2 JDBC를 이용한 데이터 관리
+
+```java
+OracleDriver 로딩 Driver loading Class.forName(driver);
+                  ↓
+Java와 Oracle 연결 Connection con = DriverManager.getConnection(url, id, pw);
+                  ↓
+   query 전송 객체 Statement stmt = con.createStatement();
+                  ↓
+       query 작성 query String sql = "SELECT * FROM book";
+                  ↓
+       query 전송 run res = stmt.executeQuery(sql);
+```
+
+---
