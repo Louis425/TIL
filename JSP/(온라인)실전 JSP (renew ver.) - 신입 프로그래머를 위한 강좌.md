@@ -17,7 +17,7 @@
 - [16강_오라클 설치](#16강_오라클-설치)
 - [17강_SQL](#17강_sql)
 - [18강_JDBC](#18강_jdbc)
-- [19강_DAO와 DTO]()
+- [19강_DAO와 DTO](#19강_dao와-dto)
 - [20강_Connection Pool]()
 <!-- /TOC -->
 
@@ -1322,3 +1322,29 @@ Java와 Oracle 연결 Connection con = DriverManager.getConnection(url, id, pw);
 ```
 
 ---
+
+# 19강_DAO와 DTO
+
+## 19-1 DAO, DTO 란?
+
+```java
+      -- request -->  ㅣ       ㅣ->ㅣ
+브라우저                ㅣServletㅣ  ㅣDAOㅣ --------> ㅣDB 
+      <- response --  ㅣ       ㅣ<-ㅣ   ㅣ <- DTO -- ㅣ
+
+DAO : Data Access Object 
+DTO : Data Transfer Object
+```
+
+---
+
+## 19-2 DAO, DTO 구현
+
+```java
+브라우저 <----> BookServlet <----> DB
+
+브라우저 <--> BookServlet <--> BookDAO <- DTO -> DB
+```
+
+---
+
