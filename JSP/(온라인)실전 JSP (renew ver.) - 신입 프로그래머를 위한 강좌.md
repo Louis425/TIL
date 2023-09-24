@@ -1348,3 +1348,84 @@ DTO : Data Transfer Object
 
 ---
 
+# 20강_Connection Pool
+
+## 20-1 커넥션 풀 이란?
+
+```java
+브라우저 -- request -> 웹거버 -- DB Access ----> DB
+                          1. DB Connection
+                          2. Data handing
+                          3. DB connectin Close
+------------------------------------------------
+                      ↓
+                      ↓
+                      ↓
+------------------------------------------------
+브라우저 -- request -> 웹거버 -- DB Access -> DB
+                             ↑          ↓
+                            rent     return
+                             ↑          ↓
+                           Connection Pool
+```
+
+## 20-2 커넥션 풀 설정
+
+>
+>> Servers
+>
+>>> Tomcat v8.5
+>
+>>>> context.xml
+```java
+<Resourcecle
+  auth= "Container"
+  driverClassName= "oracle.jdbc.driver.OracleDriver"
+  ur1= "jdbc:oracle:thin:@localhost:1521:xe"
+  username= "scott"
+  name= "jdbc/Oracle11g"
+  type= "javax.sql.DataSource"
+  macActive= "4"
+  maxWait= "10000" />
+```
+
+---
+
+## 20-3 커넥션 풀 구현
+
+```java
+DataSource dataSource;
+
+/*
+String driver = "oracle.jdbc.driver.OracleDriver";
+String url = "jdbc:oracle:thin:@localhost:1521:xe";
+String id = "scott";
+String pw = "tiger";
+*/
+
+public BookDAO() {
+try {
+//Class.forName(driver);
+Context context = new InitialContext();
+dataSource = (DataSource)context.lookup("java:comp/env/jdbc/Oracle11g"); 
+} catch (Exception e) {
+e.printStackTrace(); 
+}
+}
+```
+
+```java
+public ArrayList<BookDTO> select() { 
+ArrayList<BookDTO> list = new ArrayList<BookDTO>();
+
+Connection con = null; 
+PreparedStatement pstmt = null; 
+ResultSet res = null;
+
+try{
+  //con = DriverManager.getConnection(url, id, pw);
+  con = dataSource.getConnection();
+  }
+}
+
+```
