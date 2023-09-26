@@ -2582,3 +2582,114 @@ public void thirdMethod() throws Exception {
 ```
 
 ---
+
+# 27강_입력과 출력
+
+## 27-1 입/출력 이란?
+
+### 다른 곳의 데이터를 가져오는 것을 입력이라 하고, 다른 곳으로 데이터를 내보내는 것을 출력이라고 한다.
+
+```java
+       ㅣ <-- 입력 --- ㅣ
+프로그램 ㅣ 스트림(steam) ㅣ 입/출력 대상
+       ㅣ --- 출력 --> ㅣ
+
+입력(Input) : 파일 읽기, 이미지&동영상 불러오기
+출력(output) : 파일쓰기, 이미지&동영상 내보내기
+```
+
+---
+
+## 27-2 입/출력 기본 클래스
+
+### 입/출력에 사용되는 기본 클래스는 1byte단위로 데이터를 전송하는 InputStream, OutputStream이 있다.
+
+```java
+
+          InputStream
+       ㅣ <-- 입력 --- ㅣ
+프로그램 ㅣ             ㅣ 입/출력 대상
+       ㅣ --- 출력 --> ㅣ
+         OutputStream
+
+---------------------------------------
+
+            ㅣ FileInputStream
+InputStream ㅣ DataInputStream
+            ㅣ BufferedInputStream
+
+             ㅣ FileOutputStream
+OutputStream ㅣ DataOutputStream
+             ㅣ BufferedOutputStream
+```
+
+## 27-3 FileInputStream / FileOutputStream
+
+### 파일에 데이터를 읽고/쓰기 위한 클래스로 read(), write() 메서드를 이용한다.(lec27Pjt001, lec27Pjt002)
+
+```java
+FileInputStream
+read(); 
+read(byte[]);
+
+FileOutputStream
+write(byte[] b);
+write(byte[], int off, int len);
+
+---------------------------------------
+
+read() : 1byte씩 읽고
+
+[1byte]
+
+read(byte[]) : []크기만큼 읽고
+
+[1byte][1byte][1byte][1byte]
+
+write(byte[] b) : 전체 쓰기
+write(byte[], int off, int len) : off(시작점), len(길이)
+```
+
+---
+
+## 27-4 파일 복사
+
+### 파일 입/출력 클래스를 이용해서 파일을 복사할 수 있다. (lec27Pjt003)
+
+```java
+
+File -- 입력 ->  InputStream -- 출력 -> File
+               OutputStream
+```
+
+---
+
+## 27-5 DataInputStream, DataOutputStream
+
+### byte 단위의 입출력을 개선해서 문자열을 좀 더 편리하게 다룰 수 있다. (lec27Pjt004)
+
+```java
+                  InputStream
+                       ↑
+                DataInputStream
+File -- 입력 ->                   -- 출력 -> File
+                DataOutputStream
+                       ↓
+                  OutputStream
+```
+
+## 27-6 BufferedReader, BufferedWriter
+
+### byte 단위의 입출력을 개선해서 문자열을 좀 더 편리하게 다룰 수 있다. (lec27Pjt005)
+
+```java
+                  FileReader
+                       ↑
+                BufferedReader
+File -- 입력 ->                 -- 출력 -> File
+                BufferedWriter
+                       ↓
+                  FileWriter
+```
+
+---
