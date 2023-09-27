@@ -670,9 +670,9 @@ m_pass=1234&m_gender=M&m_hobby=sport&m_hobby=cooking&m_residenc e=jeju
       데이터가 HTTP Request에 포함되어 웹 서버로 전송
                     ↓
                     ↓
-form 관련 태그 ㅣ ----------> ㅣ request 객체
-     ↓       ㅣ  보안에 약하다 ㅣ      ↓
-    user     ㅣ             ㅣ    user
+form 관련 태그        ↓          request 객체
+     ↓       ㅣ ----------> ㅣ      ↓
+    user     ㅣ  보안에 강하다 ㅣ    user
     dara     ㅣ             ㅣ    dara
 
 method=“Post” -----------------> doPost()
