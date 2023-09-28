@@ -26,7 +26,6 @@
 ## 1-1 : 웹 프로그램 이란?
 
 ```java
-
  ↔ ↕ = 네트워크
 
            인터넷 서비스
@@ -40,11 +39,9 @@
      컴퓨터  ↔  컴퓨터  ↔  컴퓨터
        ↕        ↕        ↕
      컴퓨터  ↔  컴퓨터  ↔  컴퓨터
-
 ```
 
 ```java
-
      사용자
     (브라우저)
        ↓
@@ -59,13 +56,13 @@
 
   웹 프로그램이란, 인터넷 서비스를 이용해서 서로 다른
   구성요소를(PC 등) 이 통신할 수 있는 프로그램이다.
-
 ```
+---
+
 
 ## 1-2 : 프로토콜(Protocol)과 IP
 
 ```java
-
                   Request
                     ↓
  인터넷 객체  →→→→ㅣ→→→→→→→→→→→→→→→→→→→→ㅣ
@@ -80,11 +77,9 @@
                ↓
        프로토콜(Protocol)
        동신을 하기위한 규약으로 HTTP, FTP, SMTP, POP 등이 있다.
-
 ```
 
 ```java
-
              DNS
               ↓
    컴퓨터 →→→→→→ㅣ
@@ -98,8 +93,9 @@
      http://www.google.com:80/index.html
        ↑            ↑   ↑         ↑  ↑
     Protocol        도메인          경로
-
 ```
+
+---
 
 ## 1-3 : 웹 프로그램의 동장 원리
 
@@ -814,7 +810,6 @@ if(num > 0) {  <----------- Java 코드
 ## 10-1 : request 객체
 
 ```java
-
 <form action="mSignUp.jsp" method="get">
 
 user data
@@ -834,15 +829,12 @@ user data
   m_hobby = request.getParameterValues("m_hobby");
   m_residence = request.getParameter("m_residence");
 %>
-
 ```
 
 ```java
-              
                 웹 서버
       Request     ↓
 user --------->  jsp
-
 ```
 
 ---
