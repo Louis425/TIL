@@ -196,20 +196,15 @@ i = 10;
                   10진수 : 10
 int i - 10;  ⇉
                   2진수 : 1010
-
 ```
 
 ```java
-
        int 자료형은 메모리에서 4byte 공간은 차지함.
 <----------------------------->
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0
-                              ⇿
-                            1 bit
-                <------------->
-                   8bir = 1byte
-
+⇿               <------------->
+1 bit             8bir = 1byte
 ```
 
 ## 3-4 : 변수 데이터 변경
@@ -217,7 +212,6 @@ int i - 10;  ⇉
 ### 변수에 저장된 데이터 언제든지 변경할 수 있다.
 
 ```java
-
 package lec03Pjt001;
 
 public class MainClass {
@@ -239,7 +233,6 @@ public class MainClass {
 	}
 
 }
-
 ```
 
 # 4강\_기본자로형
@@ -249,7 +242,6 @@ public class MainClass {
 ### 기본 자로형은 데이터가 변수에 직접 저장되고, 객체 자로형은 객체 메모리 주소가 변수에 저장된다.
 
 ```java
-
                            기본 자료형                 객체 자로형
                              메모리(여기저기)             메모리
 int i = 39;                      10                 odj      0x44ec56
@@ -258,14 +250,11 @@ int i = 39;                      10                 odj      0x44ec56
 
                                                 C진영에서 포인터라고 하고,
                                                JAVA진영에서는 레퍼런스라고 한다.
-
-
 ```
 
 ## 4-1 : java 기본자료형
 
 ```java
-
                          ㅣ  byte   1byte
                          ㅣ  *char  2byte*
                  정수형 →  ㅣ  short  2byte
@@ -276,13 +265,11 @@ int i = 39;                      10                 odj      0x44ec56
                          ㅣ *double 8byte*
 
                  논리형 →  ㅣ*boolean 1byte*
-
 ```
 
 ## 4-2 : java 기본자료형
 
 ```java
-
 package lec04Pjt001;
 
 public class MainClass {
@@ -315,13 +302,11 @@ i = 10
 d = 10.258
 b = false
 s = Hello java Wrold!!
-
 ```
 
 ## 4-3 : 형 변환
 
 ```java
-
 package lec04Pjt001;
 
 public class MainClass {
@@ -349,7 +334,6 @@ console
 in = 10
 bVar = 100
 bVer = 64
-
 ```
 
 # 5강\_특수 문와 서식 문자
@@ -359,7 +343,6 @@ bVer = 64
 ### 일반 문자가 아닌 특수한 목적으로 사용되는 문자
 
 ```java
-
  \t  탭
 *\n  줄바꿈*
  \’  작은 따옴표
@@ -382,7 +365,6 @@ public class MainClass {
   }
 
 }
-
 ```
 
 ## 5-2 : 서식 문자
@@ -390,7 +372,6 @@ public class MainClass {
 ### 일반 문자가 아닌 서식에 사용되는 문자
 
 ```java
-
 printf() 메서드 이용
 : f는 format(형식)을 뜻함.
 
@@ -400,11 +381,9 @@ printf() 메서드 이용
 %c 문자
 %s 문자열
 %f 실수
-
 ```
 
 ```java
-
 package lec05Pjt001;
 
 public class MainClass {
@@ -443,7 +422,6 @@ System.out.printf("d = %f\n", d);
   }
 
 }
-
 ```
 
 ## 5-3 : 서식 문자의 정렬과 소수점 제한 기능
@@ -451,7 +429,6 @@ System.out.printf("d = %f\n", d);
 ### 서식 문자를 이영해서 풀력 문자의 정렬 및 소수점 제한 기능을 사용할 수 있다.
 
 ```java
-
 package lec05Pjt001;
 
 public class MainClass {
@@ -481,7 +458,6 @@ System.out.printf("%.3f\n", 1.23);
   }
 
 }
-
 ```
 
 # 6강\_연산자
@@ -491,13 +467,11 @@ System.out.printf("%.3f\n", 1.23);
 ### 피연산자 개수에 따라서 단항, 이항 그리고 삼향 연산자로 구분할 구 있다.
 
 ```java
-
    단항 연산자                 이항 연산자                      삼향 연산자
 
 피연산자가 하나 존재          피연산자가 두개 존재                피연산자가 세개 존재
 
   +x, -x, !x            x = y, x < y, x != y          조건식 : true ? false
-
 ```
 
 ## 6-2 : 대입 연산자
@@ -505,7 +479,6 @@ System.out.printf("%.3f\n", 1.23);
 ### 대입 연산자는 오른쪽의 결과를 왼쪽에 대입(할당) 한다.
 
 ```java
-
 ‘=’는 수학에서 ‘오른쪽 값과 왼쪽 값이 같다’ 라는 의미 이지만,
 프로그램에서는 ‘오른쪽 값을 왼쪽에 대입’ 하는 의미로 쓰인다.
 
@@ -521,15 +494,12 @@ System.out.println("y = " + y);
 x = y;
 System.out.println("x = " + x);
 System.out.println("y = " + y);
-
 ```
-
 ## 6-3 : 산술 연산자
 
 ### 치연산자를 이용해서 +,-,\*,/,% 등을 수행한다.
 
 ```java
-
 + 덧셈
 - 뺄셈
 * 곱셈
@@ -543,7 +513,6 @@ System.out.println("x - y = " + (x - y));
 System.out.println("x * y = " + (x * y));
 System.out.println("x / y = " + (x / y));
 System.out.println("x % y = " + (x % y));
-
 ```
 
 ## 6-4 : 복합 대입연산자
@@ -551,7 +520,6 @@ System.out.println("x % y = " + (x % y));
 ### 산술 연산자와 대입 연산자를 결합한 연산자이다.
 
 ```java
-
 += 더하고 대입
 -= 빼고 대입
 *= 곱하고 대입
@@ -569,7 +537,6 @@ x = 10;
 System.out.println("x /= 10 : " + (x /= 10));
 x = 10;
 System.out.println("x %= 10 : " + (x %= 10));
-
 ```
 
 ## 6-5 : 관계 연산자
@@ -577,7 +544,6 @@ System.out.println("x %= 10 : " + (x %= 10));
 ### 두개의 피연산자를 비교해서 참/거짓의 결론 을 돌출한다.
 
 ```java
-
 >    a>b : a가 b보다 크면 참
 <    a<b : a가 b보다 작으면 참
 >=   a>=b : a가 b보다 크거나 같으면 참
@@ -593,7 +559,6 @@ System.out.println("x >= y : " + (x >= y));
 System.out.println("x <= y : " + (x <= y));
 System.out.println("x == y : " + (x == y));
 System.out.println("x != y : " + (x != y));
-
 ```
 
 ## 6-6 : 증가 연산자
@@ -601,7 +566,6 @@ System.out.println("x != y : " + (x != y));
 ### 1만큼 증가 하거나 감소를 수행한다.
 
 ```java
-
 ++ 1만큼 증가
 -- 1만큼 감소
 
