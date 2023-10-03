@@ -2,11 +2,11 @@
 
 git/github
 
+- [git을 배워야 하는 이유](<git/git을 배워야 하는 이유.md>)
+
 - [git 설치 및 세팅!](<git/git 설치 및 세팅!.md>)
 
 - [git 사용법.md](<git/git 사용법.md>)
-
-- [git을 배워야 하는 이유](<git/git을 배워야 하는 이유.md>)
 
 JAVA
 
