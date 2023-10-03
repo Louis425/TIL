@@ -121,7 +121,6 @@ JAVA 소스   ->  바이트 코드 파일 ->  기계어 ->  실행
           java 컴파일러     jvm 구동
           (javac.exe)    (java.exe)
 ```
-
 ## 2-3 : Java 프로그램 실행
 
 - 이클립스가 아닌 메모장, 컴파일러(javac.exe) 그리고 JVM을 구종시키는 java.exe를 이용해서 java 프로그램을 실행 한다.
@@ -671,7 +670,6 @@ System.out.println("x ^ y : " + (x ^ y));
 ### 배열도 변수와 마찬가지로 선언과 초기화 과정을 거쳐 사용한다.
 
 ```java
-
 // 배열 선언 후 초기화
 int[] arr1 = new int[5];
 arr1[0] = 100;
@@ -685,11 +683,9 @@ System.out.println("arr1[1] : " + arr1[1]);
 System.out.println("arr1[2] : " + arr1[2]);
 System.out.println("arr1[3] : " + arr1[3]);
 System.out.println("arr1[4] : " + arr1[4]);
-
 ```
 
 ```java
-
 // 배열 선언과 초기화를 동시에
 int[] arr2 = {10, 20, 30, 40, 50};
 
@@ -698,7 +694,6 @@ System.out.println("arr2[1] : " + arr2[1]);
 System.out.println("arr2[2] : " + arr2[2]);
 System.out.println("arr2[3] : " + arr2[3]);
 System.out.println("arr2[4] : " + arr2[4]);
-
 ```
 
 ## 7-3 : 배열을 이용한 학사관리
@@ -706,7 +701,6 @@ System.out.println("arr2[4] : " + arr2[4]);
 ### 배열은 주로 많은 데이터를 쉽게(효율적) 관리하기 위해서 사용한다.
 
 ```java
-
 // 배열을 이용한 학사관리
 String[] name = {"박찬호", "이승엽", "박병호", "이병규", "류현진"};
 int[] score = new int[5];
@@ -736,7 +730,6 @@ double ave = (double)(score[0] + score[1] + score[2] + score[3] + score[4]) / 5;
 System.out.printf("-----------------------\n평 점 : \t%.2f", ave);
 
 scanner.close();
-
 ```
 
 # 8강\_배열과 메모리
@@ -746,7 +739,6 @@ scanner.close();
 ### 배열을 구성하는 데이터의 자료형에 따라서 배열의 메모리 크기가 결정된다.
 
 ```java
-
 int[] arr = new int[3];
 
     1byte 1byte 1byte 1byte  1byte 1byte 1byte 1byte  1byte 1byte 1byte 1byte
@@ -754,7 +746,6 @@ int[] arr = new int[3];
          int형 : 4byte            int형 : 4byte             int형 : 4byte
     <----------------------------------------------------------------------->
                                   arr : 12byte
-
 ```
 
 ## 8-2 : 배열을 가리키는 배열이름
