@@ -1039,7 +1039,6 @@ do {
 ### 클래스는 멤버 변수(속성), 메서드 (기능), 생성다 등으로 구성돤다.
 
 ```java
-
 package lec11Pjt001;
 
  public class Grandeur {  <-------------------------- 클래스 이름 : 일반적으로 첫글자는 대문자로 한다.
@@ -1060,7 +1059,6 @@ package lec11Pjt001;
  }
 
 }
-
 ```
 
 ## 12-2 : 객체 생성
@@ -1068,7 +1066,6 @@ package lec11Pjt001;
 ### 클래스로 부터 'new'를 이용해서 객체를 생성 한다.
 
 ```java
-
 Grandeur myCar1 = new Grandeur();
 myCar1.color = "red";
 myCar1.gear = "auto";
@@ -1088,11 +1085,9 @@ myCar2.price = 25000000;
 myCar2.run();
 myCar2.stop();
 myCar2.info();
-
 ```
 
 ```java
-
       myCar1 --> Grandeur
        주소         객체
       레퍼런스
@@ -1100,7 +1095,6 @@ myCar2.info();
       myCar2 --> Grandeur
        주소         객체
       레퍼런스
-
 ```
 
 ## 12-3 : 생성자
@@ -1108,7 +1102,6 @@ myCar2.info();
 ### 클래스에서 객체를 생성할 때 가장 먼저 호출된다.
 
 ```java
-
 public class Bicycle {
 
 String color;
@@ -1132,17 +1125,14 @@ public void info() {
   }
 
 }
-
 ```
 
 ```java
-
 Bicycle myBicycle1 = new Bicycle();
 myBicycle1.info();
 
 Bicycle myBicycle2 = new Bicycle("red", 100000);
 myBicycle2.info();
-
 ```
 
 ---
@@ -1154,7 +1144,6 @@ myBicycle2.info();
 ### 메서드도 변수와 같이 선언 및 정의 후 필요시에 호출해서 사용한다.
 
 ```java
-
  접근자        메서드 이름
    ↓   반환 형    ↓  메개변수
    ↓     ↓      ↓    ↓
@@ -1168,24 +1157,19 @@ public void getInfo () { <--------------------- 메서드 선언
   System.out.println(" s = " + s); ㅣ
 
 }
-
 ```
 
 ```java
-
 ChildClass childClass = new ChildClass();
 childClass.getInfo();
-
 ```
 
 ---
-
 ## 13-2 : 매개변수(parameter)
 
 ### 메서드를 호출할 때 데이터를 전달할 수 있다.
 
 ```java
-
 public void getInfo() { <---------------------- 매개변수(parameter)는 필요시에만 정의된다.
                                                 ↓
   ...                                           ↓
@@ -1199,7 +1183,6 @@ public void setInfo(int i, boolean b, double d, char c, String s) {
 }                             ↓
                               ↓
         매개변수(parameter)는 자료형과 변수(지역변수)로 이루어진다.
-
 ```
 
 ## 13-3 : 중복 메서드(overloading)
@@ -1207,7 +1190,6 @@ public void setInfo(int i, boolean b, double d, char c, String s) {
 ### 이름은 같고, 매개변수의 개수 또는 타입이 다른 메서드를 만들 수 있다.
 
 ```java
-
 public void getIngo() {
             ---------
   System.out.println("-- getInfo - I --");
@@ -1226,7 +1208,6 @@ public void getIngo(String s1, String s2) {
   System.out.printf("parameter --> s1 : %s, s2 : %s\n", s1, s2);
   
 }
-
 ```
 
 ## 13-4 : 접근자
@@ -1234,7 +1215,6 @@ public void getIngo(String s1, String s2) {
 ### 메서드를 호출할 때 접근자에 따라서 호출이 불가할 수 있다.
 
 ```java
-
          ㅣ----- X ----> privatr 메서드
          ㅣ            ------------
          ㅣ              ↓    ↑
@@ -1242,7 +1222,6 @@ public void getIngo(String s1, String s2) {
          ㅣ              ↓    ↑
          ㅣ            ----------
          ㅣ----- O ----> pubic 메서드
-
 ```
 
 # 14강_객체와 메모리
@@ -1258,7 +1237,6 @@ public void getIngo(String s1, String s2) {
 ### 생성한 객체의 주소를 변수에 저장하는 것을 레퍼런스라고 한다.
 
 ```java
-
 ObjectClass obj1 = new ObjectClass();
 ObjectClass obj2 = new ObjectClass();
 ObjectClass obj3 = new ObjectClass();
@@ -1266,7 +1244,6 @@ ObjectClass obj3 = new ObjectClass();
 System.out.println("obj1 ----> " + obj1);
 System.out.println("obj2 ----> " + obj2);
 System.out.println("obj3 ----> " + obj3);
-
 ```
 
 ## 14-3 : 자료형이 같아도 다른 객체
@@ -1274,7 +1251,6 @@ System.out.println("obj3 ----> " + obj3);
 ### 자료형이 같아도 다른 공간에 존재하는 객체는 다른 객체이다.
 
 ```java
-
 ObjectClass obj1 = new ObjectClass();
 ObjectClass obj2 = new ObjectClass();
 ObjectClass obj3 = new ObjectClass();
@@ -1297,7 +1273,6 @@ if(obj1 == obj3) {
 } else {
   System.out.println("obj1 != obj3");
 }
-
 ```
 
 ## 14-4 : null과 NullPointException
@@ -1305,14 +1280,12 @@ if(obj1 == obj3) {
 ### 레퍼런스에 null 저장되면 객체의 연결이 끊기며, 더 이상 객체를 이용할 수 없다.
 
 ```java
-
 System.out.println("obj1 ----> " + obj1);
 obj1.getInfo();
 
 obj1 = null;
 System.out.println("obj1 ----> " + obj1);
 obj1.getInfo();
-
 ```
 
 ---
@@ -1324,7 +1297,6 @@ obj1.getInfo();
 ### 객체가 생성될 때 가장 먼저 호출되는 생성자로, 만약 개발자가 명시하지 않아도 컴파일 시점에 자동 생성된다.
 
 ```java
-
 ObjectEx obj1 = new ObjectEx();
             ↓
            호출
@@ -1336,11 +1308,9 @@ public ObjectEx() {
   System.out.println("Default constructor");
 
 }
-
 ```
 
 ```java
-
 ObjectEx obj1 = new ObjectEx();
             ↓
            호출
@@ -1350,7 +1320,6 @@ ObjectEx obj1 = new ObjectEx();
 public ObjectEx() {
 
 }
-
 ```
 
 ## 15-2 : 사용자 정의 생성자
@@ -1358,7 +1327,6 @@ public ObjectEx() {
 ### 디폴트 생성자 외에 특정 목적에 의해서 개발자가 만든 생성자로, 매개변수에 차이가 있다.
 
 ```java
-
 ObjectEx obj2 = new ObjectEx(10);
             ↓
            호출
@@ -1371,11 +1339,9 @@ public ObjectEx(int i) {
   num = i;
 
 }
-
 ```
 
 ```java
-
 int arr[] = {10, 20, 30};
 ObjectEx obj3 = new ObjectEx("Java", arr);
             ↓
@@ -1389,7 +1355,6 @@ public ObjectEx(String s, int i[]) {
   nums = i;
 
 }
-
 ```
 
 ---
@@ -1399,7 +1364,6 @@ public ObjectEx(String s, int i[]) {
 ### 객체가 GC에 의해서 메모리에서 제거 될 때 finalize() 메서드가 호출된다.
 
 ```java
-
  System.gc(); 를 사용한다고 해서 GC가 바로 작동하는 것 이 아니라,
  가급적 빨리 작동하도록 요청하는 것이다.
 
@@ -1428,7 +1392,6 @@ System.gc();
       super.finalize();
 
      }
-
 ```
 
 ## 15-4 : this 키워드
@@ -1436,7 +1399,6 @@ System.gc();
 ### 현재 객체를 가리킬 때 this를 사용한다
 
 ```java
-
 // this 키워드
 int ints[] = {10, 20, 30};
 ObjectEx obj5 = new ObjectEx(10, "Java", ints);
@@ -1452,7 +1414,6 @@ public ObjectEx(int i, String s, int is[]) {
   this.nums = is;
 
 }
-
 ```
 
 # 16강_패키지와 static
@@ -1478,7 +1439,6 @@ public ObjectEx(int i, String s, int is[]) {
 ### 다른 패키지에 있는 클래스를 사용하기 위해서는 import 키워드를 이용한다.
 
 ```java
-
  package com.java.main;
 
  import com.java.dailyJournal.DailyJournal; 
@@ -1503,7 +1463,6 @@ public class MainClass {
   }
 
 }
-
 ```
 
 ---
