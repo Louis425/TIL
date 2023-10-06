@@ -1472,7 +1472,6 @@ public class MainClass {
 ### 클래스의 속성과 메서드에 static 키워드를 사용하면 어디서나 속성과 메서드를 공유할 수 있다.
 
 ```java
-
   package com.java.employeeBank; 
 
   public class EmployeeBank {
@@ -1500,11 +1499,9 @@ public class MainClass {
     }
 
 }
-
 ```
 
 ---
-
 
 # 17강_데이터 은닉
 
@@ -1513,11 +1510,9 @@ public class MainClass {
 ### 멤버 변수(속성)는 주로 private으로 설정해서, 외부로부터 데이터가 변질되는 것을 막는다.
 
 ```java
-
 DATA ----O---> public 속성
 
 DATA ----X---> private 속성
-
 ```
 
 
@@ -1527,7 +1522,6 @@ DATA ----X---> private 속성
 + 변경될수없는사번이변경되는경우.
 
 ```java
-
 package com.java.employee;
 
 public class Employee {
@@ -1542,7 +1536,6 @@ public Employee(String name, String no, int pay) {
   this.pay = pay;
   }
 } 
-
 ```
 
 ## 17-2 : setter, getter
@@ -1552,7 +1545,6 @@ public Employee(String name, String no, int pay) {
 ### MainClass
 
 ```java
-
 import com.java.employee.Employee;
 
 public class MainClass {
@@ -1572,13 +1564,11 @@ public class MainClass {
     employeePark.getInfo();
   }
 }
-
 ```
 
 ### Employee
 
 ```java
-
 public void setName(String name) {                              ㅣ
   System.out.println(" -- The name can not be modified.-- ");   ㅣ
 }                                                               ㅣ
@@ -1595,7 +1585,6 @@ public void setPay(int pay) {                                                   
     this.pay = pay;                                                                         ㅣ
   }                                                                                         ㅣ
 }                                                                                           ㅣ
-
 ```
 
 ---
@@ -1608,7 +1597,6 @@ public void setPay(int pay) {                                                   
 ### 부모 클래스를 상속받은 자식 클래스는 부모 클래스의 속성과 기능도 이용할 수 있다.
 
 ```java
-
      할아버지
       (집)
        ↑
@@ -1621,7 +1609,6 @@ public void setPay(int pay) {                                                   
        ↑
       아들 
 (집 + 자동차 + 요트)
-
 ```
 
 ---
@@ -1631,7 +1618,6 @@ public void setPay(int pay) {                                                   
 ### 기존의 검증된 class를 이용해서 빠르고 쉽게 새로운 class를 만들 수 있다.
 
 ```java
-
      A음식점      모든 메뉴를 새롭게 만들어야 한다.
   (할아버지 운영)
        ↓
@@ -1644,7 +1630,6 @@ public void setPay(int pay) {                                                   
        ↓                                          ㅣ
      C음식점      C음식점의 메뉴는 P음식점의 메뉴에 ----->  ㅣ
    (아들 운영)     새로운 몇 가지만 추가하면 된다.
-
 ```
 
 ---
@@ -1654,7 +1639,6 @@ public void setPay(int pay) {                                                   
 ### extend 키워드를 이용해서 상속을 구현한다.
 
 ```java
-
 package lec18Pjt001;
 
 public class ParentClass {
@@ -1681,16 +1665,13 @@ public class ChildClass extends ParentClass {
     System.out.println("-- childFun() START -- ");
   } 
 }
-
 ```
 
 ```java
-
 ChildClass child = new ChildClass();
 
 child.parentFun();
 child.childFun();
-
 ```
 
 ---
@@ -1706,7 +1687,6 @@ child.childFun();
 ## 9-1 : @ModelAttribute
 
 ```java
-
 @ModelAttribute를 이용하면 커멘드 객체의 이름을 변경할 수 있고, 이렇게 변경된 이름은 뷰에서 커멘드 객체를 참조할 때 사용된다.
 
 컨트롤러
@@ -1722,7 +1702,6 @@ ID : ${member.memlb}
 pubilc String memRemove(@ModelAttribute("mem") Member member)
 ↓
 ID : ${mem.memld}
-
 ```
 
 ## 19-2 : 커맨드 객체 프로퍼티 데이터 타입
@@ -1743,7 +1722,6 @@ private String memId;
 private String memPw;
 private String memMail;
 private int memAge;
-
 ```
 
 ---
@@ -1771,7 +1749,6 @@ name="memPhones[1].memPhone3" size="5">
 Member.java
 
 private List<MemPhone> memPhones;
-
 ```
 
 ---
