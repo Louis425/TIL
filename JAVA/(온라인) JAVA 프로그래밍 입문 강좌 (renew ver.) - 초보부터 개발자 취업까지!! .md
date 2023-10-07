@@ -1768,7 +1768,6 @@ public String memModify(Model model, Member member) {
     model.addAttribute("memAft", members[1]);
 
    return "memModifyOk";
-
 ```
 
 ---
@@ -1808,7 +1807,6 @@ public String memModify(Model model, Member member) {
 
 * : 데이터 이름 & 데이터
 ** : 뷰이름
-
 ```
 
 ---
@@ -2121,8 +2119,7 @@ myBank.getInfo();
                         차이점
 상수, 추상메서드만 가진다.           클래스가 가지는 모든 속성과 기능을 가진다.
 추상 메서드를 구현만 하도록 한다.      추상 메서드 구현 및 상속의 기능을 가진다.
-다형성을 지원한다.                  단일 상속만 지원한다.
- 
+다형성을 지원한다.                  단일 상속만 지원한다. 
 ```
 
 # 23강_람다식
@@ -2196,7 +2193,6 @@ System.out.printf("li6.method(10, 20) : %d\n", li6.method(10, 20));
 ### 문자열을 다루는 String 클래스(객체)는 데이터가 변화면 메모리상의 변화가 많아 속도가 느리다.
 
 ```java
-
 String str = "JAVA";
 
  J A V A
@@ -2368,7 +2364,6 @@ Error는 개발자가      Error는 개발자가
           ㅣ--> NullPointerException          객체를 가리키지 않고 있는 레퍼런스를 이용할 때
 Exception ㅣ--> ArrayIndexOutOfBoundException 베열에서 존재하지 않는 인덱스를 가리킬 때
           ㅣ--> NumberFormatException         숫자데이터에 문자데이터등을 넣었을 때
-
 ```
 
 ## 26-3 try ~ catch
