@@ -2488,7 +2488,6 @@ public void thirdMethod() throws Exception {
 ### 입/출력에 사용되는 기본 클래스는 1byte단위로 데이터를 전송하는 InputStream, OutputStream이 있다.
 
 ```java
-
           InputStream
        ㅣ <-- 입력 --- ㅣ
 프로그램 ㅣ             ㅣ 입/출력 대상
@@ -2540,7 +2539,6 @@ write(byte[], int off, int len) : off(시작점), len(길이)
 ### 파일 입/출력 클래스를 이용해서 파일을 복사할 수 있다. (lec27Pjt003)
 
 ```java
-
 File -- 입력 ->  InputStream -- 출력 -> File
                OutputStream
 ```
