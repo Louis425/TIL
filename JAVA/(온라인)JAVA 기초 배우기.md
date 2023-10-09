@@ -237,7 +237,6 @@ public class ScannerTest2 {
 # 4강 String(문자열)
 
 ```java
-
 public class StringTest1 {
 
 	public static void main(String[] args) {
