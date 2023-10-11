@@ -2041,7 +2041,6 @@ public class ArrayListTest1 {
 # 26강 도서관리예제1
 
 ```java
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
