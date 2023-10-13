@@ -480,7 +480,6 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 ## 6-2 : HttpServletRequest
 
 ```java
-
 package com.servlet;
 
 @WebServlet("/SE")
@@ -494,11 +493,9 @@ public class ServletEx extends HttpServlet {
   }                     <---------------->
 
 }
-
 ```
 
 ```java
-
                    웹 컨테이너 (tomcat)
          Request         ↓
  user  ---------->    servlet
@@ -510,7 +507,6 @@ request.getCookies();   request.getSession();
 request.getAttribute(null); request.setAttribute(null, null);
 request.getParameter(null); request.getParameterNames();
 request.getParameterValues(null);
-
 ```
 
 ---
