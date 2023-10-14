@@ -534,7 +534,6 @@ public class ServletEx extends HttpServlet {
 ```
 
 ```java
-
                     웹 컨테이너 (tomcat)
           Response        ↓
  user   <----------    servlet
@@ -546,7 +545,6 @@ HttpServletResponse
 response.addCookie(null); response.getWriter();
 response.getStatus(); response.getOutputStream();
 response.sendRedirect(null);
-
 ```
 
 ----
@@ -556,7 +554,6 @@ response.sendRedirect(null);
 ## 7-1 : Servlet 생명주기
 
 ```java
-
      @PostConstruct
            ↓ 
          init()   ㅣ 
@@ -566,13 +563,11 @@ response.sendRedirect(null);
         destroy() ㅣ
            ↓
       @PreDestroy
-
 ```
 
 ## 7-2 : 생성 및 종료 
 
 ```java
-
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   System.out.println(" -- doGet() -- ");
 }
@@ -597,8 +592,6 @@ public void destroy() {  <------------------------------- destroy()
 public void preDestory() {  <---------------------------- preDestory 
   System.out.println(" -- preDestory() -- ");
 }
-
-
 ```
 
 # 8강_ form 테이터 처리
@@ -606,30 +599,25 @@ public void preDestory() {  <---------------------------- preDestory
 ## 8-1 : form 태그
 
 ```java
-
                      웹 컨테이너(tomcat)
           Request       ↓
              ↓       -------
 Browser ---DATA----> servlet
-
-
 ```
 
 ```java
-
 form 관련 태그 ㅣ             ㅣ request 객체
      ↓       ㅣ             ㅣ      ↓
     user     ㅣ ----------> ㅣ    user
     dara     ㅣ             ㅣ    dara
              ㅣ             ㅣ
-
 ```
+
 ---
 
 ## 8-2 : doGet
 
 ```java
-
       데이터가 웹 브라우저 URL에 노출되어 웹 서버로 전송
                     ↓
                     ↓
@@ -646,7 +634,6 @@ m_pass=1234&m_gender=M&m_hobby=sport&m_hobby=cooking&m_residenc e=jeju
             ---------- -------------
                              ↓
                     사용자 정보가 URL에 노출
-
 ```
 
 ---
@@ -654,7 +641,6 @@ m_pass=1234&m_gender=M&m_hobby=sport&m_hobby=cooking&m_residenc e=jeju
 ## 8-3 : doPost
 
 ```java
-
       데이터가 HTTP Request에 포함되어 웹 서버로 전송
                     ↓
                     ↓
@@ -669,7 +655,6 @@ http://localhost:8090/lec08Pjt001/mSignUp
                                   -------
                                      ↓
                                 맵핑 정보만 노출
-
 ```
 
 ---
@@ -679,9 +664,7 @@ http://localhost:8090/lec08Pjt001/mSignUp
 ## 9-1 : Servlet vs JSP
 
 ```java
-
-xxx.java -> xxx.class    vs   xxx.jsp -> xxx_jsp.java -> xxx_jsp.class
-
+xxx.java -> xxx.class vs xxx.jsp -> xxx_jsp.java -> xxx_jsp.class
 ```
 
 ## 9-2:JSP 파일 HTML 포맷 설정
@@ -714,7 +697,6 @@ xxx.java -> xxx.class    vs   xxx.jsp -> xxx_jsp.java -> xxx_jsp.class
  <body>
  </body>
 </html>
-
 ```
 
 ## 9-3 : JSP 주요 스크립트
@@ -722,7 +704,6 @@ xxx.java -> xxx.class    vs   xxx.jsp -> xxx_jsp.java -> xxx_jsp.class
 ### [선언 태그] JSP 페이지에서 Java의 멤버변수 또는 메서드를 선언
 
 ```java
-
 <%!            
 int num = 10;          ㅣ------------------------------->  변수선언및초기화 
 String str = "jsp";    ㅣ  
@@ -733,16 +714,13 @@ public void jspMethod() {                    ㅣ
   System.out.println(" -- jspMethod() -- "); ㅣ--------->  메서드선언및정의
 }                                            ㅣ
 %>
-
 ```
 
 ### [주석 태그] jsp 주석은 jsp 파일이 서블릿 파일로 변환될 때 제외된다.
 
 ```java
-
 <!-- 주석 태그 -->     <--------------  HTML 주석
 <%-- Hello JSP World!! --%>    <----  JSP 주석
-
 ```
 
 ## 9-3 : JSP 주요 스크립트
@@ -750,7 +728,6 @@ public void jspMethod() {                    ㅣ
 ### [스크립트릿 태그] JSP 페이지에서 Java 코드를 넣기 위한 태그
 
 ```java
-
 <%
 if(num > 0) {  <----------- Java 코드
 %>
@@ -762,7 +739,6 @@ if(num > 0) {  <----------- Java 코드
 <%
   }  <--------------------- Java 코드
 %>
-
 ```
 
 ### [표현식 태그] Java의 변수 및 메서드의 반환값을 출력하는 태그
