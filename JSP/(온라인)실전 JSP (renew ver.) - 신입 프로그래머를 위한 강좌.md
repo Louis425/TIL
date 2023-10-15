@@ -759,7 +759,6 @@ if(num > 0) {  <----------- Java 코드
 ### [지시어] 서버에서 jsp페이지를 처리하는 방법에 대한 정의
 
 ```java
-
 1) page : 페이지 기본 설정 -> <% page 속성=“속성 값”>
 <%@ page language="java" contentType="text/html; charset=EUC-KR“ pageEncoding="EUC-KR"%>
 
@@ -810,7 +809,6 @@ user --------->  jsp
 ## 10-2 : response 객체
 
 ```java
-
 <body>
 
   Second Page
@@ -831,11 +829,9 @@ user --------->  jsp
 %>
 
     </body>
-
 ```
 
 ```java
-              
                 웹 서버
       Response    ↓
 user <---------  jsp
