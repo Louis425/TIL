@@ -2,16 +2,21 @@
 
 기록 하고 정리 할것
 
+# 프로젝트
+
 # 언어
 
 ### [git,gitHub](<https://github.com/Louis425/TIL/tree/main/git>)
 
 ### [JAVA](<https://github.com/Louis425/TIL/tree/main/JAVA>)
 
+# 프레임워크
+
+### [spring,springBoot](<https://github.com/Louis425/TIL/tree/main/spring%20%2Cspring%20boot>)
+
 # 서버
 
 ### [JSP](<https://github.com/Louis425/TIL/tree/main/JSP>)
 
-# 프레임워크
+# 세미날
 
-### [spring,springBoot](<https://github.com/Louis425/TIL/tree/main/spring%20%2Cspring%20boot>)
