@@ -1891,7 +1891,6 @@ public class AnonymousClass {
   public void method() {
     System.out.println(" -- AnonymousClass's method START -- ");
   } 
-
 }
 
 익명클래스는 인터페이스나 추상클래스에서 주로 이용된다.
