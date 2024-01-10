@@ -10,7 +10,7 @@
 
 ### [JAVA](<https://github.com/Louis425/TIL/tree/main/JAVA>)
 
-### [JAVA,BaekJoon](<https://github.com/Louis425/TIL/tree/main/JAVA%2CBaekJoon>)
+### [JAVA,BaekJoon](<https://github.com/Louis425/TIL/tree/main/JAVA%2CBaekJoong>)
 # 프레임워크
 
 ### [spring,springBoot](<https://github.com/Louis425/TIL/tree/main/spring%20/springBoot>)
