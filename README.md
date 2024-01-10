@@ -1,6 +1,6 @@
 # Today I Learned(TIL)
 
-기록 하고 정리 할것
+### 기록 하고 정리 할것
 
 # 프로젝트
 
@@ -10,6 +10,7 @@
 
 ### [JAVA](<https://github.com/Louis425/TIL/tree/main/JAVA>)
 
+### [JAVA,BaekJoon](JAVA,BaekJoon)
 # 프레임워크
 
 ### [spring,springBoot](<https://github.com/Louis425/TIL/tree/main/spring%20%2Cspring%20boot>)
