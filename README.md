@@ -4,6 +4,8 @@
 
 # 프로젝트
 
+### [CLI 창으로 하는 MBTI 검사 테스트](Project%2FJava%2F2zo-main)
+
 # 언어
 
 ### [git,gitHub](<https://github.com/Louis425/TIL/tree/main/git>)
