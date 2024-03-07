@@ -7,12 +7,11 @@
 ### [Java: CLI 창으로 하는 MBTI 검사 테스트](Project%2FJava%2F2zo-main)
 
 # 언어
+### [git,gitHub](git,gitHub)
 
-### [git,gitHub](<https://github.com/Louis425/TIL/tree/main/git>)
+### [JAVA](JAVA)
 
-### [JAVA](<https://github.com/Louis425/TIL/tree/main/JAVA>)
-
-### [JAVA,BaekJoon](<https://github.com/Louis425/TIL/tree/main/JAVA%2CBaekJoong>)
+### [JAVA,BaekJoon](JAVA,BaekJoon)
 
 # 프레임워크
 
@@ -22,6 +21,6 @@
 
 # 서버
     
-### [JSP](<https://github.com/Louis425/TIL/tree/main/JSP>)
+### [JSP](JSP)
 
 # 세미날
